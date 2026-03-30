@@ -494,7 +494,7 @@ Build, test, and polish the Python version of your gamertag app.
 
 | Day | Focus | Main Task Done | Revision Done | Confidence (1-5) | Biggest Blocker | Biggest Win |
 |---|---|---|---|---|---|---|
-| 1 | Python foundations | [x] | [x] | [5] |  |  |
+| 1 | Python foundations | x | x | [5] |  |  |
 | 2 | Conditions and decisions | [ ] | [ ] | [ ] |  |  |
 | 3 | Loops and program flow | [ ] | [ ] | [ ] |  |  |
 | 4 | Functions | [ ] | [ ] | [ ] |  |  |
