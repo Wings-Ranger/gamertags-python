@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/ref_string_isdigit.asp
 
+**Homework Day(s):** Day 6, Days 11–12
+
 ---
 
 ## Overview

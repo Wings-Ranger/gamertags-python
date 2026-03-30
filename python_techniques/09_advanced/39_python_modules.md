@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_modules.asp
 
+**Homework Day(s):** Days 8–10
+
 ---
 
 ## Overview

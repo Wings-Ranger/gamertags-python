@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_ref_exceptions.asp
 
+**Homework Day(s):** Day 14
+
 ---
 
 ## Overview

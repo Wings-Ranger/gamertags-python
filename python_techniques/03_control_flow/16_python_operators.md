@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_operators.asp
 
+**Homework Day(s):** Day 2, Day 6
+
 ---
 
 ## Overview

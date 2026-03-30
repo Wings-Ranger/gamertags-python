@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_functions.asp
 
+**Homework Day(s):** Day 4, Days 8–10
+
 ---
 
 ## Overview

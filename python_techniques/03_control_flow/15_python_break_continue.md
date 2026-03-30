@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_for_loops.asp
 
+**Homework Day(s):** Day 3
+
 ---
 
 ## Overview

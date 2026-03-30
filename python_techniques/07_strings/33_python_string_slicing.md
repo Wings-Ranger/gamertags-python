@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_strings_slicing.asp
 
+**Homework Day(s):** Day 6, Days 11–12
+
 ---
 
 ## Overview

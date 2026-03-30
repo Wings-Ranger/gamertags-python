@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/ref_func_print.asp
 
+**Homework Day(s):** Day 1, Days 8–10
+
 ---
 
 ## Overview

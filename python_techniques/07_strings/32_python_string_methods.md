@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_ref_string.asp
 
+**Homework Day(s):** Day 6
+
 ---
 
 ## Overview

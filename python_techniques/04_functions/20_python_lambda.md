@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_lambda.asp
 
+**Homework Day(s):** Day 4
+
 ---
 
 ## Overview

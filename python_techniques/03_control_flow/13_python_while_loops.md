@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_while_loops.asp
 
+**Homework Day(s):** Day 3, Day 13
+
 ---
 
 ## Overview
