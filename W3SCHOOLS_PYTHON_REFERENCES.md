@@ -5,6 +5,24 @@ Use these alongside [PYTHON_PORTING_LEARNING_GUIDE.md](PYTHON_PORTING_LEARNING_G
 
 ---
 
+## Quick Day Reference (from Two-Week Homework Plan)
+
+| Days | Topic | Relevant Sections |
+|------|-------|-------------------|
+| Day 1 | Python Foundations | [Getting Started](#getting-started), [1. Python Program Structure](#1-python-program-structure), [2. Variables and Core Data Types](#2-variables-and-core-data-types) |
+| Day 2 | Conditions and Decisions | [3. Control Flow](#3-control-flow) |
+| Day 3 | Loops and Program Flow | [3. Control Flow](#3-control-flow) |
+| Day 4 | Functions | [4. Functions and Methods](#4-functions-and-methods) |
+| Day 5 | File Handling | [6. File Handling](#6-file-handling) |
+| Day 6 | String and Character Validation | [7. String Validation and Character Checks](#7-string-validation-and-character-checks) |
+| Day 7 | Mini Review Day | All sections from Days 1-6 |
+| Days 8-10 | Build and Implement (Project Skeleton, Data Loading, Display) | [1. Python Program Structure](#1-python-program-structure), [4. Functions and Methods](#4-functions-and-methods), [5. Classes and Object-Oriented Basics](#5-classes-and-object-oriented-basics) |
+| Days 11-12 | Filters and Logic | [3. Control Flow](#3-control-flow), [7. String Validation and Character Checks](#7-string-validation-and-character-checks) |
+| Day 13 | Add New Gamertag + Loop | [8. Console Input and Output](#8-console-input-and-output), [6. File Handling](#6-file-handling) |
+| Day 14 | Testing and Refinement | [9. Error Handling](#9-error-handling), [10. Basic Testing Mindset](#10-basic-testing-mindset) |
+
+---
+
 ## Table of Contents
 - [Getting Started](#getting-started)
 - [1. Python Program Structure](#1-python-program-structure)
