@@ -54,6 +54,11 @@ Homework tasks:
 Checkpoint:
 - You can describe the full app flow from start to finish without looking at C#
 
+### Revision Checkpoint (End of Day 3)
+- What is working:
+- What needs review:
+- Confidence (1-5):
+
 ### Day 4: Functions
 Focus:
 - Function purpose and decomposition
@@ -105,6 +110,11 @@ Homework tasks:
 Checkpoint:
 - You can teach the project logic to someone else without showing code
 
+### Revision Checkpoint (End of Day 7)
+- What is working:
+- What needs review:
+- Confidence (1-5):
+
 ## Week 2: Build, Verify, and Improve
 
 ### Day 8: Python Project Skeleton
@@ -141,6 +151,11 @@ Homework tasks:
 
 Checkpoint:
 - All gamertags display in expected order with expected numbering
+
+### Revision Checkpoint (End of Day 10)
+- What is working:
+- What needs review:
+- Confidence (1-5):
 
 ### Day 11: Filter 1 (Ending with Number)
 Focus:
@@ -188,6 +203,11 @@ Homework tasks:
 
 Checkpoint:
 - Your Python version is feature-complete and reliable
+
+### Revision Checkpoint (End of Day 14)
+- What is working:
+- What needs review:
+- Confidence (1-5):
 
 ## Daily Reflection Template
 - Today I learned:

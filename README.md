@@ -2,6 +2,17 @@
 
 Quick-glance home page for your holiday homework. This README combines all 3 planning documents so you can check progress quickly on GitHub while out and about.
 
+## Table of Contents
+- [Daily Status](#daily-status)
+- [Quick Start](#quick-start)
+- [Quick Links](#quick-links)
+- [Phone Update (60 Seconds)](#phone-update-60-seconds)
+- [At-a-Glance Dashboard](#at-a-glance-dashboard)
+- [Full Document 1: Python Porting Learning Guide](#full-document-1-python-porting-learning-guide)
+- [Full Document 2: Two-Week Homework Plan](#full-document-2-two-week-homework-plan)
+- [Full Document 3: Progress Tracker](#full-document-3-progress-tracker)
+- [Source Files (Kept Intact)](#source-files-kept-intact)
+
 ## Daily Status
 ![Day](https://img.shields.io/badge/Day-0%2F14-lightgrey)
 ![Confidence](https://img.shields.io/badge/Confidence-0%2F5-lightgrey)
@@ -12,10 +23,22 @@ Quick update line:
 - Confidence: 0 of 5
 - Focus today: Not set
 
+## Quick Start
+1. Open [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md).
+2. Tick off today's checklist items and write one blocker and one win.
+3. Update Day, Confidence, and Focus in the Daily Status section above.
+
 ## Quick Links
 - [Python Porting Learning Guide](PYTHON_PORTING_LEARNING_GUIDE.md)
 - [Two-Week Python Homework Plan](TWO_WEEK_PYTHON_HOMEWORK_PLAN.md)
 - [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
+
+## Phone Update (60 Seconds)
+1. Open this repository in the GitHub mobile app.
+2. Go to [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md) and tap Edit.
+3. Change checklist items from `[ ]` to `[x]` for tasks you completed.
+4. Open [README.md](README.md) and update Day, Confidence, and Focus.
+5. Commit with a short message like `Day 3 progress update`.
 
 ## At-a-Glance Dashboard
 

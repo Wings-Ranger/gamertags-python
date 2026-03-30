@@ -8,6 +8,14 @@ Move the current C# console gamertag program into Python while keeping the same 
 - Add a new gamertag to the file
 - Ask whether to run again
 
+## Before You Submit (Quick Checklist)
+- [ ] Python app runs from start to finish without manual fixes
+- [ ] All original C# features are present in the Python version
+- [ ] File reading and writing are reliable
+- [ ] Filters handle normal and edge-case input correctly
+- [ ] User prompts and run-again loop work correctly
+- [ ] You completed your reflection notes
+
 ## What This C# Project Is Teaching You
 Your current program is a strong beginner structure. It uses:
 - Program flow control (main loop and user decisions)

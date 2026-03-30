@@ -1,10 +1,16 @@
 # Python Homework Progress Tracker (14 Days)
 
 ## How to Use
-- Mark each task when complete
-- Circle confidence score each day (1 = low, 5 = high)
-- Write one blocker and one win every day
-- Keep this file updated as your holiday homework log
+
+## Today Only (Phone Quick Edit)
+- Day number: [ ]
+- Top 3 tasks for today:
+	- [ ] Task 1
+	- [ ] Task 2
+	- [ ] Task 3
+- Biggest blocker today:
+- Biggest win today:
+- Confidence today (1-5):
 
 ## Weekly Overview
 
