@@ -1,6 +1,9 @@
 # Python Syntax
 
-**W3Schools Link:** https://www.w3schools.com/python/python_syntax.asp
+**W3Schools Links:**
+- [Python Syntax](https://www.w3schools.com/python/python_syntax.asp) — indentation, case sensitivity, and conventions
+- [Python Comments](https://www.w3schools.com/python/python_comments.asp) — single-line and multi-line comments
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — used in the challenges section
 
 **Homework Day(s):** Day 1, Day 8, Day 9, Day 10
 

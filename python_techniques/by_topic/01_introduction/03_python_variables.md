@@ -1,6 +1,11 @@
 # Python Variables
 
-**W3Schools Link:** https://www.w3schools.com/python/python_variables.asp
+**W3Schools Links:**
+- [Python Variables](https://www.w3schools.com/python/python_variables.asp) — declaring, naming, and assigning variables
+- [Python Data Types](https://www.w3schools.com/python/python_datatypes.asp) — `type()` and Python's built-in types
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — `True`/`False` (used for `is_running`)
+- [Python Type Casting](https://www.w3schools.com/python/python_casting.asp) — converting between types
+- [Python String Formatting (f-strings)](https://www.w3schools.com/python/python_string_formatting.asp) — used in variable output exercises
 
 **Homework Day(s):** Day 1
 

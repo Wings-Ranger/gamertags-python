@@ -1,6 +1,10 @@
 # What is Python
 
-**W3Schools Link:** https://www.w3schools.com/python/python_intro.asp
+**W3Schools Links:**
+- [Python Introduction](https://www.w3schools.com/python/python_intro.asp) — what Python is and why it's used
+- [Python Variables](https://www.w3schools.com/python/python_variables.asp) — declaring and naming variables (used in exercises)
+- [Python Output / print()](https://www.w3schools.com/python/ref_func_print.asp) — printing to the screen
+- [Python String Formatting (f-strings)](https://www.w3schools.com/python/python_string_formatting.asp) — embedding variables in strings
 
 **Homework Day(s):** Day 1
 
