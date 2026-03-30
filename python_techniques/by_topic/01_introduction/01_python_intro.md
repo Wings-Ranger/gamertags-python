@@ -84,10 +84,6 @@ Welcome to the program Wings_Ranger
    _____(f"Welcome, {_____}!")
    ```
    ```
-   player_name = ShadowHunter
-   welcome =f"Welcome, {_____}!"
-   ```
-   ```
    player_name = "ShadowHunter"
    welcome_msg = f"Welcome {player_name}!"
    print(welcome_msg)
