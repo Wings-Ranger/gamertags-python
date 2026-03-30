@@ -55,7 +55,10 @@ _____(_____"Gamertag '{_____}' is registered on {_____}")
   *they are two different ones as they are case sensetive*
 **Test challenge:**
 Create a Python script that stores your own made-up gamertag in a variable and prints a formatted welcome message using that variable. Run it and confirm the output is exactly right.
-
+>>> gamertag = "Wings_Ranger"
+>>> welcome_message = f"Welcome to the program {gamertag}"
+>>> print(welcome_message)
+Welcome to the program Wings_Ranger
 ## Common Use Cases
 - Learning to program: Python's simple syntax is ideal for beginners
 - Scripting and automation: automate repetitive tasks
