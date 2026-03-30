@@ -18,80 +18,64 @@ A `while` loop repeats a block of code as long as a condition remains `True`. It
 - **Avoid infinite loops**: ensure the loop variable is updated inside the loop
 
 ## Syntax / Example Code
-```python
-# Basic while loop — count down
-count = 3
-while count > 0:
-    print(f"Starting in {count}...")
-    count -= 1
-print("Go!")
 
-# Input validation loop — keep asking until valid
-def get_valid_gamertag():
-    while True:
-        tag = input("Enter gamertag: ").strip()
-        if not tag:
-            print("Gamertag cannot be empty. Try again.")
-        elif len(tag) < 3:
-            print("Too short — minimum 3 characters.")
-        elif len(tag) > 15:
-            print("Too long — maximum 15 characters.")
-        elif not tag.isalnum():
-            print("Letters and numbers only.")
-        else:
-            return tag  # valid — exit loop
+**C# pattern (from the gamertag project):**
+```csharp
+// C# Program.cs uses a bool flag to run the main menu loop
+bool isRunning = true;
 
-# Run-again loop (Day 13 pattern)
-running = True
-while running:
-    print("\n--- Gamertag Manager ---")
-    print("1. View all gamertags")
-    print("2. Add a new gamertag")
-    print("3. Quit")
-
-    choice = input("Choose an option: ").strip()
-
-    if choice == "1":
-        print("(displaying gamertags...)")
-    elif choice == "2":
-        print("(adding gamertag...)")
-    elif choice == "3":
-        running = False
-        print("Goodbye!")
-    else:
-        print("Invalid option, please try again.")
-
-# while with break
-attempts = 0
-while True:
-    guess = input("Guess the gamertag: ")
-    attempts += 1
-    if guess == "ShadowHunter99":
-        print(f"Correct in {attempts} attempt(s)!")
-        break
-    print("Wrong, try again.")
-
-# while with continue
-numbers = [1, 0, 3, 0, 5]
-i = 0
-while i < len(numbers):
-    i += 1
-    if numbers[i - 1] == 0:
-        continue   # skip zeros
-    print(numbers[i - 1])
-
-# while/else
-attempts = 0
-max_attempts = 3
-while attempts < max_attempts:
-    tag = input("Enter gamertag: ").strip()
-    if tag:
-        print("Accepted!")
-        break
-    attempts += 1
-else:
-    print("Too many failed attempts.")
+while (isRunning)
+{
+    ShowWelcomeMessage();
+    string userChoice = Console.ReadLine();
+    if      (userChoice == "1") LoadGamertags();
+    else if (userChoice == "2") PrintAllGamertags();
+    // ...
+    else if (userChoice == "5") isRunning = false;
+}
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+# Direct translation of C#'s bool isRunning pattern
+is_running = _____
+while _____:
+    print("\n--- Gamertag Manager ---")
+    print("1. Load gamertags")
+    print("2. Print all gamertags")
+    print("3. Print tags ending with number")
+    print("4. Print tags not starting with letter/digit")
+    print("5. Add new gamertag")
+    print("6. Quit")
+
+    choice = _____(_____)._____(  )    # read input and strip whitespace
+
+    if choice _____ "1":
+        _____()                        # call load function
+    _____ choice _____ "2":
+        _____()                        # call print function
+    _____ choice _____ "6":
+        is_running = _____             # stop the loop
+        print("Goodbye!")
+    _____:
+        print("Invalid option.")
+
+# Alternative Pythonic pattern — while True with break
+while _____:
+    choice = input("Enter choice (q to quit): ").strip()
+    if choice _____ "q":
+        _____                          # exit the loop immediately
+    print(f"You chose: {choice}")
+```
+
+**Questions:**
+- C# uses `bool isRunning = true` and `while (isRunning)`. What is the direct Python translation of each line?
+- What does `while True:` do, and how do you exit such a loop?
+- In C#, `Console.ReadLine()` reads user input. What is the Python equivalent?
+- What happens if you forget to set `is_running = False` or forget `break`? What kind of loop does that create?
+
+**Test challenge:**
+Write a `while` loop that keeps asking for a gamertag until the user enters a non-empty string. Print `"Please enter a value"` on each empty attempt and `"Accepted: {tag}"` when they provide something valid.
 
 ## Common Use Cases
 - Looping until the user enters a valid gamertag (input validation)
@@ -111,8 +95,32 @@ else:
 - [10_python_booleans.md](../02_data_types/10_python_booleans.md)
 - [30_python_user_input.md](../06_file_io/30_python_user_input.md)
 
-## Practice Tips
-- Write a `while True:` loop that asks for a gamertag and only exits when valid
-- Build a simple numbered menu with `while True:` and `break` on quit
-- Practice `while` with a counter variable and make sure the counter changes each iteration
-- Use the `while/else` pattern to handle "max attempts exceeded" scenarios
+## Challenges
+
+1. **Translate the C# main loop:** The C# project uses `bool isRunning = true; while (isRunning)`. Fill in Python:
+   ```
+   is_running = _____
+   while _____:
+       choice = input("Your choice: ").strip()
+       if choice == "6":
+           is_running = _____
+   ```
+
+2. **while True with break:** Rewrite the same loop using `while True:` and `break` instead of a flag variable. Which style do you find clearer and why?
+   ```
+   while _____:
+       choice = input("Your choice: ").strip()
+       if choice == "6":
+           _____
+   ```
+
+3. **Input validation loop:** Write a `while` loop that keeps prompting until the user enters a non-empty gamertag:
+   ```
+   while _____:
+       tag = input("Enter gamertag: ")._____(  )
+       if _____:            # what condition means "not empty"?
+           _____            # how do you exit?
+       print("Cannot be empty. Try again.")
+   ```
+
+4. **Max attempts:** Modify the validation loop to give up after 3 failed attempts. Use a counter variable. What should happen when `attempts >= 3`?

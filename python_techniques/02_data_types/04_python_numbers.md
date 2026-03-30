@@ -18,44 +18,52 @@ Python has three numeric types: integers (`int`), floating-point numbers (`float
 - **Built-in functions**: `abs()`, `round()`, `min()`, `max()`, `sum()`
 
 ## Syntax / Example Code
-```python
-# Integer and float
-score = 4250
-accuracy = 87.5
 
-# Arithmetic operations
-total_score = 4250 + 1100       # 5350
-average = total_score / 2       # 2675.0  (always float in Python 3)
-integer_div = total_score // 2  # 2675    (floor division)
-remainder = total_score % 100   # 50      (modulo)
-squared = 5 ** 2                # 25      (power)
+**C# pattern (from the gamertag project):**
+```csharp
+// C# uses .Length property on strings
+if (gamerTag.Length > 15)
+    Console.WriteLine("Too long!");
+else if (gamerTag.Length < 3)
+    Console.WriteLine("Too short!");
+```
 
-# Counting gamertags
-gamertags = ["ShadowX", "NightOwl", "ProSniper", "GamerZ"]
-count = len(gamertags)
-print(f"Total gamertags: {count}")  # 4
-
-# Using range with numbers
-for i in range(1, 6):
-    print(f"Player {i}")
-
-# abs, round, min, max
-print(abs(-42))         # 42
-print(round(87.567, 1)) # 87.6
-scores = [1200, 4500, 3300, 900]
-print(min(scores))      # 900
-print(max(scores))      # 4500
-print(sum(scores))      # 9900
-
-# Checking gamertag length (numeric comparison)
+**Python skeleton (fill in the blanks):**
+```
+# Python uses the len() function — NOT a .Length property like C#
 tag = "ShadowHunter99"
-if len(tag) > 15:
+if _____(tag) > _____:
     print("Too long!")
-elif len(tag) < 3:
+elif _____(tag) < _____:
     print("Too short!")
 else:
-    print(f"Length {len(tag)} is valid")
+    print(f"Length {_____(tag)} is valid")
+
+# Counting gamertags in a list
+gamertags = ["ShadowX", "NightOwl", "ProSniper", "GamerZ"]
+count = _____(gamertags)
+print(f"Total gamertags: {_____}")
+
+# Arithmetic
+total_score = _____ + _____
+average     = total_score _____ 2     # always float in Python 3
+level       = total_score _____ 1000  # floor division — whole number only
+
+# Built-in number functions
+scores = [1200, 4500, 3300, 900]
+print(_____(scores))   # smallest score
+print(_____(scores))   # largest score
+print(_____(scores))   # total of all scores
 ```
+
+**Questions:**
+- C# uses `gamerTag.Length` (a property on the object). Python uses `len(tag)` (a standalone function). How are these called differently?
+- What is the difference between `/` (regular division) and `//` (floor division) in Python?
+- What does `%` (modulo) return? How could you use it to check if a number is even?
+- How would you write a single Python `if` condition that checks `len(tag)` is between 3 and 15?
+
+**Test challenge:**
+Write a length-validation `if/elif/else` block for a gamertag using `len()`. Test it with a tag that is too short (e.g., `"AB"`), one that is too long (e.g., `"SuperLongGamertagName"`), and one that is valid (e.g., `"GamerX"`).
 
 ## Common Use Cases
 - Tracking player scores and rankings
@@ -73,8 +81,32 @@ else:
 - [11_python_type_casting.md](11_python_type_casting.md)
 - [16_python_operators.md](../03_control_flow/16_python_operators.md)
 
-## Practice Tips
-- Experiment with `//` vs `/` to understand floor division
-- Use `%` (modulo) to check if a number is even or odd: `n % 2 == 0`
-- Practice with `len()` on gamertag strings to enforce length rules
-- Try `sum(len(tag) for tag in gamertags)` to get total character count
+## Challenges
+
+1. **Translate the length check:** The C# project uses `gamerTag.Length`. Fill in the Python equivalent:
+   ```
+   tag = "ShadowHunter99"
+   if _____(tag) > 15:
+       print("Too long!")
+   elif _____(tag) < _____:
+       print("Too short!")
+   ```
+
+2. **Division types:** Predict the output before running:
+   - `10 / 3` → `_____` (what type is the result?)
+   - `10 // 3` → `_____` (what type is the result?)
+   - `10 % 3` → `_____` (what does this represent?)
+
+3. **Count and summarise:** Create a list of 5 gamertags and use `len()` to count them. Then use `min()`, `max()`, and `sum()` on a list of scores `[1200, 4500, 3300, 900, 2100]`. Fill in:
+   ```
+   scores = [1200, 4500, 3300, 900, 2100]
+   print(_____(scores))   # smallest
+   print(_____(scores))   # largest
+   print(_____(scores))   # total
+   ```
+
+4. **Range challenge:** Use `range()` to print only even numbers from 2 to 10. Fill in the three arguments:
+   ```
+   for i in range(_____, _____, _____):
+       print(i)
+   ```

@@ -19,59 +19,55 @@ Type casting (also called type conversion) is the process of converting a value 
 - **Failure mode**: invalid conversions raise `ValueError` — always use try/except
 
 ## Syntax / Example Code
-```python
-# input() returns a string — must cast for math
-age_str = input("Enter your age: ")   # e.g., "17"
-age = int(age_str)                     # now it's an integer
-print(age + 1)                         # 18
 
-# Converting score from a file (read as string)
-line = "ShadowHunter99,Xbox,4250"
-parts = line.split(",")
-gamertag = parts[0]           # str
-platform = parts[1]           # str
-score = int(parts[2])         # cast to int
+**C# pattern (from the gamertag project):**
+```csharp
+// C# Console.ReadLine() returns a string — same as Python's input()
+string userInput = Console.ReadLine();
 
-print(f"{gamertag} has score {score + 100}")  # arithmetic works
-
-# int() truncates (does not round)
-print(int(9.9))     # 9
-print(int(-3.7))    # -3
-
-# float() from int or string
-print(float(5))     # 5.0
-print(float("3.14")) # 3.14
-
-# str() for building output
-score = 4250
-message = "Score: " + str(score)   # concatenation requires str
-print(message)
-
-# Safe casting with try/except
-def safe_int(value, default=0):
-    try:
-        return int(value)
-    except ValueError:
-        return default
-
-print(safe_int("4250"))    # 4250
-print(safe_int("abc"))     # 0  (default)
-print(safe_int("4250.5"))  # 0  (int() won't convert float strings directly)
-
-# Checking type before casting
-raw = "123"
-if raw.isdigit():
-    number = int(raw)
-    print(f"Valid number: {number}")
-else:
-    print("Not a valid integer string")
-
-# Converting between collection types
-tags_tuple = ("GamerX", "NightOwl", "ProSniper")
-tags_list = list(tags_tuple)
-tags_set = set(tags_list)       # removes duplicates
-tags_tuple_again = tuple(tags_set)
+// Parsing a value from a comma-separated file line
+string[] parts = line.Split(',');
+int score = int.Parse(parts[2]);    // C# int.Parse()
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+# input() ALWAYS returns a string — just like Console.ReadLine() in C#
+user_input = input("Enter score: ")    # e.g., "4250"
+score      = _____(user_input)         # convert string to int to do math
+
+# File data also comes as strings — must cast for arithmetic
+line  = "ShadowHunter99,Xbox,4250"
+parts = line._____(_____)              # split on comma
+gamertag = parts[_____]               # string — no cast needed
+platform = parts[_____]               # string — no cast needed
+score    = _____(parts[_____])         # MUST cast to int for math
+print(f"{gamertag} has score {score + _____}")   # arithmetic now works
+
+# int() TRUNCATES — it does NOT round
+print(_____(9.9))    # what number does this produce?
+print(_____(3.14))   # what number does this produce?
+
+# str() for string concatenation
+score   = 4250
+message = "Score: " + _____(score)    # types must match for + concatenation
+
+# Guard before casting — check first, then convert
+raw = input("Enter a number: ")
+if raw._____(  ):                      # what method checks for digits only?
+    number = _____(raw)
+else:
+    print("That is not a valid number")
+```
+
+**Questions:**
+- C# has `int.Parse()` and Python has `int()`. What happens in both languages when you pass a non-numeric string?
+- Why must you always cast the result of `input()` if you want to do arithmetic with it?
+- What is the difference between `int("9.5")` and `int(float("9.5"))`? Try both.
+- What string method lets you check if a string contains only digits, before calling `int()`?
+
+**Test challenge:**
+Read a score from the user with `input()`. Try to add 100 to it WITHOUT casting — what error appears? Then add the `int()` cast and confirm the addition works correctly.
 
 ## Common Use Cases
 - Converting scores read from CSV files from strings to integers
@@ -91,8 +87,34 @@ tags_tuple_again = tuple(tags_set)
 - [34_python_string_validation.md](../07_strings/34_python_string_validation.md)
 - [36_python_try_except.md](../08_error_handling/36_python_try_except.md)
 
-## Practice Tips
-- Always wrap `int(input(...))` in a `try/except ValueError` block
-- Use `.isdigit()` on string input before casting to `int()`
-- Test `int("4250.5")` to see why you may need `float()` first then `int()`
-- Practice writing a `safe_int()` helper and reuse it throughout your project
+## Challenges
+
+1. **Input casting:** `input()` always returns a string. Fill in the cast to do arithmetic:
+   ```
+   raw   = input("Enter your score: ")
+   score = _____(raw)
+   print(f"Score plus bonus: {score + 100}")
+   ```
+
+2. **File data parsing:** When you read a line from the gamertag file, all fields are strings. Fill in:
+   ```
+   line     = "ProSniper,PC,5100"
+   parts    = line._____(_____)
+   gamertag = parts[_____]
+   score    = _____(parts[_____])    # which index? what cast?
+   ```
+
+3. **Truncation vs rounding:** Predict the output before running each line:
+   - `int(9.9)` → `_____`
+   - `int(-3.7)` → `_____`
+   - `round(9.9)` → `_____`
+   What is the difference between `int()` and `round()`?
+
+4. **Safe integer check:** Use `.isdigit()` to guard against bad input before casting:
+   ```
+   raw = "abc"
+   if raw._____(  ):
+       number = int(raw)
+   else:
+       print("_____")    # what message should appear?
+   ```

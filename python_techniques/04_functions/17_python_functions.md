@@ -19,81 +19,65 @@ Functions are reusable blocks of code that perform a specific task. Defining fun
 - **DRY principle**: Don't Repeat Yourself — extract repeated code into a function
 
 ## Syntax / Example Code
-```python
-# Basic function definition
-def greet_player(name):
-    """Display a welcome message for a player."""
-    print(f"Welcome, {name}!")
 
-greet_player("ShadowHunter99")  # Welcome, ShadowHunter99!
-
-# Function with return value
-def get_rank(score):
-    """Return the rank label for a given score."""
-    if score >= 5000:
-        return "Diamond"
-    elif score >= 3000:
-        return "Gold"
-    elif score >= 1000:
-        return "Silver"
-    else:
-        return "Bronze"
-
-rank = get_rank(4250)
-print(f"Rank: {rank}")   # Rank: Gold
-
-# Gamertag validation function (Day 6 core skill)
-def is_valid_gamertag(tag):
-    """Return True if the gamertag meets all requirements."""
-    if not tag:
-        return False
-    if len(tag) < 3 or len(tag) > 15:
-        return False
-    if not tag.isalnum():
-        return False
-    return True
-
-print(is_valid_gamertag("ShadowX"))      # True
-print(is_valid_gamertag("AB"))           # False — too short
-print(is_valid_gamertag("Shadow X 99")) # False — spaces
-
-# Function to display a player record
-def display_player(player):
-    """Print a formatted player record."""
-    print(f"  Gamertag : {player['gamertag']}")
-    print(f"  Platform : {player['platform']}")
-    print(f"  Score    : {player['score']}")
-    print(f"  Rank     : {get_rank(player['score'])}")
-
-player = {"gamertag": "NightOwl", "platform": "PlayStation", "score": 3300}
-display_player(player)
-
-# Function to load players from a file
-def load_players(filename):
-    """Load and return a list of player dicts from a CSV file."""
-    players = []
-    try:
-        with open(filename) as f:
-            for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                parts = line.split(",")
-                if len(parts) == 3:
-                    players.append({
-                        "gamertag": parts[0],
-                        "platform": parts[1],
-                        "score": int(parts[2])
-                    })
-    except FileNotFoundError:
-        print(f"File not found: {filename}")
-    return players
-
-# Calling functions in sequence (pipeline pattern)
-players = load_players("gamertags.csv")
-for p in players:
-    display_player(p)
+**C# pattern (from the gamertag project):**
+```csharp
+// C# Gamertags class has named methods for each action
+public void LoadGamertags()                              { ... }
+public void PrintAllGamertags()                          { ... }
+public void PrintGamertagsEndingWithNumber()             { ... }
+public void PrintGamertagsNotStartingWithNumberorLetter(){ ... }
+public void ShowWelcomeMessage()                         { ... }
+public void AddNewUserName()                             { ... }
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+# Python uses 'def' instead of C#'s access modifier + return type + method name
+
+# C#: public void PrintAllGamertags()
+def _____(_____)  :
+    """_____ — describe what this function does."""
+    for _____ in _____:
+        print(_____)
+
+# C#: public void LoadGamertags()
+def _____(filename):
+    """Load gamertags from a file and return them as a list."""
+    gamer_tag_list = _____
+    with _____(filename, _____) as f:
+        for line in _____:
+            line = line._____(  )
+            if _____:
+                gamer_tag_list._____(line)
+    _____ gamer_tag_list
+
+# C#: public void ShowWelcomeMessage()
+def _____():
+    """Display the main menu options."""
+    print("1. Load gamertags")
+    print("2. Print all gamertags")
+    print("3. _____")
+    print("4. _____")
+    print("5. _____")
+    print("6. Quit")
+
+# C#: public void AddNewUserName()
+def _____():
+    """Ask user for a new gamertag and return it."""
+    new_tag = input("_____")._____(  )
+    if _____:
+        _____ new_tag
+```
+
+**Questions:**
+- C# methods start with `public void MethodName()`. What single keyword does Python use to define a function?
+- C# `void` means the method returns nothing. What does a Python function return when it has no `return` statement?
+- C# method names use PascalCase (`PrintAllGamertags`). What naming convention does Python use for functions?
+- What is a docstring and where does it go inside a Python function?
+
+**Test challenge:**
+Write empty stub functions (using `pass`) for all six methods from the C# `Gamertags` class. Give each a descriptive docstring. Confirm you can call each one without an error.
 
 ## Common Use Cases
 - `is_valid_gamertag(tag)` — validation function called before saving
@@ -113,8 +97,35 @@ for p in players:
 - [20_python_lambda.md](20_python_lambda.md)
 - [40_python_scope.md](../09_advanced/40_python_scope.md)
 
-## Practice Tips
-- Start every project by sketching function names and what they do before writing code
-- Write a docstring for every function you define
-- Each function should fit on one screen and do one thing
-- Test each function independently by calling it with different inputs
+## Challenges
+
+1. **Translate the class methods:** The C# project has six methods. Write Python stub functions (with `pass`) for each — use correct snake_case naming:
+   ```
+   def load_gamertags(_____):
+       """_____"""
+       _____
+
+   def print_all_gamertags(_____):
+       """_____"""
+       _____
+
+   def print_gamertags_ending_with_number(_____):
+       """_____"""
+       _____
+   ```
+
+2. **Name the parameters:** `PrintAllGamertags` in C# accesses `gamerTagList` as a class field — no parameter needed. In Python you pass it as a parameter. What should you name the parameter and what type will it be?
+
+3. **Return vs void:** `LoadGamertags` in C# sets a class field (void). In Python it is cleaner to return the list. Fill in:
+   ```
+   def load_gamertags(filename):
+       gamer_tag_list = []
+       # ... load lines ...
+       _____ gamer_tag_list    # return the list to the caller
+   ```
+
+4. **Call order:** In `Program.cs`, `LoadGamertags()` runs before `PrintAllGamertags()`. In Python, how do you pass the loaded list from one function to the next?
+   ```
+   tags = _____(_____)      # call load, store the returned list
+   _____(_____)             # pass that list to print
+   ```

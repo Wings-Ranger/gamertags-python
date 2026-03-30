@@ -19,51 +19,54 @@ Lists are ordered, mutable collections that can hold items of any data type, inc
 - **in** operator: checks if an item exists in the list
 
 ## Syntax / Example Code
-```python
-# Creating a list of gamertags
-gamertags = ["ShadowHunter99", "NightOwl", "ProSniper", "GamerZ"]
 
-# Accessing items
-print(gamertags[0])    # ShadowHunter99
-print(gamertags[-1])   # GamerZ
-print(len(gamertags))  # 4
+**C# pattern (from the gamertag project):**
+```csharp
+// C# LoadGamertags() reads the file into a string array
+string[] gamerTagList = File.ReadAllLines("../Gamertags.txt");
 
-# Slicing
-print(gamertags[1:3])  # ['NightOwl', 'ProSniper']
-
-# Adding items
-gamertags.append("IronFox")          # add to end
-gamertags.insert(1, "BlazeMaster")   # insert at index 1
-
-# Removing items
-gamertags.remove("GamerZ")           # remove by value
-popped = gamertags.pop()             # remove and return last item
-del gamertags[0]                     # remove by index
-
-# Checking membership
-if "NightOwl" in gamertags:
-    print("NightOwl is registered")
-
-# Iterating
-for tag in gamertags:
-    print(tag)
-
-# Sorting
-gamertags.sort()                     # alphabetical in-place
-gamertags.sort(key=str.lower)        # case-insensitive sort
-sorted_copy = sorted(gamertags)      # returns new list
-
-# List comprehension
-long_tags = [tag for tag in gamertags if len(tag) > 8]
-upper_tags = [tag.upper() for tag in gamertags]
-
-# Counting and searching
-print(gamertags.count("NightOwl"))   # 1
-print(gamertags.index("NightOwl"))   # index position
-
-# Mixed list
-player_record = ["ShadowHunter99", "Xbox", 4250, True]
+// Iterate and print each one
+foreach (string s in gamerTagList)
+    Console.WriteLine(s);
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+# Creating a list (Python's equivalent of C#'s string array)
+gamer_tag_list = [_____, _____, _____, _____]
+
+# Accessing items (zero-based index, same as C#)
+print(gamer_tag_list[_____])    # first item
+print(gamer_tag_list[_____])    # last item (use negative index)
+print(_____(gamer_tag_list))    # total count
+
+# Iterating (replaces C#'s foreach)
+for _____ in gamer_tag_list:
+    print(_____)
+
+# Adding a new gamertag (eventually replaces File.AppendAllText logic)
+new_tag = _____
+gamer_tag_list._____(new_tag)   # add to end of list
+
+# Checking if a tag already exists
+if _____ in gamer_tag_list:
+    print("Already registered!")
+
+# Sorting alphabetically
+gamer_tag_list._____(  )        # sorts the list in place
+
+# List comprehension — compact filter
+long_tags = [tag for tag in gamer_tag_list if _____(tag) > _____]
+```
+
+**Questions:**
+- C# declares `string[] gamerTagList`. Python uses a `list`. What is one key difference between a C# array and a Python list?
+- C# `foreach (string s in gamerTagList)` iterates the array. What is the exact Python equivalent syntax?
+- How do you add a new gamertag to the end of a Python list? (C# equivalent: `List.Add()`)
+- Python lets you use `list[-1]` to get the last item. How is this more convenient than C#'s `array[array.Length - 1]`?
+
+**Test challenge:**
+Create a list of 4 gamertags. Print the first item, last item (using negative index), and total count. Add a new gamertag with `.append()`. Check if a specific tag is `in` the list. Sort the list and print it again.
 
 ## Common Use Cases
 - Storing all gamertags loaded from a file
@@ -85,8 +88,33 @@ player_record = ["ShadowHunter99", "Xbox", 4250, True]
 - [09_python_dictionaries.md](09_python_dictionaries.md)
 - [14_python_for_loops.md](../03_control_flow/14_python_for_loops.md)
 
-## Practice Tips
-- Load gamertags from a text file into a list and print each one
-- Use list comprehension to filter only tags that are alphanumeric
-- Practice `.sort()` vs `sorted()` — one modifies in place, one returns a new list
-- Try building a list of dictionaries where each dict represents one player
+## Challenges
+
+1. **Create and access:** Fill in the blanks to build a gamertag list and access elements:
+   ```
+   gamer_tag_list = [_____, _____, _____, _____]
+   print(gamer_tag_list[_____])     # first item
+   print(gamer_tag_list[_____])     # last item using negative index
+   print(_____(gamer_tag_list))     # total count
+   ```
+
+2. **Iterate like foreach:** The C# project uses `foreach (string s in gamerTagList)`. Fill in the Python equivalent:
+   ```
+   for _____ in gamer_tag_list:
+       print(_____)
+   ```
+
+3. **Add a tag:** After loading gamertags, a new one is added. Fill in:
+   ```
+   new_tag = input("Enter new gamertag: ").strip()
+   gamer_tag_list._____(new_tag)
+   print(f"Now have {_____(gamer_tag_list)} gamertags")
+   ```
+
+4. **Membership check:** Before adding a new tag, check if it already exists. Fill in:
+   ```
+   if new_tag _____ gamer_tag_list:
+       print("Already registered!")
+   else:
+       gamer_tag_list._____(new_tag)
+   ```

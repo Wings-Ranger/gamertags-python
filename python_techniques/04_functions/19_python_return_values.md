@@ -18,79 +18,72 @@ The `return` statement sends a value back from a function to the caller. It imme
 - **Return type consistency**: avoid functions that sometimes return a value and sometimes `None`
 
 ## Syntax / Example Code
-```python
-# Basic return value
-def get_rank(score):
-    if score >= 5000:
-        return "Diamond"
-    elif score >= 3000:
-        return "Gold"
-    elif score >= 1000:
-        return "Silver"
-    else:
-        return "Bronze"
 
-rank = get_rank(4250)
-print(rank)   # Gold
+**C# pattern (from the gamertag project):**
+```csharp
+// C# void methods return nothing — they modify class fields directly
+public void LoadGamertags()
+{
+    gamerTagList = File.ReadAllLines("../Gamertags.txt");
+    // modifies the field — returns nothing
+}
+// In Python, functions return data to the caller instead of mutating globals
+```
 
-# Early return pattern — "guard clauses"
+**Python skeleton (fill in the blanks):**
+```
+# Python function returns data — caller decides what to do with it
+def load_gamertags(filename):
+    """Load gamertags from file and RETURN the list."""
+    gamer_tag_list = []
+    with open(filename, _____) as f:
+        for line in f:
+            line = line._____(  )
+            if line:
+                gamer_tag_list._____(line)
+    _____ gamer_tag_list        # return the list to the caller
+
+# Caller stores the returned value
+tags = _____(_____)             # what goes in the blanks?
+
+# Early return (guard clauses) — exit as soon as a problem is found
 def validate_gamertag(tag):
     """Return (is_valid, message) for the given gamertag."""
-    if not tag:
-        return False, "Gamertag cannot be empty"
-    if len(tag) < 3:
-        return False, "Too short (minimum 3 characters)"
-    if len(tag) > 15:
-        return False, "Too long (maximum 15 characters)"
-    if not tag.isalnum():
-        return False, "Only letters and numbers allowed"
-    return True, "Valid gamertag"
+    if _____ tag:
+        _____ False, "Gamertag cannot be empty"
+    if len(tag) < _____:
+        _____ False, "Too short"
+    if len(tag) > _____:
+        _____ False, "Too long"
+    if _____ tag._____(  ):
+        _____ False, "Only letters and numbers allowed"
+    _____ True, "Valid"
 
-is_valid, message = validate_gamertag("ShadowHunter99")
-print(is_valid, message)   # True Valid gamertag
+# Unpack the returned tuple on the calling side
+is_valid, message = _____("ShadowHunter99")
+print(is_valid, message)
 
-is_valid, message = validate_gamertag("SH")
-print(is_valid, message)   # False Too short (minimum 3 characters)
+is_valid, message = _____("AB")
+if _____ is_valid:
+    print(message)
 
-# Returning multiple values (returns a tuple)
-def get_player_stats(players, gamertag):
-    """Return (found, player_dict) for the given gamertag."""
-    for player in players:
-        if player["gamertag"].lower() == gamertag.lower():
-            return True, player
-    return False, None
+# Functions that display only — return None (like C# void)
+def show_welcome_message():
+    print("Welcome to the Gamertag Manager!")
+    # no return statement — implicitly returns _____
 
-players = [
-    {"gamertag": "ShadowX", "platform": "Xbox", "score": 4250},
-    {"gamertag": "NightOwl", "platform": "PS",   "score": 3300},
-]
-found, player = get_player_stats(players, "nightowl")
-if found:
-    print(player)
-
-# Returning None (implicit)
-def log_player(player):
-    print(f"Logged: {player['gamertag']}")
-    # no return — implicitly returns None
-
-result = log_player(players[0])
-print(result)    # None
-
-# Returning computed data
-def filter_by_platform(players, platform):
-    """Return a new list of players on the given platform."""
-    return [p for p in players if p["platform"] == platform]
-
-xbox_players = filter_by_platform(players, "Xbox")
-print(xbox_players)
-
-# Return in a loop — exit on first match
-def find_player(players, tag):
-    for player in players:
-        if player["gamertag"] == tag:
-            return player   # exits function immediately
-    return None             # not found
+result = show_welcome_message()
+print(result)    # what does this print?
 ```
+
+**Questions:**
+- C# `void` methods return nothing. What does a Python function return when it has no `return` statement?
+- Why is `return gamer_tag_list` at the end of `load_gamertags` better than modifying a global variable?
+- What is an "early return" / "guard clause"? How does it reduce nesting compared to a long `if/elif/else` chain?
+- When a function `return`s a tuple like `return True, "Valid"`, how do you receive both values on the calling side?
+
+**Test challenge:**
+Write `validate_gamertag(tag)` with early-return guard clauses checking: empty, too short (< 3), too long (> 15), and non-alphanumeric. Return `(True, "Valid")` or `(False, reason)`. Test all four failure cases plus one success.
 
 ## Common Use Cases
 - `validate_gamertag()` returning `(True/False, message)` for clean error handling
@@ -109,8 +102,35 @@ def find_player(players, tag):
 - [07_python_tuples.md](../02_data_types/07_python_tuples.md)
 - [12_python_if_else.md](../03_control_flow/12_python_if_else.md)
 
-## Practice Tips
-- Use early `return` to eliminate deeply nested `if/else` blocks
-- Return a tuple `(success, message)` from validation functions for clean error handling
-- Always check for `None` when a function can return it as a "not found" signal
-- Avoid mixing `return value` and bare `return` in the same function
+## Challenges
+
+1. **Return vs void:** C# `LoadGamertags()` sets a field (void). Python returns the list. Fill in:
+   ```
+   def load_gamertags(filename):
+       tags = []
+       # ... load file ...
+       _____ tags             # return to caller
+
+   my_tags = _____(_____)    # store what was returned
+   ```
+
+2. **Early return pattern:** Write `validate_gamertag(tag)` using guard clauses (one `return` per failure, no `else` needed):
+   ```
+   def validate_gamertag(tag):
+       if _____ tag:
+           _____ False, "_____"
+       if len(tag) < _____:
+           _____ False, "_____"
+       if len(tag) > _____:
+           _____ False, "_____"
+       _____ True, "Valid"
+   ```
+
+3. **Unpack the tuple:** Call `validate_gamertag` and capture both return values separately:
+   ```
+   _____, _____ = validate_gamertag("AB")
+   if _____ is_valid:
+       print(message)
+   ```
+
+4. **None return:** What does a Python function return if there is no `return` statement? Write a `show_welcome_message()` function, call it, and print its return value to confirm. When is returning `None` the right choice?
