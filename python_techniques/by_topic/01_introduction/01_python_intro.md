@@ -90,6 +90,14 @@ Welcome to the program Wings_Ranger
    Welcome ShadowHunter!
    ```
 2. **Case sensitivity:** Declare `gamertag = "NightOwl"` and `Gamertag = "ProSniper"`. Print both. Are they the same variable? What error would occur if you only defined one but tried to print the other?
+    ```
+    gamertag = "NightOwl"
+    Gamertag = "ProSniper"
+    print(gamertag)
+    NightOwl
+    print(Gamertag)
+    ProSniper
+    ```
 
 3. **No semicolons:** Rewrite this C# line as valid Python — what do you remove?
    ```csharp
