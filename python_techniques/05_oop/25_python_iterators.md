@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_iterators.asp
 
-**Homework Day(s):** Day 3, Days 8–10
+**Homework Day(s):** Day 3, Day 8, Day 9, Day 10
 
 ---
 
@@ -90,7 +90,9 @@ Test challenge:
 | Day | Topic |
 |-----|-------|
 | Day 3 | Loops and Program Flow (while loops, iterating lists) |
-| Days 8-10 | Build project skeleton, data loading, display |
+| Day 8 | Python Project Skeleton |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [14_python_for_loops.md](../03_control_flow/14_python_for_loops.md)

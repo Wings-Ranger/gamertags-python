@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_file_read.asp
 
-**Homework Day(s):** Day 5, Days 9–10
+**Homework Day(s):** Day 5, Day 9, Day 10
 
 ---
 
@@ -79,7 +79,8 @@ Test challenge:
 | Day | Topic |
 |-----|-------|
 | Day 5 | File Handling (reading, appending, file paths) |
-| Days 9-10 | Data loading, display |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [26_python_file_handling.md](26_python_file_handling.md)

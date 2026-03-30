@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_conditions.asp
 
-**Homework Day(s):** Day 2, Days 11–12
+**Homework Day(s):** Day 2, Day 11, Day 12
 
 ---
 
@@ -88,7 +88,8 @@ Write a Python function that loops through a list of gamertags and prints only t
 | Day | Topic |
 |-----|-------|
 | Day 2 | Conditions and Decisions (if/elif/else, boolean, comparisons) |
-| Days 11-12 | Filters and logic |
+| Day 11 | Filter 1 (Ending with Number) |
+| Day 12 | Filter 2 (Not Starting with Letter or Number) |
 
 ## See Also
 - [10_python_booleans.md](../02_data_types/10_python_booleans.md)

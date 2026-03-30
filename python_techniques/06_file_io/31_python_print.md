@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/ref_func_print.asp
 
-**Homework Day(s):** Day 1, Days 8–10
+**Homework Day(s):** Day 1, Day 8, Day 9, Day 10
 
 ---
 
@@ -82,7 +82,9 @@ Test challenge:
 | Day | Topic |
 |-----|-------|
 | Day 1 | Python Foundations (variables, data types, strings, lists) |
-| Days 8-10 | Build project skeleton, data loading, display |
+| Day 8 | Python Project Skeleton |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [35_python_string_formatting.md](../07_strings/35_python_string_formatting.md)

@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_for_loops.asp
 
-**Homework Day(s):** Day 3, Days 10–12
+**Homework Day(s):** Day 3, Day 10, Day 11, Day 12
 
 ---
 
@@ -80,7 +80,9 @@ Write `print_all_gamertags` as a Python function. Call it with a list of 5 gamer
 | Day | Topic |
 |-----|-------|
 | Day 3 | Loops and Program Flow (while loops, iterating lists) |
-| Days 10–12 | Data loading, display, filters and logic |
+| Day 10 | Display All Gamertags |
+| Day 11 | Filter 1 (Ending with Number) |
+| Day 12 | Filter 2 (Not Starting with Letter or Number) |
 
 ## See Also
 - [13_python_while_loops.md](13_python_while_loops.md)

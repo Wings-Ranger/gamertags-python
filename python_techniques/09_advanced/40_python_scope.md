@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_scope.asp
 
-**Homework Day(s):** Day 4, Days 8–10
+**Homework Day(s):** Day 4, Day 8, Day 9, Day 10
 
 ---
 
@@ -105,7 +105,9 @@ Test challenge:
 | Day | Topic |
 |-----|-------|
 | Day 4 | Functions (decomposition, inputs/outputs, naming) |
-| Days 8-10 | Build project skeleton, data loading, display |
+| Day 8 | Python Project Skeleton |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [17_python_functions.md](../04_functions/17_python_functions.md)

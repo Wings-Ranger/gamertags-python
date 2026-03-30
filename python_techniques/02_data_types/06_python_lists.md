@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_lists.asp
 
-**Homework Day(s):** Day 1, Day 3, Days 8–10
+**Homework Day(s):** Day 1, Day 3, Day 8, Day 9, Day 10
 
 ---
 
@@ -80,7 +80,9 @@ Create a list of 4 gamertags. Print the first item, last item (using negative in
 |-----|-------|
 | Day 1 | Python Foundations (variables, data types, strings, lists) |
 | Day 3 | Loops and Program Flow (while loops, iterating lists) |
-| Days 8-10 | Build project skeleton, data loading, display |
+| Day 8 | Python Project Skeleton |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [07_python_tuples.md](07_python_tuples.md)

@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_strings_slicing.asp
 
-**Homework Day(s):** Day 6, Days 11–12
+**Homework Day(s):** Day 6, Day 11, Day 12
 
 ---
 
@@ -94,7 +94,8 @@ Test challenge:
 | Day | Topic |
 |-----|-------|
 | Day 6 | String and Character Validation (empty-string safety, character checks) |
-| Days 11-12 | Filters and logic |
+| Day 11 | Filter 1 (Ending with Number) |
+| Day 12 | Filter 2 (Not Starting with Letter or Number) |
 
 ## See Also
 - [05_python_strings.md](../02_data_types/05_python_strings.md)

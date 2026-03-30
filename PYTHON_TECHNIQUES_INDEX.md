@@ -140,7 +140,7 @@ This index is now ordered first by homework day so you can study in plan order. 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
 | 01 | [01_python_intro.md](python_techniques/01_introduction/01_python_intro.md) | What is Python, why use it, key features | Day 1 |
-| 02 | [02_python_syntax.md](python_techniques/01_introduction/02_python_syntax.md) | Syntax rules, indentation, comments | Day 1, Days 8–10 |
+| 02 | [02_python_syntax.md](python_techniques/01_introduction/02_python_syntax.md) | Syntax rules, indentation, comments | Day 1, Day 8, Day 9, Day 10 |
 | 03 | [03_python_variables.md](python_techniques/01_introduction/03_python_variables.md) | Creating variables, naming conventions | Day 1 |
 
 ### 2. Data Types & Variables
@@ -149,10 +149,10 @@ This index is now ordered first by homework day so you can study in plan order. 
 |---|------|-------------|--------|
 | 04 | [04_python_numbers.md](python_techniques/02_data_types/04_python_numbers.md) | Integers, floats, arithmetic operations | Day 1 |
 | 05 | [05_python_strings.md](python_techniques/02_data_types/05_python_strings.md) | String creation, methods, and formatting | Day 1, Day 6 |
-| 06 | [06_python_lists.md](python_techniques/02_data_types/06_python_lists.md) | List creation, access, and methods | Day 1, Day 3, Days 8–10 |
+| 06 | [06_python_lists.md](python_techniques/02_data_types/06_python_lists.md) | List creation, access, and methods | Day 1, Day 3, Day 8, Day 9, Day 10 |
 | 07 | [07_python_tuples.md](python_techniques/02_data_types/07_python_tuples.md) | Tuples, immutability, use cases | Day 1 |
 | 08 | [08_python_sets.md](python_techniques/02_data_types/08_python_sets.md) | Sets, unique values, set operations | Day 1 |
-| 09 | [09_python_dictionaries.md](python_techniques/02_data_types/09_python_dictionaries.md) | Dictionary creation, access, and methods | Day 1, Days 8–10 |
+| 09 | [09_python_dictionaries.md](python_techniques/02_data_types/09_python_dictionaries.md) | Dictionary creation, access, and methods | Day 1, Day 8, Day 9, Day 10 |
 | 10 | [10_python_booleans.md](python_techniques/02_data_types/10_python_booleans.md) | Boolean values and comparisons | Day 2 |
 | 11 | [11_python_type_casting.md](python_techniques/02_data_types/11_python_type_casting.md) | Converting between data types | Day 1, Day 6 |
 
@@ -160,9 +160,9 @@ This index is now ordered first by homework day so you can study in plan order. 
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
-| 12 | [12_python_if_else.md](python_techniques/03_control_flow/12_python_if_else.md) | if, elif, else conditional statements | Day 2, Days 11–12 |
+| 12 | [12_python_if_else.md](python_techniques/03_control_flow/12_python_if_else.md) | if, elif, else conditional statements | Day 2, Day 11, Day 12 |
 | 13 | [13_python_while_loops.md](python_techniques/03_control_flow/13_python_while_loops.md) | While loop syntax and control | Day 3, Day 13 |
-| 14 | [14_python_for_loops.md](python_techniques/03_control_flow/14_python_for_loops.md) | For loops and iteration | Day 3, Days 10–12 |
+| 14 | [14_python_for_loops.md](python_techniques/03_control_flow/14_python_for_loops.md) | For loops and iteration | Day 3, Day 10, Day 11, Day 12 |
 | 15 | [15_python_break_continue.md](python_techniques/03_control_flow/15_python_break_continue.md) | break and continue loop control | Day 3 |
 | 16 | [16_python_operators.md](python_techniques/03_control_flow/16_python_operators.md) | Arithmetic, comparison, and logical operators | Day 2, Day 6 |
 
@@ -170,7 +170,7 @@ This index is now ordered first by homework day so you can study in plan order. 
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
-| 17 | [17_python_functions.md](python_techniques/04_functions/17_python_functions.md) | Defining and calling functions | Day 4, Days 8–10 |
+| 17 | [17_python_functions.md](python_techniques/04_functions/17_python_functions.md) | Defining and calling functions | Day 4, Day 8, Day 9, Day 10 |
 | 18 | [18_python_function_arguments.md](python_techniques/04_functions/18_python_function_arguments.md) | Parameters, default values, keyword args | Day 4 |
 | 19 | [19_python_return_values.md](python_techniques/04_functions/19_python_return_values.md) | Return statements and multiple returns | Day 4 |
 | 20 | [20_python_lambda.md](python_techniques/04_functions/20_python_lambda.md) | Lambda (anonymous) functions | Day 4 |
@@ -179,31 +179,31 @@ This index is now ordered first by homework day so you can study in plan order. 
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
-| 21 | [21_python_classes.md](python_techniques/05_oop/21_python_classes.md) | Class definition and instantiation | Days 8–10 |
-| 22 | [22_python_constructors.md](python_techniques/05_oop/22_python_constructors.md) | The `__init__` constructor method | Days 8–10 |
-| 23 | [23_python_methods.md](python_techniques/05_oop/23_python_methods.md) | Class and instance methods | Days 8–10 |
-| 24 | [24_python_inheritance.md](python_techniques/05_oop/24_python_inheritance.md) | Inheritance and polymorphism | Days 8–10 |
-| 25 | [25_python_iterators.md](python_techniques/05_oop/25_python_iterators.md) | Creating custom iterators | Days 8–10 |
+| 21 | [21_python_classes.md](python_techniques/05_oop/21_python_classes.md) | Class definition and instantiation | Day 8, Day 9, Day 10 |
+| 22 | [22_python_constructors.md](python_techniques/05_oop/22_python_constructors.md) | The `__init__` constructor method | Day 8, Day 9, Day 10 |
+| 23 | [23_python_methods.md](python_techniques/05_oop/23_python_methods.md) | Class and instance methods | Day 8, Day 9, Day 10 |
+| 24 | [24_python_inheritance.md](python_techniques/05_oop/24_python_inheritance.md) | Inheritance and polymorphism | Day 8, Day 9, Day 10 |
+| 25 | [25_python_iterators.md](python_techniques/05_oop/25_python_iterators.md) | Creating custom iterators | Day 3, Day 8, Day 9, Day 10 |
 
 ### 6. File Handling & I/O
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
 | 26 | [26_python_file_handling.md](python_techniques/06_file_io/26_python_file_handling.md) | File operations overview and modes | Day 5 |
-| 27 | [27_python_file_read.md](python_techniques/06_file_io/27_python_file_read.md) | Reading files with `open()` | Day 5, Days 9–10 |
+| 27 | [27_python_file_read.md](python_techniques/06_file_io/27_python_file_read.md) | Reading files with `open()` | Day 5, Day 9, Day 10 |
 | 28 | [28_python_file_write.md](python_techniques/06_file_io/28_python_file_write.md) | Writing and appending to files | Day 5, Day 13 |
 | 29 | [29_python_file_delete.md](python_techniques/06_file_io/29_python_file_delete.md) | Deleting files with `os.remove()` | Day 5 |
 | 30 | [30_python_user_input.md](python_techniques/06_file_io/30_python_user_input.md) | `input()` function and console I/O | Day 13 |
-| 31 | [31_python_print.md](python_techniques/06_file_io/31_python_print.md) | `print()` function and output formatting | Day 1, Days 8–10 |
+| 31 | [31_python_print.md](python_techniques/06_file_io/31_python_print.md) | `print()` function and output formatting | Day 1, Day 8, Day 9, Day 10 |
 
 ### 7. String Operations
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
 | 32 | [32_python_string_methods.md](python_techniques/07_strings/32_python_string_methods.md) | Built-in string methods reference | Day 6 |
-| 33 | [33_python_string_slicing.md](python_techniques/07_strings/33_python_string_slicing.md) | Slicing and indexing strings | Day 6, Days 11–12 |
-| 34 | [34_python_string_validation.md](python_techniques/07_strings/34_python_string_validation.md) | isdigit(), isalpha(), isalnum(), etc. | Day 6, Days 11–12 |
-| 35 | [35_python_string_formatting.md](python_techniques/07_strings/35_python_string_formatting.md) | f-strings and `.format()` | Day 1, Days 8–10 |
+| 33 | [33_python_string_slicing.md](python_techniques/07_strings/33_python_string_slicing.md) | Slicing and indexing strings | Day 6, Day 11, Day 12 |
+| 34 | [34_python_string_validation.md](python_techniques/07_strings/34_python_string_validation.md) | isdigit(), isalpha(), isalnum(), etc. | Day 6, Day 11, Day 12 |
+| 35 | [35_python_string_formatting.md](python_techniques/07_strings/35_python_string_formatting.md) | f-strings and `.format()` | Day 1, Day 8, Day 9, Day 10 |
 
 ### 8. Error Handling
 
@@ -217,8 +217,8 @@ This index is now ordered first by homework day so you can study in plan order. 
 
 | # | File | Description | Day(s) |
 |---|------|-------------|--------|
-| 39 | [39_python_modules.md](python_techniques/09_advanced/39_python_modules.md) | Importing and using modules | Days 8–10 |
-| 40 | [40_python_scope.md](python_techniques/09_advanced/40_python_scope.md) | Variable scope, local, global, nonlocal | Day 4, Days 8–10 |
+| 39 | [39_python_modules.md](python_techniques/09_advanced/39_python_modules.md) | Importing and using modules | Day 8, Day 9, Day 10 |
+| 40 | [40_python_scope.md](python_techniques/09_advanced/40_python_scope.md) | Variable scope, local, global, nonlocal | Day 4, Day 8, Day 9, Day 10 |
 
 ---
 

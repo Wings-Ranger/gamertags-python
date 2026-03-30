@@ -2,7 +2,7 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_classes.asp
 
-**Homework Day(s):** Days 8–10
+**Homework Day(s):** Day 8, Day 9, Day 10
 
 ---
 
@@ -83,7 +83,9 @@ Test challenge:
 ## Related Days
 | Day | Topic |
 |-----|-------|
-| Days 8-10 | Build project skeleton, data loading, display |
+| Day 8 | Python Project Skeleton |
+| Day 9 | Data Loading and Welcome Sequence |
+| Day 10 | Display All Gamertags |
 
 ## See Also
 - [21_python_classes.md](21_python_classes.md)
