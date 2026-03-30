@@ -20,93 +20,71 @@ A module is a Python file containing functions, classes, and variables that can 
 - **Creating modules**: any `.py` file is a module; import it by filename (without `.py`)
 
 ## Syntax / Example Code
-```python
-# --- Standard library modules useful for the gamertag project ---
 
-# os — file system operations
-import os
-if os.path.exists("gamertags.txt"):
-    size = os.path.getsize("gamertags.txt")
-    print(f"Data file: {size} bytes")
+```
+C# pattern (from the gamertag project):
+    // C# imports are at the top using 'using'
+    using System;
+    using System.IO;
 
-# os.path — path manipulation
-data_file = os.path.join("data", "gamertags.txt")
-base, ext = os.path.splitext("gamertags.txt")
-print(base, ext)   # gamertags .txt
+    // Using the imported namespace
+    string[] lines = File.ReadAllLines("../Gamertags.txt");
 
-# csv — CSV reading and writing
-import csv
-with open("gamertags.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerow(["ShadowX", "Xbox", 4250])
+Python skeleton — import and use modules (fill in the blanks):
 
-# random — random selection (for testing)
-import random
-tags = ["ShadowX", "NightOwl", "ProSniper", "GamerZ"]
-random.shuffle(tags)
-print(tags)
-winner = random.choice(tags)
-print(f"Random winner: {winner}")
+    # Import the whole module (like 'using System.IO')
+    _____ os
 
-# datetime — timestamps
-from datetime import datetime
-now = datetime.now()
-print(f"Generated at: {now.strftime('%Y-%m-%d %H:%M:%S')}")
+    # Use it with the module name as prefix
+    if os.path._____(  "Gamertags.txt"):      # what checks if a file exists?
+        print("File found")
 
-# sys — system information and argv
-import sys
-print(f"Python version: {sys.version}")
-print(f"Script name: {sys.argv[0]}")
+    # Import a specific name from a module (more targeted)
+    from os.path _____ exists, join
 
-# string — useful constants
-import string
-print(string.ascii_letters)    # abcdefg...XYZ
-print(string.digits)           # 0123456789
-valid_chars = set(string.ascii_letters + string.digits)
+    if _____(  "Gamertags.txt"):              # call directly, no prefix needed
+        path = _____("data", "Gamertags.txt") # os.path.join equivalent
 
-# --- Creating your own module ---
-# In file: gamertag_utils.py
-"""
-def validate_gamertag(tag):
-    if not tag or not tag.isalnum():
-        return False
-    return 3 <= len(tag) <= 15
+    # Import with an alias (shorter name)
+    _____ os.path _____ path                  # keyword? alias?
+    if path.exists("Gamertags.txt"):
+        print("Found")
 
-def format_player(player):
-    return f"{player['gamertag']:<16} {player['platform']:<14} {player['score']:>6,}"
+    # Standard library modules useful for the gamertag project:
+    _____ os          # file system: os.path.exists(), os.remove()
+    _____ csv         # CSV reading/writing
+    from datetime _____ datetime   # timestamps
 
-MAX_LENGTH = 15
-MIN_LENGTH = 3
-"""
+    # Using csv module (robust alternative to manual split)
+    with open("Gamertags.txt", "r") as f:
+        reader = csv._____(f)            # what creates a CSV reader?
+        for row in reader:
+            print(row[0], row[1])
 
-# In your main file:
-# import gamertag_utils
-# valid = gamertag_utils.validate_gamertag("ShadowX")
+    # Creating your own module (split your project across files)
+    # In gamertag_utils.py:
+    #   def validate_gamertag(tag): ...
+    #   def load_gamertags(filename): ...
 
-# Or:
-# from gamertag_utils import validate_gamertag, format_player
-# valid = validate_gamertag("ShadowX")
+    # In main.py:
+    _____ gamertag_utils                      # import your own module
+    valid = gamertag_utils.validate_gamertag("ShadowX")
 
-# --- The __name__ guard ---
-# In gamertag_utils.py:
-"""
-def validate_gamertag(tag):
-    return bool(tag) and tag.isalnum() and 3 <= len(tag) <= 15
+    # The __name__ guard — runs only when file is executed directly
+    if _____ == "_____":
+        print("Running directly")            # fill both blanks
 
-if __name__ == "__main__":
-    # This code only runs when the file is executed directly, not when imported
-    test_tags = ["ShadowX", "AB", "Shadow Hunter"]
-    for tag in test_tags:
-        print(f"{tag}: {validate_gamertag(tag)}")
-"""
+Questions:
+- What Python keyword imports a module? (C# uses `using`)
+- What is the difference between `import os` and `from os import path`?
+- What does `if __name__ == "__main__":` protect against?
+- Why might you split your gamertag project into multiple `.py` files?
 
-# --- Import aliases ---
-import os.path as path
-import datetime as dt
-
-print(path.exists("gamertags.txt"))
-today = dt.date.today()
-print(today)
+Test challenge:
+    Split your gamertag project into two files: `gamertags.py` (the class) and
+    `main.py` (the main loop). In `main.py`, write `import gamertags` and create
+    a `gamertags.Gamertags()` instance. Add `if __name__ == "__main__":` to
+    `gamertags.py`. Does the class file run its own code when imported? Should it?
 ```
 
 ## Common Use Cases
@@ -125,8 +103,8 @@ print(today)
 - [27_python_file_read.md](../06_file_io/27_python_file_read.md)
 - [40_python_scope.md](40_python_scope.md)
 
-## Practice Tips
-- Organize your gamertag project: `main.py`, `utils.py` (validation), `data.py` (file I/O)
-- Add `if __name__ == "__main__":` to every module so it can be both imported and run standalone
-- Explore `dir(module)` to see all names in a module
-- Use `import os.path as path` to save typing when using many `os.path` functions
+## Challenges
+- **Blank 1**: Write the import line for `os` and use `os.path.exists("Gamertags.txt")`. Then rewrite using `from os.path import _____` — which is more readable?
+- **Blank 2**: Write `from datetime import _____` then use it: `now = _____.now()`. What class name are you importing?
+- **Blank 3**: Add `if _____ == "_____":` at the bottom of your `gamertags.py` file and put a quick test inside. What are the two blanks? What happens when another file imports `gamertags.py` — does the test code run?
+- **Challenge**: C# uses `using System.IO` to access `File.ReadAllLines`. Python uses `import os` for file utilities. Both organize code into namespaces/modules. Create a file `utils.py` with a `validate_gamertag(tag)` function, then import it in your main file using two different styles: `import utils` and `from utils import validate_gamertag`. How does the call syntax differ between the two?

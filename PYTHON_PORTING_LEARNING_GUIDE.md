@@ -95,14 +95,232 @@ Before calling the port complete, verify behavior is unchanged.
 - Test repeated runs and file updates
 
 ## Concept Mapping: C# to Python
-Use this mapping as your mental translation guide.
-- C# class and methods: Python class and methods
-- C# array of strings: Python list of strings
-- foreach loop: Python iteration over a list
-- if statements with character helpers: Python string methods and character checks
-- Console read/write: Python text input and printing
-- File.ReadAllLines and append: Python file read and append workflow
-- Main loop with bool flag: Python while loop with boolean state
+
+Use this table to guide your research. The third column names the Python approach — it does **not** show working code. Look up each item using the links in [W3SCHOOLS_PYTHON_REFERENCES.md](W3SCHOOLS_PYTHON_REFERENCES.md) and work out the syntax yourself.
+
+| C# Construct | C# Example from Gamertag Code | Python Equivalent Approach | What to Research |
+|---|---|---|---|
+| `string[]` fixed-size array | `private string[] gamerTagList = { };` | Python `list` (no fixed size needed) | Python Lists |
+| `foreach` loop | `foreach (string s in gamerTagList)` | Python `for item in my_list:` | Python For Loops |
+| `Char.IsNumber(s, index)` | `Char.IsNumber(s, s.Length - 1)` | Call a string method on a single-character substring | `str.isdigit()` |
+| `Char.IsLetterOrDigit(s, index)` | `Char.IsLetterOrDigit(s, 0)` | Call a string method on a single-character substring | `str.isalnum()` |
+| `s.Length` property | `s.Length > 0` | Python built-in `len()` function | Python `len()` |
+| Array index access | `s[s.Length - 1]` (last character) | Python negative index or slicing | Python String Slicing |
+| `File.ReadAllLines(path)` | `gamerTagList = File.ReadAllLines("../Gamertags.txt")` | Python `open()` + reading all lines into a list | Python File Read |
+| `File.AppendAllText(path, text)` | `File.AppendAllText("../Gamertags.txt", "\n" + newGamerTag)` | Python `open()` with append mode | Python File Write |
+| `Console.WriteLine(text)` | `Console.WriteLine("All Gamertags")` | Python `print()` | Python `print()` |
+| `Console.ReadLine()` | `string newGamerTag = Console.ReadLine()` | Python `input()` | Python User Input |
+| `Console.ReadKey()` (pause) | `Console.ReadKey();` at end of each method | Python `input()` with a prompt string | Python User Input |
+| Manual counter `int lineNumber = 1;` | Increment counter inside `foreach` | Python `enumerate()` with a start value | Python For Loops / enumerate |
+| `lineNumber.ToString() + ") " + s` | Number-and-string concatenation | Python f-string or `str()` conversion | Python String Formatting |
+| `bool isRunning = true;` | `bool isRunning = true;` in `Main` | Python boolean variable controlling a `while` | Python Booleans, Python While Loops |
+| `internal class Gamertags { }` | The entire `Gamertags` class | Python `class Gamertags:` | Python Classes |
+| No explicit constructor shown | Default constructor (implicit in C#) | Python `def __init__(self):` with `self.gamer_tag_list = []` | Python `__init__` |
+| `public void MethodName()` | `public void LoadGamertags()` | Python `def method_name(self):` | Python Class Methods |
+| `!` logical NOT | `!Char.IsLetterOrDigit(s, 0)` | Python `not` keyword | Python Operators |
+
+## C# Method Challenges
+
+For each C# method below, answer the four analysis questions **before** you write any Python. The goal is to understand first and code second.
+
+---
+
+### Method 1: `LoadGamertags()`
+
+```csharp
+public void LoadGamertags()
+{
+    gamerTagList = File.ReadAllLines("../Gamertags.txt");
+}
+```
+
+**Your tasks:**
+1. In plain English, what does this method do? (One or two sentences, no code words.)
+2. Does it take any parameters? Does it return anything? What does it update instead?
+3. Write only the Python `def` line for the equivalent method. Leave the body completely blank for now.
+4. In plain English, describe every step that needs to happen inside this method. Think about: opening a file, reading lines, storing results, and what happens if the file does not exist.
+
+---
+
+### Method 2: `PrintAllGamertags()`
+
+```csharp
+public void PrintAllGamertags()
+{
+    Console.Clear();
+    Console.WriteLine("===================");
+    Console.WriteLine("All Gamertags");
+    Console.WriteLine("===================");
+    int lineNumber = 1;
+    foreach (string s in gamerTagList)
+    {
+        Console.WriteLine(lineNumber.ToString() + ") " + s);
+        lineNumber = lineNumber + 1;
+    }
+    Console.WriteLine("===================");
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
+}
+```
+
+**Your tasks:**
+1. In plain English, what does this method do?
+2. What data does it read from? Where does that data live?
+3. Write only the Python `def` line. What parameter(s) does it need?
+4. In plain English, list every action that must happen inside this method in order. Pay attention to the numbering: how does the C# version count lines? Is there a Python way to do this without a manual counter?
+
+---
+
+### Method 3: `PrintGamertagsEndingWithNumber()`
+
+```csharp
+public void PrintGamertagsEndingWithNumber()
+{
+    Console.Clear();
+    // ... header output ...
+    int lineNumber = 1;
+    foreach (string s in gamerTagList)
+    {
+        if ((s.Length > 0) && Char.IsNumber(s, s.Length - 1))
+        {
+            Console.WriteLine(lineNumber.ToString() + " ) " + s);
+            lineNumber = lineNumber + 1;
+        }
+    }
+    // ... footer and pause ...
+}
+```
+
+**Your tasks:**
+1. In plain English, what rule decides whether a gamertag is printed?
+2. Why does the code check `s.Length > 0` before checking the last character? What would go wrong without it?
+3. Write only the Python `def` line.
+4. Describe the filter condition in plain English. What Python string method could replace `Char.IsNumber`? How do you get the last character of a string in Python without knowing its length?
+
+---
+
+### Method 4: `PrintGamertagsNotStartingWithNumberorLetter()`
+
+```csharp
+public void PrintGamertagsNotStartingWithNumberorLetter()
+{
+    // ...
+    foreach (string s in gamerTagList)
+    {
+        if ((s.Length > 0) && !Char.IsLetterOrDigit(s, 0))
+        {
+            Console.WriteLine(lineNumber.ToString() + " ) " + s);
+            lineNumber = lineNumber + 1;
+        }
+    }
+    // ...
+}
+```
+
+**Your tasks:**
+1. What exactly makes a gamertag qualify for this filter? Give two example gamertags that pass and two that fail.
+2. The condition uses `!` (logical NOT). In Python, what keyword replaces `!`?
+3. Write only the Python `def` line.
+4. Describe the complete filter condition in plain English. Which Python string method corresponds to `Char.IsLetterOrDigit`? How do you get the first character of a string?
+
+---
+
+### Method 5: `ShowWelcomeMessage()`
+
+```csharp
+public void ShowWelcomeMessage()
+{
+    Console.Clear();
+    Console.WriteLine("===================");
+    Console.WriteLine("Welcome to the gamertag program");
+    Console.WriteLine("*** Program sequence output - display gamertags etc ***");
+    Console.WriteLine("===================");
+    Console.WriteLine("Press any key to continue");
+    Console.ReadKey();
+}
+```
+
+**Your tasks:**
+1. What is the sole responsibility of this method?
+2. Write only the Python `def` line.
+3. Python does not have a direct `Console.Clear()` equivalent built into the language the same way. How would you research finding a cross-platform screen-clear approach in Python? What module might be involved?
+
+---
+
+### Method 6: `AddNewUserName()`
+
+```csharp
+public void AddNewUserName()
+{
+    Console.Clear();
+    Console.WriteLine("===================");
+    Console.WriteLine("Add new GamerTag");
+    Console.WriteLine("===================");
+    Console.WriteLine("Please add a new Gamertag. Don't enter anything to cancel");
+    string newGamerTag = Console.ReadLine();
+    if (newGamerTag.Length > 0)
+    {
+        File.AppendAllText("../Gamertags.txt", "\n" + newGamerTag);
+        LoadGamertags();
+    }
+}
+```
+
+**Your tasks:**
+1. In plain English, what are the two possible outcomes of this method?
+2. What does it mean to "cancel" here, and how does the code detect that?
+3. Write only the Python `def` line.
+4. Describe every step in order: prompt, read, check, write, reload. For the write step, describe how the newline character is added and why that matters. What Python file mode do you need for appending?
+
+---
+
+## Main Loop Pseudocode Challenge
+
+The following is the `Program.cs` main loop written as **pseudocode** — plain logic with no Python syntax. Your challenge is to translate this pseudocode into real Python code yourself, after studying the relevant topics.
+
+```
+PROGRAM START
+
+  SET is_running TO true
+
+  REPEAT WHILE is_running IS true:
+
+    CREATE a new Gamertags object
+
+    TELL the object: load gamertags from the file
+
+    TELL the object: show the welcome message
+
+    TELL the object: print all gamertags
+
+    TELL the object: print gamertags that end with a number
+
+    TELL the object: print gamertags not starting with a letter or digit
+
+    TELL the object: handle adding a new username
+
+    DISPLAY: "Would you like to view the gamertags again (y/n)?"
+
+    READ a single character of input from the user
+
+    IF the input equals "y" or "Y":
+      SET is_running TO true
+    OTHERWISE:
+      SET is_running TO false
+
+  END REPEAT
+
+PROGRAM END
+```
+
+**Questions to answer before writing code:**
+1. In C#, the `Gamertags` object is created inside the loop. What effect does that have on the program state each iteration? Will you replicate this in Python, or is there a reason to create it outside the loop?
+2. In C#, `Console.ReadKey().Key == ConsoleKey.Y` reads a single keystroke without pressing Enter. Python's `input()` always waits for Enter. How will you handle the "y/n?" prompt differently?
+3. What Python syntax do you use to create an object from a class?
+4. What Python syntax do you use to call a method on an object?
+5. Where does the main loop code belong in your Python file? (Hint: research the `if __name__ == "__main__":` pattern.)
+
+---
 
 ## Recommended Learning Order
 Follow this order so each topic supports the next one.

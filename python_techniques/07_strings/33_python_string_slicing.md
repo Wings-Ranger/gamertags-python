@@ -19,75 +19,68 @@ String slicing extracts a portion of a string using bracket notation with start,
 - **Strings are immutable**: slicing creates a new string; original unchanged
 
 ## Syntax / Example Code
-```python
-tag = "ShadowHunter99"
-#      0123456789...
 
-# Basic slicing
-print(tag[0:6])     # Shadow  (index 0–5)
-print(tag[6:12])    # Hunter  (index 6–11)
-print(tag[12:])     # 99      (index 12 to end)
-print(tag[:6])      # Shadow  (start to index 5)
-print(tag[-2:])     # 99      (last 2 characters)
-print(tag[:-2])     # ShadowHunter (all but last 2)
+```
+C# patterns (from the gamertag project):
+    // Access last character using length
+    char lastChar = s[s.Length - 1];
 
-# Negative indexing
-print(tag[-1])      # 9  (last character)
-print(tag[-2])      # 9  (second to last)
-print(tag[-6:-2])   # nter
+    // Access first character
+    char firstChar = s[0];
 
-# Step
-print(tag[::2])     # SdwutrS  (every other character)
-print(tag[::-1])    # 99retnuHwodahS  (reversed)
+    // Check last character is a number
+    Char.IsNumber(s, s.Length - 1)
 
-# Full copy
-copy = tag[:]
-print(copy == tag)   # True
+Python skeleton — use slicing and index access (fill in the blanks):
 
-# Practical gamertag uses
+    tag = "ShadowHunter99"
+    #      0123456789...
 
-# Check if tag starts with a letter
-if tag[0].isalpha():
-    print("Starts with a letter — good!")
+    # Access first character (equivalent to s[0] in C#)
+    first = tag[_____]       # index 0
 
-# Extract numeric suffix (if any)
-# Find where digits start
-for i, char in enumerate(tag):
-    if char.isdigit():
-        prefix = tag[:i]
-        suffix = tag[i:]
-        print(f"Name part: {prefix}, Number part: {suffix}")
-        break
+    # Access last character (equivalent to s[s.Length - 1] in C#)
+    last = tag[_____]        # what negative index means "last"?
 
-# Truncate for display (max 10 chars)
-def truncate(text, max_len=10):
-    if len(text) > max_len:
-        return text[:max_len - 3] + "..."
-    return text
+    # Get last 2 characters
+    suffix = tag[_____:]     # what negative index for "last 2"?
 
-print(truncate("ShadowHunter99"))  # ShadowH...
-print(truncate("GamerX"))          # GamerX
+    # Get all but the last character
+    without_last = tag[:_____]
 
-# First character check
-def starts_with_letter(tag):
-    return len(tag) > 0 and tag[0].isalpha()
+    # Basic slice — first 6 characters
+    prefix = tag[_____:_____]   # start: 0, stop: 6 (stop is exclusive)
 
-# Check last two characters for number suffix
-def ends_with_digits(tag, n=2):
-    return tag[-n:].isdigit()
-
-print(ends_with_digits("ShadowX99"))  # True
-print(ends_with_digits("NightOwl"))   # False
-
-# Filtering by prefix
-tags = ["ShadowX", "ShadowHunter", "NightOwl", "ProSniper", "Shadow99"]
-shadow_tags = [t for t in tags if t[:6].lower() == "shadow"]
-print(shadow_tags)   # ['ShadowX', 'ShadowHunter', 'Shadow99']
-
-# Checking last character
-for tag in tags:
-    if tag[-1].isdigit():
+    # Gamertag project: check if last char is a digit
+    # C# equivalent: Char.IsNumber(s, s.Length - 1)
+    if tag[_____]._____(  ):
         print(f"{tag} ends with a digit")
+
+    # Gamertag project: check if first char is NOT letter or digit
+    # C# equivalent: !Char.IsLetterOrDigit(s, 0)
+    if not tag[_____]._____(  ):
+        print(f"{tag} starts with a special character")
+
+    # Truncate for display (max 10 chars shown)
+    def truncate(text, max_len=_____):
+        if len(text) > _____:
+            return text[:_____] + "..."   # slice + ellipsis
+        return _____
+
+    # Reversed string (interview classic)
+    reversed_tag = tag[_____:_____:_____]   # what step reverses a string?
+
+Questions:
+- In C#, the last character index is `s.Length - 1`. What is the Python shortcut?
+- What does `tag[2:5]` return for `tag = "ShadowX"`? (Remember: stop is exclusive)
+- What does a negative step in a slice do?
+- Why does slicing never raise an IndexError, even with out-of-range values?
+
+Test challenge:
+    For each gamertag in your list, use slicing to check if the last character
+    is a digit (`tag[-1].isdigit()`). Print only the ones that end with a digit.
+    Now try `tag[-2:].isdigit()` — this checks the last TWO characters. What
+    happens with "Shadow9X"? Does it still work as expected?
 ```
 
 ## Common Use Cases
@@ -108,8 +101,8 @@ for tag in tags:
 - [32_python_string_methods.md](32_python_string_methods.md)
 - [34_python_string_validation.md](34_python_string_validation.md)
 
-## Practice Tips
-- Practice all slice variations: `[2:]`, `[:5]`, `[1:4]`, `[-3:]`, `[::-1]`
-- Build a `truncate(text, max_len)` function used in display formatting
-- Use slicing to check first/last characters instead of calling `.startswith()`/`.endswith()`
-- Remember: stop index is **exclusive** — always test your slice boundaries
+## Challenges
+- **Blank 1**: Fill in `tag[_____]` to get the last character. Then check if it's a digit: `tag[_____]._____(  )`. What two blanks are needed?
+- **Blank 2**: Write a `truncate(text, max_len=10)` function. Use `text[:_____]` to keep only `max_len - 3` characters, then add `"..."`. What goes in the blank?
+- **Blank 3**: Write a filter that finds all gamertags starting with "Shadow": `[t for t in tags if t[:_____].lower() == "_____"]`. What length prefix do you slice? What string do you compare to?
+- **Challenge**: The C# index `s[s.Length - 1]` and Python index `s[-1]` both access the last character. Write a function `split_tag(tag)` that uses slicing to separate the alphabetic prefix from any trailing digits. For "Shadow99", it should return `("Shadow", "99")`. Hint: you'll need a loop or string methods to find where digits start.

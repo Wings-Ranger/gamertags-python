@@ -18,105 +18,83 @@ The `raise` statement lets you throw an exception intentionally — either a bui
 - **`assert`**: a lightweight way to raise `AssertionError` for developer-facing checks (not for user input)
 
 ## Syntax / Example Code
-```python
-# --- Raising built-in exceptions ---
 
-def set_score(score):
-    """Set a player's score; must be non-negative."""
-    if not isinstance(score, int):
-        raise TypeError(f"Score must be an integer, got {type(score).__name__}")
-    if score < 0:
-        raise ValueError(f"Score cannot be negative: {score}")
-    return score
+```
+C# context:
+    // C# throws exceptions with the 'throw' keyword
+    if (string.IsNullOrEmpty(tag))
+        throw new ArgumentException("Gamertag cannot be empty");
 
-try:
-    set_score(-100)
-except ValueError as e:
-    print(f"Error: {e}")
+    // C# custom exception:
+    public class InvalidGamertagException : Exception
+    {
+        public InvalidGamertagException(string message) : base(message) { }
+    }
 
-try:
-    set_score("4250")
-except TypeError as e:
-    print(f"Error: {e}")
+Python skeleton — raise exceptions (fill in the blanks):
 
-# --- Custom exception classes ---
+    # Raise a built-in exception — equivalent to C#'s 'throw'
+    def validate_tag(tag):
+        if not tag:
+            _____ _____("Gamertag cannot be empty")   # what keyword? what class?
+        if len(tag) < 3:
+            _____ ValueError(f"Too short: '{tag}'")
+        if not tag.isalnum():
+            _____ ValueError(f"Invalid characters: '{tag}'")
+        return tag   # valid
 
-class GamertagError(Exception):
-    """Base exception for gamertag validation errors."""
-    pass
+    # Custom exception class — equivalent to C#'s custom exception
+    class GamertagError(_____):   # what built-in class do you inherit from?
+        _____
 
-class GamertagTooShortError(GamertagError):
-    """Raised when a gamertag is shorter than the minimum length."""
-    def __init__(self, tag, min_length=3):
-        self.tag = tag
-        self.min_length = min_length
-        super().__init__(
-            f"Gamertag '{tag}' is too short "
-            f"(length {len(tag)}, minimum {min_length})"
-        )
+    class GamertagTooShortError(_____):   # inherit from GamertagError
+        def _____(self, tag, min_len=3):
+            self.tag = tag
+            # Call parent constructor with a message
+            _____.__init__(self, f"'{tag}' is too short (min {min_len})")
 
-class GamertagTooLongError(GamertagError):
-    def __init__(self, tag, max_length=15):
-        self.tag = tag
-        self.max_length = max_length
-        super().__init__(
-            f"Gamertag '{tag}' is too long "
-            f"(length {len(tag)}, maximum {max_length})"
-        )
+    class InvalidCharactersError(_____):
+        def _____(self, tag):
+            super()._____(f"'{tag}' has invalid characters")
 
-class InvalidCharactersError(GamertagError):
-    def __init__(self, tag):
-        super().__init__(f"Gamertag '{tag}' contains invalid characters")
+    # Use custom exceptions in validation
+    def validate_gamertag(tag):
+        if not tag:
+            _____ GamertagError("Cannot be empty")
+        if len(tag) < 3:
+            _____ GamertagTooShortError(tag)
+        if not tag.isalnum():
+            _____ InvalidCharactersError(tag)
+        return tag
 
-# --- Validation function using custom exceptions ---
-
-def validate_gamertag(tag):
-    """Validate a gamertag, raising descriptive exceptions on failure."""
-    if not tag:
-        raise GamertagError("Gamertag cannot be empty")
-    if len(tag) < 3:
-        raise GamertagTooShortError(tag)
-    if len(tag) > 15:
-        raise GamertagTooLongError(tag)
-    if not tag.isalnum():
-        raise InvalidCharactersError(tag)
-    return tag  # valid
-
-# Using the validator
-test_tags = ["", "AB", "Shadow Hunter", "ShadowHunter99VeryLong", "ShadowX"]
-for tag in test_tags:
+    # Catching custom exceptions
     try:
-        result = validate_gamertag(tag)
-        print(f"  ✓ '{result}' is valid")
+        validate_gamertag("AB")
     except GamertagTooShortError as e:
-        print(f"  ✗ Too short: {e}")
-    except GamertagTooLongError as e:
-        print(f"  ✗ Too long: {e}")
-    except InvalidCharactersError as e:
-        print(f"  ✗ Bad chars: {e}")
-    except GamertagError as e:
-        print(f"  ✗ Error: {e}")
+        print(f"Too short: {e}")
+    except GamertagError as e:      # catches parent — more general
+        print(f"Gamertag error: {e}")
 
-# --- Re-raising exceptions ---
-def load_and_validate(filename):
-    try:
-        with open(filename) as f:
-            lines = f.readlines()
-    except FileNotFoundError:
-        print(f"Warning: {filename} not found, starting fresh")
-        raise   # re-raise to let caller decide
+    # Re-raise (equivalent to C#'s 'throw;' with no argument)
+    def load_gamertags_strict(filename):
+        try:
+            with open(filename) as f:
+                return f.readlines()
+        except FileNotFoundError:
+            print(f"Warning: {filename} not found")
+            _____       # re-raise to let the caller handle it
 
-# --- Exception chaining ---
-def parse_score(value):
-    try:
-        return int(value)
-    except ValueError as original:
-        raise ValueError(f"Cannot convert score '{value}' to integer") from original
+Questions:
+- What Python keyword raises an exception? (C# uses `throw`)
+- What class should a custom exception inherit from?
+- Why might you create a custom `GamertagError` instead of using `ValueError`?
+- What does a bare `raise` (with no argument) do inside an `except` block?
 
-# --- assert (developer checks, not user input) ---
-def calculate_average(scores):
-    assert len(scores) > 0, "Cannot calculate average of empty list"
-    return sum(scores) / len(scores)
+Test challenge:
+    Implement `validate_gamertag(tag)` using your custom `GamertagError` hierarchy.
+    Test it with these tags: `""`, `"AB"`, `"Shadow X"`, `"ValidTag99"`.
+    Catch `GamertagTooShortError` separately from `InvalidCharactersError`.
+    Can you catch all gamertag errors with just `except GamertagError`? Why?
 ```
 
 ## Common Use Cases
@@ -135,8 +113,8 @@ def calculate_average(scores):
 - [37_python_exceptions.md](37_python_exceptions.md)
 - [22_python_constructors.md](../05_oop/22_python_constructors.md)
 
-## Practice Tips
-- Create a `GamertagError` base class with subclasses for each type of validation failure
-- Use `raise ValueError` in `__init__` when constructor arguments are invalid
-- Practice exception chaining with `raise NewError(...) from original_error`
-- Keep exception messages user-friendly — they may be displayed directly to the end user
+## Challenges
+- **Blank 1**: Write `raise _____(f"Too short: '{tag}'")` — what exception class is appropriate for a bad value?
+- **Blank 2**: Define `class GamertagError(_____):` — what built-in class does it inherit from? Then define `class GamertagTooShortError(_____)` — what class does IT inherit from?
+- **Blank 3**: Inside `GamertagTooShortError.__init__`, call the parent constructor: `super().__init__(f"_____ is too short")`. Write a useful message that includes the tag and its length.
+- **Challenge**: The C# project uses `throw new ArgumentException(...)`. Python uses `raise ValueError(...)`. Create a mini test: write `validate_gamertag("AB")` and catch it with `except GamertagTooShortError`. Then catch the same call with just `except GamertagError`. Does `GamertagError` catch `GamertagTooShortError`? Why? What does this tell you about exception inheritance?

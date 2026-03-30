@@ -19,70 +19,64 @@ Operators are symbols that perform operations on values and variables. Python ha
 - **Operator precedence**: `**` > unary > `* / // %` > `+ -` > comparisons > `not` > `and` > `or`
 
 ## Syntax / Example Code
-```python
-# Arithmetic operators
+
+**C# pattern (from the gamertag project):**
+```csharp
+// C# uses symbol-based operators; Python uses words for logical operators
+if (Char.IsNumber(s, s.Length - 1))           // comparison
+if (!Char.IsLetterOrDigit(s, 0))              // logical NOT with !
+if (s.Length >= 3 && s.Length <= 15)          // logical AND with &&
+if (platform == "Xbox" || platform == "PS")   // logical OR with ||
+score += 500;                                  // augmented assignment
+```
+
+**Python skeleton (fill in the blanks):**
+```
+# Comparison operators — return True or False
 score = 4250
-bonus = 500
-total = score + bonus          # 4750
-avg = total / 2                # 2375.0
-level = total // 1000          # 4  (floor division)
-remainder = total % 1000       # 750
-power = 2 ** 10                # 1024
+tag   = "ShadowHunter99"
+print(score _____ 3000)      # greater than?
+print(score _____ 4250)      # equal to?
+print(score _____ 5000)      # not equal to?
 
-# Comparison operators
-print(score > 3000)    # True
-print(score == 4250)   # True
-print(score != 5000)   # True
-print(score >= 4250)   # True
+# Logical operators — Python uses WORDS instead of C#'s &&, ||, !
+# C#: s.Length >= 3 && s.Length <= 15
+if len(tag) _____ 3 _____ len(tag) _____ 15:
+    print("Valid length")
 
-# Logical operators
-tag = "ShadowHunter99"
-valid = len(tag) >= 3 and len(tag) <= 15 and tag.isalnum()
-print(valid)   # True
-
-is_empty = not tag         # False (non-empty string is truthy)
-console = tag == "Xbox" or tag == "PlayStation"
-
-# Assignment operators (augmented)
-score = 1000
-score += 500    # score = 1500
-score -= 100    # score = 1400
-score *= 2      # score = 2800
-score //= 10    # score = 280
-
-# Membership operators
-VALID_PLATFORMS = ["Xbox", "PlayStation", "PC", "Nintendo Switch"]
+# C#: platform == "Xbox" || platform == "PlayStation"
 platform = "Xbox"
+if platform _____ "Xbox" _____ platform _____ "PlayStation":
+    print("Console player")
 
-if platform in VALID_PLATFORMS:
+# C#: !isRunning  →  Python uses 'not'
+is_running = True
+if _____ is_running:
+    print("Program stopped")
+
+# Membership operator — replaces a long chain of == checks
+VALID_PLATFORMS = {"Xbox", "PlayStation", "PC", "Nintendo Switch"}
+if platform _____ VALID_PLATFORMS:
     print("Valid platform")
 
-if "Stadia" not in VALID_PLATFORMS:
-    print("Stadia not supported")
+# Augmented assignment operators
+score _____ 500     # same as: score = score + 500
+score _____ 100     # same as: score = score - 100
 
-# Identity operators (is vs ==)
-a = [1, 2, 3]
-b = a           # same object
-c = [1, 2, 3]  # different object, same value
-
-print(a is b)    # True  — same object
-print(a is c)    # False — different objects
-print(a == c)    # True  — same value
-
-# Use 'is' for None checks (not ==)
-result = None
-if result is None:
-    print("No result yet")
-
-# Chained comparisons (Pythonic)
+# Chained comparison — Pythonic, no direct C# equivalent
 length = len(tag)
-if 3 <= length <= 15:
-    print("Length is valid")
-
-# Operator precedence example
-result = 2 + 3 * 4      # 14, not 20 (multiplication first)
-result = (2 + 3) * 4    # 20 (parentheses override)
+if _____ <= length <= _____:    # fill in min and max values
+    print("Valid length — Pythonic style")
 ```
+
+**Questions:**
+- C# uses `&&` for AND and `||` for OR. What does Python use instead?
+- C# uses `!` for NOT. What does Python use instead?
+- What does the `in` operator do? How does it replace a long `or` chain of equality checks against a set of valid values?
+- What is the difference between `==` (equality) and `is` (identity)? When should you use `is` instead of `==`?
+
+**Test challenge:**
+Rewrite this C# condition in Python: `s.Length >= 3 && s.Length <= 15 && Char.IsLetterOrDigit(s, 0)`. Use Python's `and` operator and string methods. Test it on `"GamerX"`, `"AB"`, and `"!GamerX"`.
 
 ## Common Use Cases
 - Validating gamertag length with chained comparisons: `3 <= len(tag) <= 15`
@@ -101,8 +95,44 @@ result = (2 + 3) * 4    # 20 (parentheses override)
 - [12_python_if_else.md](12_python_if_else.md)
 - [04_python_numbers.md](../02_data_types/04_python_numbers.md)
 
-## Practice Tips
-- Memorize operator precedence; when in doubt, use parentheses for clarity
-- Always use `is None` instead of `== None`
-- Practice augmented assignment operators (`+=`, `-=`) for score tracking
-- Use chained comparisons `3 <= x <= 15` instead of `x >= 3 and x <= 15`
+## Challenges
+
+1. **Translate logical operators:** Rewrite these C# conditions in Python:
+   ```
+   # C#: s.Length >= 3 && s.Length <= 15
+   if len(tag) _____ 3 _____ len(tag) _____ 15:
+       print("Valid")
+
+   # C#: !isRunning
+   if _____ is_running:
+       print("Stopped")
+
+   # C#: platform == "Xbox" || platform == "PS"
+   if platform _____ "Xbox" _____ platform _____ "PS":
+       print("Console")
+   ```
+
+2. **Membership with in:** Replace a long `or` chain with `in` and a set:
+   ```
+   # Replace this:
+   if platform == "Xbox" or platform == "PlayStation" or platform == "PC":
+
+   # With this:
+   VALID_PLATFORMS = {_____, _____, _____}
+   if platform _____ VALID_PLATFORMS:
+   ```
+
+3. **Augmented assignment:** Track score changes using `+=` and `-=`:
+   ```
+   score = 4250
+   score _____ 500     # bonus added
+   score _____ 100     # penalty deducted
+   print(score)        # what is the final score?
+   ```
+
+4. **Chained comparison:** Rewrite `len(tag) >= 3 and len(tag) <= 15` as a chained comparison:
+   ```
+   if _____ <= _____(tag) <= _____:
+       print("Valid length")
+   ```
+   Why is this considered more Pythonic?

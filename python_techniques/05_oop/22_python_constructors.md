@@ -19,71 +19,43 @@ The `__init__` method is Python's constructor — a special method automatically
 - **`__new__` vs `__init__`**: `__new__` creates the object; `__init__` initializes it — you'll almost always only need `__init__`
 
 ## Syntax / Example Code
-```python
-class Player:
-    """Represents a gamertag entry."""
 
-    def __init__(self, gamertag, platform="PC", score=0):
-        """
-        Initialize a Player.
+```
+C# pattern (from the gamertag project):
+    internal class Gamertags
+    {
+        private string[] gamerTagList = { };
+        // C# fields are initialized at declaration — no explicit constructor needed
+        // for simple defaults. Python always uses __init__.
+    }
 
-        Args:
-            gamertag (str): The player's unique gamertag.
-            platform (str): Gaming platform. Defaults to 'PC'.
-            score (int): Initial score. Defaults to 0.
-        """
-        # Validate before storing
-        if not gamertag or not gamertag.isalnum():
-            raise ValueError(f"Invalid gamertag: '{gamertag}'")
-        if len(gamertag) < 3 or len(gamertag) > 15:
-            raise ValueError(f"Gamertag length must be 3–15 characters")
+Python skeleton — define the constructor (fill in the blanks):
 
-        self.gamertag = gamertag
-        self.platform = platform
-        self.score = int(score)   # ensure correct type
-        self.active = True        # default attribute not in parameters
+    class Gamertags:
 
-    def __str__(self):
-        return f"{self.gamertag} ({self.platform}): {self.score} pts"
+        def _____(self):
+            # equivalent to: private string[] gamerTagList = { };
+            self._____ = _____   # what Python type replaces string[]?
 
+        def _____(self, gamertag, platform="PC"):
+            # extra constructor with parameters — what name does this method have?
+            self.gamertag = _____
+            self.platform = _____
 
-# Creating instances — __init__ called automatically
-p1 = Player("ShadowX", "Xbox", 4250)
-p2 = Player("NightOwl")                # uses defaults: PC, 0
-p3 = Player("ProSniper", score=5100)   # keyword argument
+    # Calling the constructor — Python does NOT use the "new" keyword
+    gt = _____()          # no arguments
+    p  = _____(_____, _____)  # with arguments
 
-print(p1)   # ShadowX (Xbox): 4250 pts
-print(p2)   # NightOwl (PC): 0 pts
+Questions:
+- What is the name of Python's constructor method? (It starts and ends with __)
+- What is the first parameter of __init__ always called, and why?
+- How do you set an instance attribute inside __init__? What prefix do you use?
+- In C# you write `new Gamertags()`. What is the Python equivalent? (no keyword needed)
 
-# Accessing attributes set in __init__
-print(p1.gamertag)   # ShadowX
-print(p1.platform)   # Xbox
-print(p1.score)      # 4250
-print(p1.active)     # True
-
-# Validation in __init__ raises exceptions
-try:
-    bad = Player("AB")   # too short
-except ValueError as e:
-    print(f"Error: {e}")
-
-try:
-    bad = Player("Shadow Hunter")  # spaces not allowed
-except ValueError as e:
-    print(f"Error: {e}")
-
-# Creating from a CSV line (factory pattern)
-class PlayerFromCSV(Player):
-    @classmethod
-    def from_csv(cls, line):
-        """Create a Player from a CSV string 'gamertag,platform,score'."""
-        parts = line.strip().split(",")
-        if len(parts) != 3:
-            raise ValueError(f"Invalid CSV line: {line}")
-        return cls(parts[0], parts[1], int(parts[2]))
-
-p4 = PlayerFromCSV.from_csv("GamerZ,Xbox,2100")
-print(p4)
+Test challenge:
+    Create a Gamertags instance with no arguments, then print its gamer_tag_list
+    attribute. What do you expect to see? Now try adding a value to gamer_tag_list
+    from outside the class — can you do it? Should you?
 ```
 
 ## Common Use Cases
@@ -103,8 +75,8 @@ print(p4)
 - [37_python_exceptions.md](../08_error_handling/37_python_exceptions.md)
 - [38_python_raising_exceptions.md](../08_error_handling/38_python_raising_exceptions.md)
 
-## Practice Tips
-- Always validate input in `__init__` and raise `ValueError` for bad data
-- Set every attribute your class needs in `__init__` — don't create attributes elsewhere
-- Use default parameter values for optional fields
-- Test construction with both valid and invalid data to verify your validation works
+## Challenges
+- **Blank 1**: Write `__init__` for `Gamertags` so it sets `self.gamer_tag_list = _____`. What is the empty-list literal in Python?
+- **Blank 2**: Add a second parameter `filename` to `__init__` with a default value of `_____`. What filename does the C# project use? (Hint: `"../Gamertags.txt"`)
+- **Blank 3**: Inside `__init__`, write `self.filename = _____`. What value goes on the right side?
+- **Challenge**: In C#, `private string[] gamerTagList = { }` is declared at class level. In Python, where does attribute initialization belong? Try declaring `gamer_tag_list = []` at class level instead of in `__init__` — what surprising behavior might that cause when you have multiple instances?

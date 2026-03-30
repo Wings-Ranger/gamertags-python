@@ -19,61 +19,57 @@ Dictionaries are unordered (insertion-ordered since Python 3.7) collections of k
 - **Dict comprehensions**: `{k: v for k, v in pairs}`
 
 ## Syntax / Example Code
-```python
+
+**C# reference (gamertag project context):**
+```csharp
+// The C# project stores each gamertag as a plain string.
+// A Python dict lets you attach structured data to each gamertag —
+// like upgrading from string[] to Dictionary<string, object>:
+// player["gamertag"] = "ShadowHunter99";
+// player["platform"] = "Xbox";
+// player["score"]    = 4250;
+```
+
+**Python skeleton (fill in the blanks):**
+```
 # Creating a player dictionary
 player = {
-    "gamertag": "ShadowHunter99",
-    "platform": "Xbox",
-    "score": 4250,
-    "active": True
+    _____: "ShadowHunter99",
+    _____: "Xbox",
+    _____: 4250,
+    _____: True
 }
 
-# Accessing values
-print(player["gamertag"])          # ShadowHunter99
-print(player.get("score"))         # 4250
-print(player.get("rank", "N/A"))   # N/A (default if key missing)
+# Accessing values by key
+print(player[_____])                    # gamertag
+print(player._____(_____, "Unranked"))  # safe access — returns default if key missing
 
-# Modifying values
-player["score"] = 5000
-player["rank"] = "Gold"
+# Modifying and adding fields
+player[_____] = 5000         # update score
+player[_____] = "Gold"       # add a new rank field
 
-# Removing entries
-del player["active"]
-removed = player.pop("rank", None)  # safe pop with default
+# Iterating over all key-value pairs
+for _____, _____ in player._____(  ):
+    print(f"{_____}: {_____}")
 
-# Iterating
-for key in player:
-    print(key, "->", player[key])
-
-for key, value in player.items():
-    print(f"  {key}: {value}")
-
-print(list(player.keys()))    # ['gamertag', 'platform', 'score']
-print(list(player.values()))  # ['ShadowHunter99', 'Xbox', 5000]
-
-# List of player dicts — typical data structure for gamertag project
+# List of player dicts (the main data structure you will build)
 players = [
-    {"gamertag": "ShadowHunter99", "platform": "Xbox",         "score": 4250},
-    {"gamertag": "NightOwl",       "platform": "PlayStation",  "score": 3300},
-    {"gamertag": "ProSniper",      "platform": "PC",           "score": 5100},
+    {_____: "ShadowHunter99", _____: "Xbox",        _____: 4250},
+    {_____: "NightOwl",       _____: "PlayStation",  _____: 3300},
 ]
 
-# Filter players by platform
-xbox_players = [p for p in players if p["platform"] == "Xbox"]
-
-# Sort by score descending
-ranked = sorted(players, key=lambda p: p["score"], reverse=True)
-for i, p in enumerate(ranked, 1):
-    print(f"{i}. {p['gamertag']} - {p['score']}")
-
-# Checking if a key exists
-if "email" not in player:
-    print("No email on record")
-
-# Dict comprehension
-score_map = {p["gamertag"]: p["score"] for p in players}
-print(score_map)  # {'ShadowHunter99': 4250, 'NightOwl': 3300, ...}
+# Filter to only Xbox players
+xbox_players = [p for p in players if p[_____] == _____]
 ```
+
+**Questions:**
+- How do you access a value in a Python dict? What is the difference between `player["key"]` and `player.get("key", default)`?
+- What happens if you try `player["rank"]` when `"rank"` is not a key? How does `.get()` handle this more safely?
+- The C# project stores gamertags as a plain `string[]`. What advantage does a list of dicts give you over that approach?
+- How do you loop over all key-value pairs in a dictionary?
+
+**Test challenge:**
+Create a player dictionary with `"gamertag"`, `"platform"`, and `"score"`. Print each field using `.get()` with a default value. Add a `"rank"` field. Update the score. Print the whole dict to confirm all changes.
 
 ## Common Use Cases
 - Representing each gamertag entry as a dict with `gamertag`, `platform`, `score` fields
@@ -93,8 +89,35 @@ print(score_map)  # {'ShadowHunter99': 4250, 'NightOwl': 3300, ...}
 - [14_python_for_loops.md](../03_control_flow/14_python_for_loops.md)
 - [27_python_file_read.md](../06_file_io/27_python_file_read.md)
 
-## Practice Tips
-- Model each player record as a dict and store them in a list
-- Practice `.get()` with a default to safely handle missing keys
-- Build a dict comprehension that maps gamertag → score from your player list
-- Use `sorted(..., key=lambda p: p["score"])` to rank players
+## Challenges
+
+1. **Create a player record:** Fill in the blanks to build a dict for one player:
+   ```
+   player = {
+       _____: "ShadowHunter99",
+       _____: "Xbox",
+       _____: 4250
+   }
+   print(player[_____])    # print the gamertag
+   ```
+
+2. **Safe access with .get():** What is the difference between these two lines?
+   ```
+   print(player["rank"])                     # ← what happens if "rank" doesn't exist?
+   print(player._____(_____, "Unranked"))    # ← how is this safer?
+   ```
+
+3. **Iterate a dict:** Fill in the loop to print every field of a player record:
+   ```
+   for _____, _____ in player._____(  ):
+       print(f"{_____}: {_____}")
+   ```
+
+4. **Filter a list of dicts:** Given a list of player dicts, filter to only Xbox players using a list comprehension:
+   ```
+   players = [
+       {"gamertag": "ShadowX",  "platform": "Xbox", "score": 4250},
+       {"gamertag": "NightOwl", "platform": "PS",   "score": 3300},
+   ]
+   xbox = [p for p in players if p[_____] == _____]
+   ```

@@ -19,75 +19,67 @@ Python strings come with a rich library of built-in methods for searching, trans
 - **Padding methods**: `.center()`, `.ljust()`, `.rjust()`, `.zfill()`
 
 ## Syntax / Example Code
-```python
-tag = "  ShadowHunter99  "
 
-# --- Whitespace ---
-print(tag.strip())      # ShadowHunter99
-print(tag.lstrip())     # ShadowHunter99  (trailing spaces remain)
-print(tag.rstrip())     #   ShadowHunter99 (leading spaces remain)
+```
+C# patterns (from the gamertag project):
+    // Check if last character is a number
+    Char.IsNumber(s, s.Length - 1)
 
-tag = tag.strip()   # cleaned version
+    // Check if first character is not a letter or digit
+    !Char.IsLetterOrDigit(s, 0)
 
-# --- Case ---
-print(tag.upper())       # SHADOWHUNTER99
-print(tag.lower())       # shadowhunter99
-print("xbox".title())    # Xbox
-print("xbox".capitalize())  # Xbox
+    // Reading a line and splitting
+    string[] parts = line.Split(',');
 
-# --- Search ---
-print(tag.find("Hunter"))      # 6  (index of first match, -1 if not found)
-print(tag.index("99"))         # 12 (raises ValueError if not found)
-print(tag.count("9"))          # 2
-print(tag.startswith("Shadow"))  # True
-print(tag.endswith("99"))        # True
-print("99" in tag)               # True (membership test)
+Python skeleton — use string methods (fill in the blanks):
 
-# --- Replace ---
-clean = tag.replace("99", "")
-print(clean)   # ShadowHunter
+    s = "ShadowX99"
 
-# --- Split and join ---
-csv_line = "ShadowX,Xbox,4250"
-parts = csv_line.split(",")        # ['ShadowX', 'Xbox', '4250']
-print(parts[0])                    # ShadowX
+    # Equivalent to Char.IsNumber(s, s.Length - 1)
+    # Check if the LAST character is a digit
+    if s[_____]._____(  ):              # what index is the last character?
+        print(f"{s} ends with a number")
 
-words = "Shadow Hunter 99".split()  # split on whitespace
-print(words)                        # ['Shadow', 'Hunter', '99']
+    # Equivalent to !Char.IsLetterOrDigit(s, 0)
+    # Check if the FIRST character is NOT a letter or digit
+    if not s[_____]._____(  ):          # what index is the first character?
+        print(f"{s} starts with special character")
 
-rejoined = ",".join(parts)         # ShadowX,Xbox,4250
-spaced = " | ".join(parts)         # ShadowX | Xbox | 4250
+    # Strip whitespace (always do this on user input and file lines)
+    raw = "  ShadowX99  "
+    cleaned = raw._____(  )             # what removes leading/trailing spaces?
 
-# --- Validation ---
-print("ShadowX".isalpha())     # True  (letters only)
-print("4250".isdigit())        # True  (digits only)
-print("ShadowX99".isalnum())   # True  (letters and digits)
-print("   ".isspace())         # True  (only whitespace)
-print("SHADOW".isupper())      # True
-print("shadow".islower())      # True
+    # Split a CSV line (like C#'s string.Split(','))
+    line = "ShadowX,Xbox,4250"
+    parts = line._____(_____)           # what method splits? what separator?
+    tag      = parts[_____]             # index 0
+    platform = parts[_____]             # index 1
+    score    = parts[_____]             # index 2
 
-# --- Padding / alignment ---
-print("ShadowX".ljust(15))          # ShadowX        (left, padded to 15)
-print("ShadowX".rjust(15))          #         ShadowX
-print("ShadowX".center(15, "-"))    # ----ShadowX----
-print("42".zfill(6))                # 000042
+    # Rejoin parts (reverse of split)
+    rejoined = _____.join(parts)        # what separator? what method joins?
 
-# --- Practical: clean and validate gamertag ---
-def clean_and_validate(raw_tag):
-    tag = raw_tag.strip()
-    if not tag:
-        return None, "Empty gamertag"
-    if not tag.isalnum():
-        return None, f"Invalid characters in '{tag}'"
-    if not (3 <= len(tag) <= 15):
-        return None, f"Length {len(tag)} out of range (3-15)"
-    return tag, "OK"
+    # Case conversion
+    platform_input = "xbox"
+    normalized = platform_input._____(  )   # "xbox" -> "Xbox" (W3Schools: title())
 
-tag, msg = clean_and_validate("  ShadowX  ")
-print(tag, msg)   # ShadowX OK
+    # Check if gamertag is all letters+digits
+    tag = "ShadowX99"
+    if tag._____(  ):                    # what .is*() method checks alphanumeric?
+        print("Valid characters")
 
-tag, msg = clean_and_validate("Shadow Hunter")
-print(tag, msg)   # None Invalid characters in 'Shadow Hunter'
+Questions:
+- How do you access the last character of a string in Python without knowing
+  its length? (Compare to C#'s `s[s.Length - 1]`)
+- What is the Python equivalent of `Char.IsLetterOrDigit(s, 0)`?
+- What does `.split(",")` return — a string or a list?
+- What is the difference between `.strip()`, `.lstrip()`, and `.rstrip()`?
+
+Test challenge:
+    Implement `print_gamertags_ending_with_number(self)`: loop over
+    `self.gamer_tag_list`, and for each tag where `tag[-1].isdigit()` is True,
+    print it. Test with a list that includes "Shadow99", "NightOwl", "Pro7".
+    Which ones print?
 ```
 
 ## Common Use Cases
@@ -107,8 +99,8 @@ print(tag, msg)   # None Invalid characters in 'Shadow Hunter'
 - [34_python_string_validation.md](34_python_string_validation.md)
 - [35_python_string_formatting.md](35_python_string_formatting.md)
 
-## Practice Tips
-- Build a `clean_gamertag(raw)` utility that strips, validates, and returns the tag
-- Test `.find()` vs `.index()` — notice `.find()` returns -1 while `.index()` raises an exception
-- Practice `.split(",")` and `.join(",")` as a round-trip on CSV data
-- Use `tag.lower() == other.lower()` for case-insensitive gamertag comparison
+## Challenges
+- **Blank 1**: Write the condition for `print_gamertags_ending_with_number`: `if s[_____]._____(  ):`. What is the Python index for the last character? What method checks if a character is a digit?
+- **Blank 2**: Write the condition for `print_gamertags_not_starting_with_number_or_letter`: `if not s[_____]._____(  ):`. C# uses `Char.IsLetterOrDigit(s, 0)` — what is the Python equivalent call?
+- **Blank 3**: Write `line.split(",")` to parse a CSV line, then access each part by index. Write `parts[0]`, `parts[1]`, `parts[2]` to get tag, platform, score.
+- **Challenge**: The C# project checks `Char.IsNumber(s, s.Length - 1)` — it checks a specific index. Python's `s[-1].isdigit()` does the same with a negative index. Write both side by side as comments. What happens if `s` is an empty string in both languages? How do you protect against that in Python?

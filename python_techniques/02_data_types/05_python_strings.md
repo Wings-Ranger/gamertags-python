@@ -20,49 +20,55 @@ Strings in Python are sequences of characters enclosed in single or double quote
 - **Multiline strings**: use triple quotes `"""..."""`
 
 ## Syntax / Example Code
-```python
-# Creating strings
-gamertag = "ShadowHunter99"
-platform = 'Xbox'
-bio = """This player is a competitive
-shooter who specializes in stealth."""
 
-# Indexing and length
-print(gamertag[0])       # S
-print(gamertag[-1])      # 9
-print(len(gamertag))     # 14
-
-# Slicing
-print(gamertag[0:6])     # Shadow
-print(gamertag[6:])      # Hunter99
-print(gamertag[:6])      # Shadow
-
-# Common string methods
-print(gamertag.upper())           # SHADOWHUNTER99
-print(gamertag.lower())           # shadowhunter99
-print("  gamerx  ".strip())       # gamerx
-print(gamertag.replace("99", ""))  # ShadowHunter
-print(gamertag.startswith("Shadow"))  # True
-print(gamertag.endswith("99"))        # True
-print("99" in gamertag)               # True
-
-# f-strings (formatted string literals)
-name = "NightOwl"
-score = 4250
-print(f"Player: {name} | Score: {score}")
-
-# Splitting and joining
-csv_line = "GamerX,Xbox,4500"
-parts = csv_line.split(",")
-print(parts)             # ['GamerX', 'Xbox', '4500']
-rejoined = ", ".join(parts)
-print(rejoined)          # GamerX, Xbox, 4500
-
-# Checking if gamertag is empty
-tag = input("Enter gamertag: ").strip()
-if not tag:
-    print("Gamertag cannot be empty")
+**C# pattern (from the gamertag project):**
+```csharp
+// C# uses character-level checks for gamertag validation
+Char.IsNumber(s, s.Length - 1)      // is last character a digit?
+!Char.IsLetterOrDigit(s, 0)         // does it NOT start with letter/digit?
+string newTag = Console.ReadLine();  // read string from user
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+gamertag = "ShadowHunter99"
+
+# Access the LAST character (Python uses negative indexing — no .Length - 1)
+last_char  = gamertag[_____]    # -1 means last character
+
+# Access the FIRST character
+first_char = gamertag[_____]    # 0 means first character
+
+# Check if last character is a digit (replaces C#'s Char.IsNumber)
+print(last_char._____(  ))      # returns True or False
+
+# Check if first character is a letter or digit (replaces Char.IsLetterOrDigit)
+print(first_char._____(  ))     # returns True or False
+
+# Check if the ENTIRE gamertag is letters and digits only
+print(gamertag._____(  ))       # one method to check the whole string
+
+# Get length (replaces C#'s .Length property)
+print(_____(gamertag))
+
+# Strip whitespace from user input (always do this after input() or file reads)
+raw_input = "  GamerX  "
+clean = raw_input._____(  )
+
+# f-string formatting
+name  = _____
+score = _____
+print(_____"Player: {_____} | Score: {_____}")
+```
+
+**Questions:**
+- C# uses `Char.IsNumber(s, s.Length - 1)` to check the last character. How does Python's index `-1` give you the last character more simply?
+- What Python string method checks if a single character (or whole string) contains only digits? (Replaces `Char.IsNumber`)
+- What Python string method checks if all characters are letters or digits? (Replaces `Char.IsLetterOrDigit`)
+- Why should you always call `.strip()` on strings read from user input or files?
+
+**Test challenge:**
+Write Python code that checks `"ShadowHunter99"`: (1) does it end with a digit? (2) does it start with a letter or digit? (3) is the entire string alphanumeric? Print `True` or `False` for each check.
 
 ## Common Use Cases
 - Reading and cleaning gamertag names from user input (`.strip()`)
@@ -83,8 +89,30 @@ if not tag:
 - [34_python_string_validation.md](../07_strings/34_python_string_validation.md)
 - [35_python_string_formatting.md](../07_strings/35_python_string_formatting.md)
 
-## Practice Tips
-- Practice `.strip()` on every string read from user input or files
-- Try splitting a CSV line and accessing each field by index
-- Build a gamertag validator that checks length and character type
-- Experiment with f-strings to format player display output neatly
+## Challenges
+
+1. **Character checks:** The C# project uses `Char.IsNumber(s, s.Length - 1)` to check if the last character is a number. Fill in the Python equivalent:
+   ```
+   s = "ShadowHunter99"
+   last_char = s[_____]           # get last character
+   print(last_char._____(  ))     # is it a digit?
+   ```
+
+2. **Start character check:** C# uses `!Char.IsLetterOrDigit(s, 0)` to check the first character. Fill in Python:
+   ```
+   first_char = s[_____]                   # get first character
+   print(_____ first_char._____(  ))       # does it NOT start with letter/digit?
+   ```
+
+3. **Whole-string check:** What single Python method checks if ALL characters in a string are alphanumeric? Test it on each and predict `True` or `False`:
+   ```
+   print("ShadowX"._____(  ))    # _____
+   print("Shadow X"._____(  ))   # _____ (why different?)
+   print("99"._____(  ))         # _____
+   ```
+
+4. **Input cleaning:** A user types `"  NightOwl  "` with extra spaces. Write Python to strip whitespace before using the value. Why must this step always happen when reading from `input()` or a file?
+   ```
+   raw   = "  NightOwl  "
+   clean = raw._____(  )
+   ```

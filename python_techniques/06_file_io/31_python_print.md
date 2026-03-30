@@ -19,70 +19,57 @@ The `print()` function outputs text to the console (standard output). It is one 
 - **Pretty printing**: use `pprint` module for nested data structures
 
 ## Syntax / Example Code
-```python
-# Basic print
-print("Hello, World!")
-print("Welcome to the Gamertag Manager")
 
-# Multiple arguments (separated by spaces by default)
-gamertag = "ShadowX"
-platform = "Xbox"
-score = 4250
-print(gamertag, platform, score)   # ShadowX Xbox 4250
+```
+C# pattern (from the gamertag project):
+    // Printing to the console
+    Console.WriteLine("Welcome to the Gamertag Manager!");
+    Console.WriteLine(s);   // printing each gamertag in the foreach loop
 
-# Custom separator
-print(gamertag, platform, score, sep=" | ")    # ShadowX | Xbox | 4250
-print(gamertag, platform, score, sep=", ")     # ShadowX, Xbox, 4250
-print("=", sep="", end="")  # no sep, no newline
+    // C# string interpolation
+    Console.WriteLine($"Found {count} gamertags.");
 
-# Custom end (suppress or change the newline)
-print("Loading", end="")
-print(".", end="")
-print(".", end="")
-print(". Done!")   # Loading... Done!
+Python skeleton — use print() (fill in the blanks):
 
-# f-strings — modern formatting (Python 3.6+)
-print(f"Player: {gamertag}")
-print(f"Score:  {score:,}")          # 4,250  (thousands separator)
-print(f"Score:  {score:>10}")        # right-aligned in 10 chars
-print(f"Name:   {gamertag:<15}")     # left-aligned in 15 chars
+    # Basic print — equivalent to Console.WriteLine()
+    _____("Welcome to the Gamertag Manager!")
 
-# Printing a formatted player table
-players = [
-    {"gamertag": "ShadowX",   "platform": "Xbox",        "score": 4250},
-    {"gamertag": "NightOwl",  "platform": "PlayStation", "score": 3300},
-    {"gamertag": "ProSniper", "platform": "PC",          "score": 5100},
-]
+    # Printing a variable — equivalent to Console.WriteLine(s)
+    tag = "ShadowX99"
+    _____(tag)
 
-print("\n" + "=" * 45)
-print(f"{'#':<4} {'Gamertag':<16} {'Platform':<14} {'Score':>6}")
-print("=" * 45)
-for i, p in enumerate(players, 1):
-    print(f"{i:<4} {p['gamertag']:<16} {p['platform']:<14} {p['score']:>6,}")
-print("=" * 45)
+    # f-string — equivalent to C#'s $"..." interpolation
+    count = 5
+    _____(f"Found _____ gamertags.")      # embed count variable in the string
 
-# Printing to a file
-import sys
-with open("output.log", "w") as log:
-    print("Gamertag Manager started", file=log)
-    for p in players:
-        print(f"{p['gamertag']},{p['platform']},{p['score']}", file=log)
+    # Printing each gamertag — translating the C# foreach loop
+    gamer_tag_list = ["ShadowX", "NightOwl", "ProSniper"]
+    for _____ in _____:
+        _____(_____)
 
-# pprint for nested data structures
-from pprint import pprint
-pprint(players)
+    # Custom separator — print without newline at end
+    _____(">", end=_____)     # what end value suppresses the newline?
+    _____(tag)                # prints on same line as ">"
 
-# Debug print with variable name (Python 3.8+)
-debug_value = 4250
-print(f"{debug_value=}")   # debug_value=4250
+    # Print a separator line
+    _____(_____ * 40)         # print "=" repeated 40 times
 
-# Print a horizontal rule
-def hr(char="=", width=45):
-    print(char * width)
+    # Formatted table row
+    _____(f"{'Gamertag':<_____} {'Platform':>_____}")   # what widths align nicely?
+    for tag in gamer_tag_list:
+        _____(f"{tag:<_____}")
 
-hr()
-print("Gamertag Manager")
-hr("-")
+Questions:
+- What is the Python equivalent of C#'s `Console.WriteLine()`?
+- How do you embed a variable in a string in Python? (C# uses `$"{variable}"`)
+- What parameter controls what `print()` puts at the end of its output?
+- How do you print multiple items on the same line?
+
+Test challenge:
+    Implement `print_all_gamertags(self)` for your Gamertags class. It should print
+    a header line, then each gamertag numbered (1. ShadowX, 2. NightOwl, etc.).
+    Use `enumerate()` to get the number. How do you use `enumerate()` with a
+    starting index of 1?
 ```
 
 ## Common Use Cases
@@ -102,8 +89,8 @@ hr("-")
 - [05_python_strings.md](../02_data_types/05_python_strings.md)
 - [09_python_dictionaries.md](../02_data_types/09_python_dictionaries.md)
 
-## Practice Tips
-- Practice the f-string alignment specifiers: `:<15` (left), `:>6` (right), `:^10` (center)
-- Build a `display_players(players)` function that prints a clean, aligned table
-- Use `sep=" | "` to quickly format multi-column output without f-strings
-- Add `f"{score:,}"` for thousands separators in scores to improve readability
+## Challenges
+- **Blank 1**: Write `print_all_gamertags(self)` using a `for` loop. Print each tag. Then improve it to use `enumerate(self.gamer_tag_list, _____)` so each line is numbered starting from 1.
+- **Blank 2**: Write `show_welcome_message(self)`. It should print a header (`"=" * _____`), a title, and another separator. What width looks good on a standard terminal?
+- **Blank 3**: Write an f-string that prints: `f"{i}. {tag}"` where `i` is the number and `tag` is the gamertag. Now add left-alignment: `f"{i:<_____} {tag:<_____}"`. What widths give clean columns?
+- **Challenge**: The C# code uses `Console.WriteLine(s)` inside a `foreach` loop. Your Python version uses `print(s)` inside a `for` loop. Write both side by side as comments. Now add numbering to the Python version using `enumerate` — C# would need a separate counter variable. Which is more concise?

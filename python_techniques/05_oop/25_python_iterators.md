@@ -19,82 +19,65 @@ An iterator is an object that implements the iterator protocol: `__iter__()` and
 - **`yield` vs `return`**: `yield` pauses the function and resumes on the next `next()` call
 
 ## Syntax / Example Code
-```python
-# Every for loop uses the iterator protocol internally
-gamertags = ["ShadowX", "NightOwl", "ProSniper"]
 
-# Behind the scenes of: for tag in gamertags:
-it = iter(gamertags)
-print(next(it))   # ShadowX
-print(next(it))   # NightOwl
-print(next(it))   # ProSniper
-# next(it)  # would raise StopIteration
+```
+C# pattern (from the gamertag project):
+    // C# foreach uses IEnumerable — the iterator protocol under the hood
+    foreach (string s in gamerTagList)
+    {
+        Console.WriteLine(s);
+    }
 
-# Custom iterator class
-class PlayerIterator:
-    """Iterates over a list of players, yielding only active ones."""
+Python skeleton — understand how iteration works (fill in the blanks):
 
-    def __init__(self, players):
-        self.players = players
-        self.index = 0
+    gamertags = ["ShadowX", "NightOwl", "ProSniper"]
 
-    def __iter__(self):
-        return self   # iterator returns itself
+    # The for loop uses the iterator protocol automatically:
+    for _____ in gamertags:
+        print(_____)
 
-    def __next__(self):
-        while self.index < len(self.players):
-            player = self.players[self.index]
-            self.index += 1
-            if player.get("active", True):
-                return player
-        raise StopIteration
+    # Under the hood, Python does this:
+    it = _____(gamertags)    # what built-in creates an iterator?
+    print(_____(it))         # what built-in gets the next item?
+    print(_____(it))
+    print(_____(it))
+    # calling next() one more time raises: _____
 
+    # Custom iterator class for Gamertags
+    class GamertagIterator:
+        def _____(self, tags):
+            self.tags = tags
+            self.index = _____       # where does iteration start?
 
-players = [
-    {"gamertag": "ShadowX",   "active": True},
-    {"gamertag": "NightOwl",  "active": False},
-    {"gamertag": "ProSniper", "active": True},
-]
+        def _____(self):
+            return _____             # what does __iter__ return for an iterator?
 
-for player in PlayerIterator(players):
-    print(player["gamertag"])   # ShadowX, ProSniper (NightOwl skipped)
+        def _____(self):
+            if self.index < len(self.tags):
+                tag = self.tags[self.index]
+                self.index _____ 1   # advance the index
+                return tag
+            raise _____              # what stops the iteration?
 
-# Generator function (simpler than a full iterator class)
-def active_players(players):
-    """Yield only active players."""
-    for player in players:
-        if player.get("active", True):
-            yield player
+    # Generator function (simpler alternative to a full iterator class)
+    def active_gamertags(tags):
+        for tag in tags:
+            if tag:               # skip empty strings
+                _____ tag         # what keyword produces one value and pauses?
 
-for player in active_players(players):
-    print(player["gamertag"])
+    for tag in active_gamertags(gamertags):
+        print(tag)
 
-# Generator for reading large files line by line (memory efficient)
-def read_gamertag_lines(filename):
-    """Yield one non-blank line at a time from a file."""
-    try:
-        with open(filename) as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    yield line
-    except FileNotFoundError:
-        return
+Questions:
+- What two special methods make a class iterable?
+- What exception signals that iteration is complete?
+- What keyword turns a function into a generator?
+- Why might you use a generator instead of building a full list in memory?
 
-for line in read_gamertag_lines("gamertags.txt"):
-    print(line)
-
-# Generator expression (like list comprehension but lazy)
-scores = [4250, 3300, 5100, 900, 1500]
-high_scores = (s for s in scores if s >= 3000)   # generator expression
-for s in high_scores:
-    print(s)   # 4250, 3300, 5100
-
-# Using next() with a default (no StopIteration)
-tags = iter(["ShadowX", "NightOwl"])
-print(next(tags, "None"))   # ShadowX
-print(next(tags, "None"))   # NightOwl
-print(next(tags, "None"))   # None  (default, no exception)
+Test challenge:
+    Write a generator function called filtered_gamertags(tags, ending_digit=True)
+    that yields only tags ending with a digit. Test it with your gamertag list.
+    How does it compare to the list comprehension approach?
 ```
 
 ## Common Use Cases
@@ -115,8 +98,8 @@ print(next(tags, "None"))   # None  (default, no exception)
 - [21_python_classes.md](21_python_classes.md)
 - [27_python_file_read.md](../06_file_io/27_python_file_read.md)
 
-## Practice Tips
-- Use a generator function to read your gamertag file instead of reading all lines at once
-- Implement `__iter__` on your `GamertagManager` so you can write `for p in manager:`
-- Practice converting a list comprehension to a generator expression with `()` instead of `[]`
-- Use `next(iter_obj, default)` to safely get the first item without a try/except
+## Challenges
+- **Blank 1**: Implement `GamertagIterator.__next__`. It should return `self.tags[self.index]` and increment `self.index`. What exception do you raise when `self.index >= len(self.tags)`?
+- **Blank 2**: Write a generator function `read_gamertag_file(filename)` that opens the file and `yield`s each non-blank line (stripped). What keyword do you use instead of `return` to produce one line at a time?
+- **Blank 3**: Write a generator expression (one line) that produces only gamertags ending with a digit: `ending_digit = (_____ for s in gamertags if _____)`. What condition checks the last character?
+- **Challenge**: The C# `foreach` loop and Python `for` loop look similar. What happens in Python if you call `iter()` on a plain integer like `iter(42)`? Try it. What does that error tell you about what makes something iterable?

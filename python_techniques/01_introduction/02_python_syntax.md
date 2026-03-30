@@ -18,41 +18,52 @@ Python syntax refers to the set of rules that define how Python programs are wri
 - **One statement per line** is the standard convention
 
 ## Syntax / Example Code
-```python
-# Single-line comment
-print("Welcome to the Gamertag Manager")  # inline comment
 
-"""
-This is a multi-line
-docstring or block comment
-"""
+**C# pattern (from the gamertag project):**
+```csharp
+// C# uses braces for code blocks — Python uses indentation instead
+if (platform == "PC")
+{
+    Console.WriteLine("PC Gaming");
+    Console.WriteLine("Master Race");
+}
+Console.WriteLine("This runs always");
+```
 
-# Indentation defines blocks — this is mandatory
+**Python skeleton (fill in the blanks):**
+```
+# Single-line comment uses _____
+
+_____
+This is a multi-line docstring — uses triple _____
+_____
+
+# Indentation defines blocks — NOT braces
 platform = "PC"
-if platform == "PC":
-    print("PC Gaming")      # 4-space indent
-    print("Master Race")    # same block
-print("This runs always")   # back to top level
+if platform _____ "PC":
+_____print("PC Gaming")       # _____ spaces of indentation required
+_____print("Master Race")     # same _____
+print("This runs always")     # back to top-level — no indent
 
-# Line continuation with backslash
-long_message = "This gamertag is invalid because " \
-               "it contains special characters"
-
-# Line continuation with parentheses (preferred)
+# Line continuation with parentheses (preferred over backslash)
 valid_platforms = (
-    "Xbox",
-    "PlayStation",
-    "PC",
-    "Nintendo Switch"
+    _____,
+    _____,
+    _____
 )
 
-# Multiple assignments on one line
-x, y, z = 1, 2, 3
-
-# Checking Python version at runtime
-import sys
-print(sys.version)
+# Multiple assignment in one line (Python-specific)
+x, y, z = _____, _____, _____
 ```
+
+**Questions:**
+- In C# you use `{` and `}` to open and close a block. What does Python use instead to define where a block begins and ends?
+- How many spaces is the Python standard for one level of indentation?
+- What character starts a single-line comment in Python? (C# uses `//`)
+- What happens if you mix tabs and spaces in Python indentation?
+
+**Test challenge:**
+Write a Python `if` block that prints `"Console player"` if `platform` equals `"Xbox"` and `"PC player"` if it equals `"PC"`. Intentionally mis-indent one line and observe the exact error Python gives you.
 
 ## Common Use Cases
 - Structuring `if/else` blocks and loops with proper indentation
@@ -71,8 +82,27 @@ print(sys.version)
 - [03_python_variables.md](03_python_variables.md)
 - [17_python_functions.md](../04_functions/17_python_functions.md)
 
-## Practice Tips
-- Intentionally break indentation and observe the `IndentationError`
-- Practice writing multi-line conditions with parentheses instead of backslashes
-- Add meaningful comments to your gamertag project explaining each block
-- Use a linter like `flake8` or `pylint` to catch syntax issues automatically
+## Challenges
+
+1. **Indentation error:** This code has an indentation problem — find and fix it:
+   ```
+   platform = "Xbox"
+   if platform == "Xbox":
+   print("Console player")    # ← what is wrong here?
+       print("Valid")
+   ```
+
+2. **Add comments:** Take any two `if` conditions from your gamertag project and add a `#` comment above each one explaining what it checks. What style does PEP 8 recommend for comments?
+
+3. **Line continuation:** Rewrite this as a single assignment using parentheses for line continuation:
+   ```
+   message = "This gamertag is invalid " + "because it has special characters"
+   ```
+   ```
+   message = (
+       _____
+       _____
+   )
+   ```
+
+4. **Observe the error:** Deliberately add a semicolon at the end of a Python line. Does it cause an error, a warning, or nothing? What does PEP 8 say about using semicolons in Python?

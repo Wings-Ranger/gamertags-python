@@ -19,42 +19,49 @@ Variables in Python are containers for storing data values. Python is dynamicall
 - **Multiple assignment**: `a = b = c = 0` or `x, y = 1, 2`
 
 ## Syntax / Example Code
-```python
-# Basic variable assignment
-gamertag = "ShadowHunter99"
-platform = "Xbox"
-score = 4250
-is_active = True
 
-# Multiple assignment
-x, y, z = "Xbox", "PlayStation", "PC"
+**C# pattern (from the gamertag project):**
+```csharp
+string gamerTag = "ShadowHunter99";
+string platform  = "Xbox";
+int score        = 4250;
+bool isRunning   = true;
+const int MAX_GAMERTAG_LENGTH = 15;
+```
 
-# Same value to multiple variables
-count = total = 0
+**Python skeleton (fill in the blanks):**
+```
+# Python does NOT declare types — just assign a value directly
+gamertag   = _____
+platform   = _____
+score      = _____
+is_running = _____
 
-# Dynamic typing — reassigning changes the type
-value = 42          # int
-value = "forty-two" # now a string
+# Check what type Python inferred
+print(_____(gamertag))   # should show <class 'str'>
+print(_____(score))      # should show <class 'int'>
 
-# Check the type
-print(type(gamertag))   # <class 'str'>
-print(type(score))      # <class 'int'>
+# Constants: ALL_CAPS by convention (Python does NOT enforce immutability)
+MAX_GAMERTAG_LENGTH = _____
+MIN_GAMERTAG_LENGTH = _____
 
-# Constants (convention only — Python doesn't enforce immutability)
-MAX_GAMERTAG_LENGTH = 15
-MIN_GAMERTAG_LENGTH = 3
-VALID_PLATFORMS = ["Xbox", "PlayStation", "PC", "Nintendo Switch"]
+# Multiple assignment in one line (Python-specific)
+x, y, z = _____, _____, _____
 
 # Variable in an f-string
-player = "NightOwl"
-level = 42
-print(f"Player {player} is at level {level}")
-
-# Deleting a variable
-temp = "temporary"
-del temp
-# print(temp)  # NameError: name 'temp' is not defined
+player = _____
+level  = _____
+print(_____"Player {_____} is at level {_____}")
 ```
+
+**Questions:**
+- In C# you write `string gamerTag = "value"`. What is different about variable assignment in Python?
+- C# uses camelCase (`gamerTag`). What naming convention does Python use for variables? (e.g., `gamerTag` becomes `_____`)
+- How do you check what type Python assigned to a variable?
+- Can you reassign a Python variable to a completely different type? Try assigning `score = 4250` then `score = "unknown"` — what happens?
+
+**Test challenge:**
+Declare the five variables your gamertag project will need: `gamertag`, `is_running`, `MAX_GAMERTAG_LENGTH`, `MIN_GAMERTAG_LENGTH`, and `score`. Print each one along with `type()` to confirm Python inferred the right types.
 
 ## Common Use Cases
 - Storing gamertag, platform, and score data for each player
@@ -72,8 +79,25 @@ del temp
 - [05_python_strings.md](../02_data_types/05_python_strings.md)
 - [40_python_scope.md](../09_advanced/40_python_scope.md)
 
-## Practice Tips
-- Name variables descriptively: `gamertag` beats `g` or `x`
-- Practice tuple unpacking: `name, platform = "GamerX", "Xbox"`
-- Try assigning different types to the same variable and use `type()` to track changes
-- Define all your gamertag project constants at the top of your file in ALL_CAPS
+## Challenges
+
+1. **Translate C# to Python:** Rewrite these C# declarations as Python variables using snake_case naming:
+   ```csharp
+   string gamerTag  = "ProSniper";
+   bool   isRunning = true;
+   int    maxLength = 15;
+   ```
+   ```
+   gamer_tag  = _____
+   is_running = _____
+   max_length = _____
+   ```
+
+2. **Naming convention:** Rename these C# camelCase names to Python snake_case:
+   - `isRunning` → `_____`
+   - `gamerTagList` → `_____`
+   - `newGamerTag` → `_____`
+
+3. **Dynamic typing:** Assign `value = 42`, print `type(value)`. Then assign `value = "forty-two"` and print `type(value)` again. What changed? What does this mean for your gamertag project?
+
+4. **Constants:** Define `MAX_GAMERTAG_LENGTH` and `MIN_GAMERTAG_LENGTH` at the top of a Python file. Try changing one of them later in the file. Does Python stop you? What does ALL_CAPS convention communicate to other programmers?

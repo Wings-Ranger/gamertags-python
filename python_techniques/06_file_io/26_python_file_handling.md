@@ -19,67 +19,49 @@ File handling is the ability to read from and write to files stored on disk. It 
 - **Encoding**: specify `encoding="utf-8"` to handle special characters
 
 ## Syntax / Example Code
-```python
-import os
 
-# --- Opening modes ---
-# "r"  — read (file must exist)
-# "w"  — write (creates or overwrites)
-# "a"  — append (creates or adds to end)
-# "x"  — create (fails if file exists)
-# "rb" — read binary
+```
+C# patterns (from the gamertag project):
+    // Reading all lines at once
+    gamerTagList = File.ReadAllLines("../Gamertags.txt");
 
-# Always use the 'with' statement
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    content = f.read()
-    print(content)
+    // Appending a new entry
+    File.AppendAllText("../Gamertags.txt", "\n" + newGamerTag);
 
-# Writing (creates or overwrites)
-with open("gamertags.txt", "w", encoding="utf-8") as f:
-    f.write("ShadowX,Xbox,4250\n")
-    f.write("NightOwl,PlayStation,3300\n")
+Python skeleton — open files with `open()` and `with` (fill in the blanks):
 
-# Appending (adds to end without overwriting)
-with open("gamertags.txt", "a", encoding="utf-8") as f:
-    f.write("ProSniper,PC,5100\n")
+    # Reading a file (equivalent to File.ReadAllLines)
+    with _____(_____, _____) as f:       # what function? what filename? what mode?
+        lines = f._____()                # what method reads ALL lines into a list?
 
-# Checking if a file exists before opening
-filename = "gamertags.txt"
-if os.path.exists(filename):
-    with open(filename, "r") as f:
-        print(f.read())
-else:
-    print(f"File not found: {filename}")
+    # Writing (creating or overwriting)
+    with _____(_____, _____) as f:       # what mode overwrites?
+        f._____(_____)                   # write a single string
 
-# Getting file size and info
-if os.path.exists(filename):
-    size = os.path.getsize(filename)
-    print(f"File size: {size} bytes")
+    # Appending (equivalent to File.AppendAllText)
+    with _____(_____, _____) as f:       # what mode appends without overwriting?
+        f.write("\n" + _____)            # what variable holds the new gamertag?
 
-# Listing files in a directory
-for fname in os.listdir("."):
-    if fname.endswith(".txt"):
-        print(fname)
+    # Checking if a file exists before opening (no C# equivalent shown)
+    import _____                         # what module has path utilities?
+    if _____.path.exists(_____):
+        print("File found")
+    else:
+        print("File not found")
 
-# Safe file operations with try/except
-def load_file_safe(filename):
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            return f.read()
-    except FileNotFoundError:
-        print(f"File not found: {filename}")
-        return ""
-    except PermissionError:
-        print(f"Permission denied: {filename}")
-        return ""
+Questions:
+- What Python keyword opens a file? (W3Schools: Python File Open)
+- What three mode strings do you need for reading, writing, and appending?
+- What does the `with` keyword do automatically that C# requires you to do manually?
+- In C#, the path is `"../Gamertags.txt"`. How would you write that same relative
+  path in Python?
 
-content = load_file_safe("gamertags.txt")
-
-# File path construction (cross-platform)
-import os
-data_dir = "data"
-filename = os.path.join(data_dir, "gamertags.txt")
-print(filename)   # data/gamertags.txt (Linux/Mac) or data\gamertags.txt (Windows)
+Test challenge:
+    Write a short program that:
+    1. Opens "Gamertags.txt" in read mode and prints how many lines it has
+    2. Opens it in append mode and adds a new gamertag
+    3. Opens it in read mode again and confirms the count increased by 1
+    What happens if "Gamertags.txt" does not exist when you try to open it in read mode?
 ```
 
 ## Common Use Cases
@@ -99,8 +81,8 @@ print(filename)   # data/gamertags.txt (Linux/Mac) or data\gamertags.txt (Window
 - [29_python_file_delete.md](29_python_file_delete.md)
 - [36_python_try_except.md](../08_error_handling/36_python_try_except.md)
 
-## Practice Tips
-- Always use `with open(...)` — never call `f.close()` manually
-- Specify `encoding="utf-8"` to handle international characters in gamertags
-- Check `os.path.exists()` before reading to give a friendly error message
-- Practice all three modes: `"r"`, `"w"`, and `"a"` to understand their differences
+## Challenges
+- **Blank 1**: Write `with open("Gamertags.txt", _____) as f:`. What mode string reads without modifying the file?
+- **Blank 2**: Write `with open("Gamertags.txt", _____) as f: f.write(_____)`. What mode appends? What string do you write if the new gamertag is in a variable called `new_tag`?
+- **Blank 3**: Write the `os.path.exists(_____)`  check before opening for reading. What string argument goes in the blank?
+- **Challenge**: The C# project uses `"../Gamertags.txt"` — a relative path going up one directory. If your Python script is in the same folder as `Gamertags.txt`, what path string do you use instead? Test both `"Gamertags.txt"` and `"../Gamertags.txt"` from different working directories and observe the difference.

@@ -20,66 +20,55 @@ A `for` loop iterates over any iterable — a list, string, tuple, dictionary, r
 - **`else`**: optional block that runs if loop was not exited with `break`
 
 ## Syntax / Example Code
-```python
-# Iterating over a list of gamertags
-gamertags = ["ShadowHunter99", "NightOwl", "ProSniper", "GamerZ"]
 
-for tag in gamertags:
-    print(tag)
-
-# Using range()
-for i in range(5):       # 0, 1, 2, 3, 4
-    print(i)
-
-for i in range(1, 6):    # 1, 2, 3, 4, 5
-    print(i)
-
-for i in range(0, 10, 2):  # 0, 2, 4, 6, 8
-    print(i)
-
-# enumerate() — index + value
-for i, tag in enumerate(gamertags, 1):
-    print(f"{i}. {tag}")
-
-# Iterating over a string
-for char in "GamerX":
-    print(char)
-
-# Iterating over a dictionary
-player = {"gamertag": "ShadowX", "platform": "Xbox", "score": 4250}
-for key, value in player.items():
-    print(f"  {key}: {value}")
-
-# zip() — pairing two lists
-tags = ["ShadowX", "NightOwl"]
-scores = [4250, 3300]
-for tag, score in zip(tags, scores):
-    print(f"{tag}: {score}")
-
-# List comprehension (compact for loop)
-valid_tags = [tag for tag in gamertags if len(tag) >= 3]
-upper_tags = [tag.upper() for tag in gamertags]
-
-# Nested for loop — compare all pairs
-for i, tag1 in enumerate(gamertags):
-    for j, tag2 in enumerate(gamertags):
-        if i < j and tag1.lower() == tag2.lower():
-            print(f"Duplicate: {tag1} and {tag2}")
-
-# for with break — search
-target = "NightOwl"
-for tag in gamertags:
-    if tag == target:
-        print(f"Found: {tag}")
-        break
-else:
-    print(f"{target} not found")
-
-# Reading file lines (for loop over file)
-with open("gamertags.txt") as f:
-    for line in f:
-        print(line.strip())
+**C# pattern (from the gamertag project):**
+```csharp
+// C# PrintAllGamertags uses foreach
+public void PrintAllGamertags()
+{
+    foreach (string s in gamerTagList)
+        Console.WriteLine(s);
+}
 ```
+
+**Python skeleton (fill in the blanks):**
+```
+# Replicating C#'s PrintAllGamertags with a Python for loop
+def print_all_gamertags(gamer_tag_list):
+    for _____ in _____:
+        print(_____)
+
+# Numbered output using enumerate() — no manual counter needed
+def print_all_gamertags_numbered(gamer_tag_list):
+    for _____, _____ in _____(gamer_tag_list, 1):
+        print(f"{_____}. {_____}")
+
+# range() — iterate a fixed number of times
+for i in _____(5):         # 0 through 4
+    print(i)
+
+for i in _____(1, 6):      # 1 through 5
+    print(i)
+
+# Iterating over a string character by character
+tag = "GamerX"
+for _____ in _____:
+    print(_____)            # prints each character on its own line
+
+# List comprehension — compact filter to replace PrintGamertagsEndingWithNumber
+gamer_tag_list = ["ShadowX", "NightOwl", "99Stars", "ProSniper9"]
+ending_with_digit = [s for s in _____ if s[_____]._____(  )]
+print(ending_with_digit)
+```
+
+**Questions:**
+- C# uses `foreach (string s in gamerTagList)`. What is the Python equivalent syntax?
+- Python's `enumerate()` gives you both index and value. Why is this better than a manual counter variable like `i = 0; i += 1`?
+- What does `range(1, 6)` produce? What about `range(0, 10, 2)`?
+- A list comprehension `[s for s in tags if condition]` replaces what common for-loop-plus-append pattern?
+
+**Test challenge:**
+Write `print_all_gamertags` as a Python function. Call it with a list of 5 gamertags. Then write a second version using `enumerate()` that prints `"1. ShadowX"`, `"2. NightOwl"`, etc.
 
 ## Common Use Cases
 - Displaying all gamertags with numbered index using `enumerate()`
@@ -99,8 +88,27 @@ with open("gamertags.txt") as f:
 - [06_python_lists.md](../02_data_types/06_python_lists.md)
 - [25_python_iterators.md](../05_oop/25_python_iterators.md)
 
-## Practice Tips
-- Always use `enumerate()` instead of managing a manual index counter
-- Practice writing list comprehensions to replace simple `for` + `append` patterns
-- Use `for/else` when searching a list — the `else` runs only if `break` was never hit
-- Read a gamertag file line by line using `for line in file:` pattern
+## Challenges
+
+1. **Translate foreach:** C# `PrintAllGamertags` uses `foreach`. Write the Python function:
+   ```
+   def print_all_gamertags(gamer_tag_list):
+       for _____ in _____:
+           print(_____)
+   ```
+
+2. **Numbered list with enumerate():** Print gamertags with numbers (1, 2, 3...) without a manual counter:
+   ```
+   for _____, _____ in _____(gamer_tag_list, _____):
+       print(f"{_____}. {_____}")
+   ```
+   What is the second argument to `enumerate()` used for?
+
+3. **Filter with comprehension:** Replicate `PrintGamertagsEndingWithNumber` as a list comprehension, then iterate the result:
+   ```
+   ending_in_digit = [s for s in gamer_tag_list if s[_____]._____(  )]
+   for tag in _____:
+       print(tag)
+   ```
+
+4. **Iterate a string:** Write a `for` loop that prints each character of `"GamerX"` on its own line. Then count how many characters are digits using a counter variable inside the loop.

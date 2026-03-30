@@ -19,77 +19,44 @@ A class is a blueprint for creating objects. Classes bundle data (attributes) an
 - **`__str__`**: defines the string representation of an object (`str(obj)` / `print(obj)`)
 
 ## Syntax / Example Code
-```python
-# Basic class definition
-class Player:
-    """Represents a registered player in the gamertag system."""
 
-    # Class attribute (shared by all instances)
-    platform_options = ["Xbox", "PlayStation", "PC", "Nintendo Switch"]
+```
+C# pattern (from the gamertag project):
+    internal class Gamertags
+    {
+        private string[] gamerTagList = { };
+        // methods like LoadGamertags(), PrintAllGamertags(), etc.
+    }
 
-    def __init__(self, gamertag, platform="PC", score=0):
-        """Initialize a new Player instance."""
-        self.gamertag = gamertag
-        self.platform = platform
-        self.score = score
+Python skeleton — define a Gamertags class (fill in the blanks):
 
-    def __str__(self):
-        """Return a human-readable string representation."""
-        return f"{self.gamertag} ({self.platform}) — Score: {self.score}"
+    _____ Gamertags:
+        """Manages a collection of gamertags loaded from a file."""
 
-    def __repr__(self):
-        """Return a developer-friendly representation."""
-        return f"Player(gamertag='{self.gamertag}', platform='{self.platform}', score={self.score})"
+        _____ _____(self):
+            self.gamer_tag_list = _____   # empty list, like string[] gamerTagList = { }
 
-    def get_rank(self):
-        """Return the player's rank based on score."""
-        if self.score >= 5000:
-            return "Diamond"
-        elif self.score >= 3000:
-            return "Gold"
-        elif self.score >= 1000:
-            return "Silver"
-        else:
-            return "Bronze"
+        _____ load_gamertags(self):
+            pass  # you'll implement file reading here
 
-    def add_score(self, points):
-        """Add points to the player's score."""
-        self.score += points
+        _____ print_all_gamertags(self):
+            pass  # you'll implement display here
 
-    def is_valid(self):
-        """Return True if the gamertag meets requirements."""
-        tag = self.gamertag
-        return bool(tag) and 3 <= len(tag) <= 15 and tag.isalnum()
+    # Creating an instance (like: Gamertags gt = new Gamertags(); in C#)
+    gt = _____()
+    gt._____(   )
 
+Questions:
+- What Python keyword starts a class definition? (Hint: it is NOT "internal class")
+- How do you define a method that belongs to a specific instance? What is the
+  mandatory first parameter called?
+- What is the Python equivalent of C#'s constructor? What special name does it have?
+- How do you call a method on your instance `gt`? What syntax do you use?
 
-# Creating instances
-p1 = Player("ShadowHunter99", "Xbox", 4250)
-p2 = Player("NightOwl", "PlayStation", 3300)
-p3 = Player("ProSniper")    # uses defaults: PC, score=0
-
-# Accessing attributes and calling methods
-print(p1.gamertag)      # ShadowHunter99
-print(p1.score)         # 4250
-print(p1.get_rank())    # Gold
-print(p1)               # ShadowHunter99 (Xbox) — Score: 4250
-
-p1.add_score(1000)
-print(p1.score)         # 5250
-print(p1.get_rank())    # Diamond
-
-# Checking validity
-print(p1.is_valid())    # True
-
-# List of Player objects
-players = [p1, p2, p3]
-for player in players:
-    print(f"{player} | Rank: {player.get_rank()}")
-
-# Accessing class attribute
-print(Player.platform_options)
-
-# Sorting Player objects
-ranked = sorted(players, key=lambda p: p.score, reverse=True)
+Test challenge:
+    Create an instance of your Gamertags class, call load_gamertags() on it, then
+    call print_all_gamertags(). What happens if load_gamertags() hasn't been
+    implemented yet? What should print_all_gamertags() print when the list is empty?
 ```
 
 ## Common Use Cases
@@ -108,8 +75,8 @@ ranked = sorted(players, key=lambda p: p.score, reverse=True)
 - [23_python_methods.md](23_python_methods.md)
 - [24_python_inheritance.md](24_python_inheritance.md)
 
-## Practice Tips
-- Rewrite your gamertag project's player data as `Player` objects instead of dicts
-- Implement `__str__` so `print(player)` gives useful output automatically
-- Start small: just `__init__` and one method; add more methods incrementally
-- Test each method individually before integrating into the full project
+## Challenges
+- **Blank 1**: Define a `Gamertags` class with an `__init__` that sets `self.gamer_tag_list = _____`. What value makes an empty list in Python?
+- **Blank 2**: Add a `show_welcome_message(self)` method. What should it print? How does it match the C# `ShowWelcomeMessage()` method?
+- **Blank 3**: Add a `__str__` method that returns `f"Gamertags: _____ entries"`. What attribute gives you the count?
+- **Challenge**: C# uses `Console.WriteLine()` to print. What Python function do you call inside your methods? Write the `show_welcome_message` method body using only that function.
