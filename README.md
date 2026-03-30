@@ -6,13 +6,14 @@ Quick-glance home page for your holiday homework. This README combines all 3 pla
 - [Daily Status](#daily-status)
 - [Quick Start](#quick-start)
 - [Quick Links](#quick-links)
+- [Repository Layout](#repository-layout)
 - [Techniques by Day](#techniques-by-day)
 - [Phone Update (60 Seconds)](#phone-update-60-seconds)
 - [At-a-Glance Dashboard](#at-a-glance-dashboard)
 - [Full Document 1: Python Porting Learning Guide](#full-document-1-python-porting-learning-guide)
 - [Full Document 2: Two-Week Homework Plan](#full-document-2-two-week-homework-plan)
 - [Full Document 3: Progress Tracker](#full-document-3-progress-tracker)
-- [Source Files (Kept Intact)](#source-files-kept-intact)
+- [Key Paths](#key-paths)
 
 ## Daily Status
 ![Day](https://img.shields.io/badge/Day-0%2F14-lightgrey)
@@ -25,37 +26,47 @@ Quick update line:
 - Focus today: Not set
 
 ## Quick Start
-1. Open [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md).
+1. Open [Python Homework Progress Tracker](docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md).
 2. Tick off today's checklist items and write one blocker and one win.
 3. Update Day, Confidence, and Focus in the Daily Status section above.
 
 ## Quick Links
-- [Python Porting Learning Guide](PYTHON_PORTING_LEARNING_GUIDE.md)
-- [Two-Week Python Homework Plan](TWO_WEEK_PYTHON_HOMEWORK_PLAN.md)
-- [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
-- [Python Techniques Index](PYTHON_TECHNIQUES_INDEX.md)
+- [Docs Overview](docs/README.md)
+- [Python Porting Learning Guide](docs/guides/PYTHON_PORTING_LEARNING_GUIDE.md)
+- [Two-Week Python Homework Plan](docs/plans/TWO_WEEK_PYTHON_HOMEWORK_PLAN.md)
+- [Python Homework Progress Tracker](docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
+- [Python Techniques Index](docs/references/PYTHON_TECHNIQUES_INDEX.md)
+- [W3Schools Python References](docs/references/W3SCHOOLS_PYTHON_REFERENCES.md)
+
+## Repository Layout
+- [docs/README.md](docs/README.md) - Documentation hub
+- [docs/guides/](docs/guides) - Porting and learning guides
+- [docs/plans/](docs/plans) - Day-by-day study plans
+- [docs/tracking/](docs/tracking) - Progress trackers and quick-update files
+- [docs/references/](docs/references) - Technique index and W3Schools references
+- [python_techniques/](python_techniques) - Topic-based lesson library
 
 ## Techniques by Day
-Use [Python Techniques Index](PYTHON_TECHNIQUES_INDEX.md) as the primary study map. It is ordered by the 14-day homework plan.
+Use [Python Techniques Index](docs/references/PYTHON_TECHNIQUES_INDEX.md) as the primary study map. It is ordered by the 14-day homework plan.
 
-- [Day 1: Python Foundations](PYTHON_TECHNIQUES_INDEX.md#day-1-python-foundations)
-- [Day 2: Conditions and Decisions](PYTHON_TECHNIQUES_INDEX.md#day-2-conditions-and-decisions)
-- [Day 3: Loops and Program Flow](PYTHON_TECHNIQUES_INDEX.md#day-3-loops-and-program-flow)
-- [Day 4: Functions](PYTHON_TECHNIQUES_INDEX.md#day-4-functions)
-- [Day 5: File Handling](PYTHON_TECHNIQUES_INDEX.md#day-5-file-handling)
-- [Day 6: String and Character Validation](PYTHON_TECHNIQUES_INDEX.md#day-6-string-and-character-validation)
-- [Day 7: Mini Review](PYTHON_TECHNIQUES_INDEX.md#day-7-mini-review)
-- [Day 8: Python Project Skeleton](PYTHON_TECHNIQUES_INDEX.md#day-8-python-project-skeleton)
-- [Day 9: Data Loading and Welcome Sequence](PYTHON_TECHNIQUES_INDEX.md#day-9-data-loading-and-welcome-sequence)
-- [Day 10: Display All Gamertags](PYTHON_TECHNIQUES_INDEX.md#day-10-display-all-gamertags)
-- [Day 11: Filter 1 (Ending with Number)](PYTHON_TECHNIQUES_INDEX.md#day-11-filter-1-ending-with-number)
-- [Day 12: Filter 2 (Not Starting with Letter or Number)](PYTHON_TECHNIQUES_INDEX.md#day-12-filter-2-not-starting-with-letter-or-number)
-- [Day 13: Add New Gamertag and Run-Again Loop](PYTHON_TECHNIQUES_INDEX.md#day-13-add-new-gamertag-and-run-again-loop)
-- [Day 14: Final Test and Submission](PYTHON_TECHNIQUES_INDEX.md#day-14-final-test-and-submission)
+- [Day 1: Python Foundations](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-1-python-foundations)
+- [Day 2: Conditions and Decisions](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-2-conditions-and-decisions)
+- [Day 3: Loops and Program Flow](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-3-loops-and-program-flow)
+- [Day 4: Functions](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-4-functions)
+- [Day 5: File Handling](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-5-file-handling)
+- [Day 6: String and Character Validation](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-6-string-and-character-validation)
+- [Day 7: Mini Review](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-7-mini-review)
+- [Day 8: Python Project Skeleton](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-8-python-project-skeleton)
+- [Day 9: Data Loading and Welcome Sequence](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-9-data-loading-and-welcome-sequence)
+- [Day 10: Display All Gamertags](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-10-display-all-gamertags)
+- [Day 11: Filter 1 (Ending with Number)](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-11-filter-1-ending-with-number)
+- [Day 12: Filter 2 (Not Starting with Letter or Number)](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-12-filter-2-not-starting-with-letter-or-number)
+- [Day 13: Add New Gamertag and Run-Again Loop](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-13-add-new-gamertag-and-run-again-loop)
+- [Day 14: Final Test and Submission](docs/references/PYTHON_TECHNIQUES_INDEX.md#day-14-final-test-and-submission)
 
 ## Phone Update (60 Seconds)
 1. Open this repository in the GitHub mobile app.
-2. Go to [Python Homework Progress Tracker](PYTHON_HOMEWORK_PROGRESS_TRACKER.md) and tap Edit.
+2. Go to [Python Homework Progress Tracker](docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md) and tap Edit.
 3. Change checklist items from `[ ]` to `[x]` for tasks you completed.
 4. Open [README.md](README.md) and update Day, Confidence, and Focus.
 5. Commit with a short message like `Day 3 progress update`.
@@ -524,8 +535,11 @@ Build, test, and polish the Python version of your gamertag app.
 
 ---
 
-## Source Files (Kept Intact)
-- [PYTHON_PORTING_LEARNING_GUIDE.md](PYTHON_PORTING_LEARNING_GUIDE.md)
-- [TWO_WEEK_PYTHON_HOMEWORK_PLAN.md](TWO_WEEK_PYTHON_HOMEWORK_PLAN.md)
-- [PYTHON_HOMEWORK_PROGRESS_TRACKER.md](PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
-- [PYTHON_TECHNIQUES_INDEX.md](PYTHON_TECHNIQUES_INDEX.md)
+## Key Paths
+- [docs/README.md](docs/README.md)
+- [docs/guides/PYTHON_PORTING_LEARNING_GUIDE.md](docs/guides/PYTHON_PORTING_LEARNING_GUIDE.md)
+- [docs/plans/TWO_WEEK_PYTHON_HOMEWORK_PLAN.md](docs/plans/TWO_WEEK_PYTHON_HOMEWORK_PLAN.md)
+- [docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md](docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
+- [docs/references/PYTHON_TECHNIQUES_INDEX.md](docs/references/PYTHON_TECHNIQUES_INDEX.md)
+- [docs/references/W3SCHOOLS_PYTHON_REFERENCES.md](docs/references/W3SCHOOLS_PYTHON_REFERENCES.md)
+- [python_techniques/](python_techniques)

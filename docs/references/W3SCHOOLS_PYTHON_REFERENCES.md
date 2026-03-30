@@ -1,7 +1,7 @@
 # W3Schools Python Reference Links
 
 Curated W3Schools links covering every Python topic mentioned in the learning documents for this project.
-Use these alongside [PYTHON_PORTING_LEARNING_GUIDE.md](PYTHON_PORTING_LEARNING_GUIDE.md) and [TWO_WEEK_PYTHON_HOMEWORK_PLAN.md](TWO_WEEK_PYTHON_HOMEWORK_PLAN.md).
+Use these alongside [../guides/PYTHON_PORTING_LEARNING_GUIDE.md](../guides/PYTHON_PORTING_LEARNING_GUIDE.md) and [../plans/TWO_WEEK_PYTHON_HOMEWORK_PLAN.md](../plans/TWO_WEEK_PYTHON_HOMEWORK_PLAN.md).
 
 ---
 

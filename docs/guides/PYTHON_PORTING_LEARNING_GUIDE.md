@@ -96,7 +96,7 @@ Before calling the port complete, verify behavior is unchanged.
 
 ## Concept Mapping: C# to Python
 
-Use this table to guide your research. The third column names the Python approach — it does **not** show working code. Look up each item using the links in [W3SCHOOLS_PYTHON_REFERENCES.md](W3SCHOOLS_PYTHON_REFERENCES.md) and work out the syntax yourself.
+Use this table to guide your research. The third column names the Python approach — it does **not** show working code. Look up each item using the links in [../references/W3SCHOOLS_PYTHON_REFERENCES.md](../references/W3SCHOOLS_PYTHON_REFERENCES.md) and work out the syntax yourself.
 
 | C# Construct | C# Example from Gamertag Code | Python Equivalent Approach | What to Research |
 |---|---|---|---|
