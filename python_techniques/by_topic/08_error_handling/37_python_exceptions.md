@@ -1,6 +1,11 @@
 # Python Built-in Exceptions
 
-**W3Schools Link:** https://www.w3schools.com/python/python_ref_exceptions.asp
+**W3Schools Links:**
+- [Python Built-in Exceptions](https://www.w3schools.com/python/python_ref_exceptions.asp) — exception hierarchy, `ValueError`, `TypeError`, `IndexError`, `KeyError`, etc.
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — `try/except` syntax used in all exercises
+- [Python Type Casting](https://www.w3schools.com/python/python_casting.asp) — `int("abc")` raises `ValueError`; context for casting exercises
+- [Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp) — `KeyError` context when accessing missing dict keys
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — `FileNotFoundError` context when opening missing files
 
 **Homework Day(s):** Day 14
 

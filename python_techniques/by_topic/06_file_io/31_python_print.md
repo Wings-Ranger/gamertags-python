@@ -1,6 +1,10 @@
 # Python print()
 
-**W3Schools Link:** https://www.w3schools.com/python/ref_func_print.asp
+**W3Schools Links:**
+- [Python print()](https://www.w3schools.com/python/ref_func_print.asp) — `sep`, `end`, `file`, multiple arguments, formatted output
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings with alignment specifiers (`:<20`, `:>8`, `:^40`)
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for tag in list:` used to print all gamertags
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `enumerate()` used in test challenge for numbered output
 
 **Homework Day(s):** Day 1, Day 8, Day 9, Day 10
 

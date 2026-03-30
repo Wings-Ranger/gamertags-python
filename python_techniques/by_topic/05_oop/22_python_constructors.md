@@ -1,6 +1,10 @@
 # Python Constructors (`__init__`)
 
-**W3Schools Link:** https://www.w3schools.com/python/python_classes.asp
+**W3Schools Links:**
+- [Python Constructors (`__init__`)](https://www.w3schools.com/python/python_classes.asp) — `__init__`, `self`, instance attribute initialization
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp) — `__init__` is a function; understanding `def` and parameters
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — `self.gamer_tag_list = []` creates an empty list in `__init__`
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — validating inputs and raising exceptions inside `__init__`
 
 **Homework Day(s):** Day 8, Day 9, Day 10
 

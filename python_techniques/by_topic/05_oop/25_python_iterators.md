@@ -1,6 +1,9 @@
 # Python Iterators
 
-**W3Schools Link:** https://www.w3schools.com/python/python_iterators.asp
+**W3Schools Links:**
+- [Python Iterators](https://www.w3schools.com/python/python_iterators.asp) — `__iter__`, `__next__`, `iter()`, `next()`, generators, `yield`
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for` loop uses the iterator protocol; `for tag in gamertags:`
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp) — generator functions use `def` with `yield`
 
 **Homework Day(s):** Day 3, Day 8, Day 9, Day 10
 

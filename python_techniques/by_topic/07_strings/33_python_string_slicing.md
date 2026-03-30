@@ -1,6 +1,10 @@
 # Python String Slicing
 
-**W3Schools Link:** https://www.w3schools.com/python/python_strings_slicing.asp
+**W3Schools Links:**
+- [Python String Slicing](https://www.w3schools.com/python/python_strings_slicing.asp) — `s[start:stop:step]`, negative indices, stop-is-exclusive rule
+- [Python Strings](https://www.w3schools.com/python/python_strings.asp) — string basics, indexing, and zero-based positions
+- [Python String Validation](https://www.w3schools.com/python/ref_string_isdigit.asp) — `.isdigit()` and `.isalnum()` used after slicing for character checks
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — test challenge loops over list and checks `tag[-1].isdigit()`
 
 **Homework Day(s):** Day 6, Day 11, Day 12
 

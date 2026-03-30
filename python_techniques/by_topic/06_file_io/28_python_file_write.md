@@ -1,6 +1,10 @@
 # Python File Write
 
-**W3Schools Link:** https://www.w3schools.com/python/python_file_write.asp
+**W3Schools Links:**
+- [Python File Write](https://www.w3schools.com/python/python_file_write.asp) — write mode `"w"`, append mode `"a"`, `.write()`, `.writelines()`
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — `open()`, modes, and `with` statement overview
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input().strip()` used in `add_new_user_name` skeleton
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — iterating the list to write each tag to file
 
 **Homework Day(s):** Day 5, Day 13
 

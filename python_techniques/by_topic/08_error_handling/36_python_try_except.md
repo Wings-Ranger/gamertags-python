@@ -1,6 +1,10 @@
 # Python Try / Except
 
-**W3Schools Link:** https://www.w3schools.com/python/python_try_except.asp
+**W3Schools Links:**
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — `try`, `except`, `else`, `finally`; catching specific exceptions
+- [Python Built-in Exceptions](https://www.w3schools.com/python/python_ref_exceptions.asp) — `FileNotFoundError`, `ValueError`, `IndexError`, `TypeError` used in exercises
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — file-opening context for `FileNotFoundError` examples
+- [Python Type Casting](https://www.w3schools.com/python/python_casting.asp) — `int()` raises `ValueError`; `safe_int()` utility in exercises
 
 **Homework Day(s):** Day 5, Day 14
 

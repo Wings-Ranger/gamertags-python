@@ -1,6 +1,10 @@
 # Python String Formatting
 
-**W3Schools Link:** https://www.w3schools.com/python/python_string_formatting.asp
+**W3Schools Links:**
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings, `.format()`, alignment (`<`, `>`, `^`), number formatting
+- [Python print()](https://www.w3schools.com/python/ref_func_print.asp) — `print()` used in all formatting exercises
+- [Python Strings](https://www.w3schools.com/python/python_strings.asp) — string repetition (`"=" * 40`) and basics
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for tag in list:` used with `format_gamertag_line()` in challenges
 
 **Homework Day(s):** Day 1, Day 8, Day 9, Day 10
 

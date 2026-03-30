@@ -1,6 +1,10 @@
 # Python Function Arguments
 
-**W3Schools Link:** https://www.w3schools.com/python/python_functions.asp
+**W3Schools Links:**
+- [Python Function Arguments](https://www.w3schools.com/python/python_functions.asp) — positional, keyword, default, `*args`, `**kwargs`
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `enumerate()` used in the `*args` printing example
+- [Python Tuples](https://www.w3schools.com/python/python_tuples.asp) — `*args` collects extra positional arguments into a tuple
+- [Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp) — `**kwargs` collects keyword arguments into a dict
 
 **Homework Day(s):** Day 4
 

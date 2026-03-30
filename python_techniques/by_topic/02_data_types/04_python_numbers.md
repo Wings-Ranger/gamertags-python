@@ -1,6 +1,11 @@
 # Python Numbers
 
-**W3Schools Link:** https://www.w3schools.com/python/python_numbers.asp
+**W3Schools Links:**
+- [Python Numbers](https://www.w3schools.com/python/python_numbers.asp) — int, float, arithmetic operators
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `len()`, `min()`, `max()`, `sum()`, `range()` (used in exercises)
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — if/elif/else structure used in length-validation examples
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `range()` and `for` used in challenges
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — list of scores used in `min()`/`max()`/`sum()` exercises
 
 **Homework Day(s):** Day 1
 

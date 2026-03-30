@@ -1,6 +1,10 @@
 # Python Break and Continue
 
-**W3Schools Link:** https://www.w3schools.com/python/python_for_loops.asp
+**W3Schools Links:**
+- [Python Break and Continue](https://www.w3schools.com/python/python_for_loops.asp) — `break`, `continue`, `pass`, and the `for/else` pattern
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — `if not line:` and `if tag == target:` used in exercises
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.strip()` used before blank-line check
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — `.append()` called after `continue` guard in file-loading pattern
 
 **Homework Day(s):** Day 3
 

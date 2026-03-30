@@ -1,6 +1,11 @@
 # Python If / Else
 
-**W3Schools Link:** https://www.w3schools.com/python/python_conditions.asp
+**W3Schools Links:**
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — `if`, `elif`, `else`, ternary expressions
+- [Python Operators](https://www.w3schools.com/python/python_operators.asp) — `not` (replaces C#'s `!`), `and`/`or`, comparison operators
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for` loop used inside all filter function examples
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isdigit()`, `.isalnum()` used in gamertag filter exercises
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — truthy/falsy values used in conditions
 
 **Homework Day(s):** Day 2, Day 11, Day 12
 

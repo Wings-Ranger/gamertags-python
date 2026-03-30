@@ -1,6 +1,10 @@
 # Python Inheritance
 
-**W3Schools Link:** https://www.w3schools.com/python/python_inheritance.asp
+**W3Schools Links:**
+- [Python Inheritance](https://www.w3schools.com/python/python_inheritance.asp) — `class Child(Parent):`, `super()`, method overriding, `isinstance()`
+- [Python Classes](https://www.w3schools.com/python/python_classes.asp) — base class (`Player`) structure and `__init__`
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — iterating a mixed list of `Player`/`ProPlayer` instances
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings used in `display()` method exercises
 
 **Homework Day(s):** Day 8, Day 9, Day 10
 

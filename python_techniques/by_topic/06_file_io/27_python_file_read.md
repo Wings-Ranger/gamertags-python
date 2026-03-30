@@ -1,6 +1,11 @@
 # Python File Read
 
-**W3Schools Link:** https://www.w3schools.com/python/python_file_read.asp
+**W3Schools Links:**
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — `.read()`, `.readline()`, `.readlines()`, iterating with `for line in f:`
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — `open()`, modes, and `with` statement overview
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — `readlines()` returns a list; `.append()` used to build the gamertag list
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.strip()` to remove `\n` from each line
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — `FileNotFoundError` when the file is missing
 
 **Homework Day(s):** Day 5, Day 9, Day 10
 

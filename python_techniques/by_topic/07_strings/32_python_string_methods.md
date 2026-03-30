@@ -1,6 +1,10 @@
 # Python String Methods
 
-**W3Schools Link:** https://www.w3schools.com/python/python_ref_string.asp
+**W3Schools Links:**
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — full reference: `.strip()`, `.split()`, `.join()`, `.isalnum()`, `.lower()`, `.title()`
+- [Python Strings](https://www.w3schools.com/python/python_strings.asp) — string basics, immutability, indexing
+- [Python String Slicing](https://www.w3schools.com/python/python_strings_slicing.asp) — `s[-1]` and `s[0]` for first/last character access in exercises
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — used in the test challenge to loop and filter gamertags
 
 **Homework Day(s):** Day 6
 

@@ -1,6 +1,9 @@
 # Python Classes
 
-**W3Schools Link:** https://www.w3schools.com/python/python_classes.asp
+**W3Schools Links:**
+- [Python Classes and Objects](https://www.w3schools.com/python/python_classes.asp) — `class`, `self`, `__init__`, `__str__`, instance creation
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — `self.gamer_tag_list = []` is a list attribute (used in challenges)
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `print()`, `str()`, `len()` used inside methods
 
 **Homework Day(s):** Day 8, Day 9, Day 10
 

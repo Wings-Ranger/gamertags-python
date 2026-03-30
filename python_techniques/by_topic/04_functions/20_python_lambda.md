@@ -1,6 +1,10 @@
 # Python Lambda Functions
 
-**W3Schools Link:** https://www.w3schools.com/python/python_lambda.asp
+**W3Schools Links:**
+- [Python Lambda Functions](https://www.w3schools.com/python/python_lambda.asp) — `lambda` syntax, use as `key=` argument
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `sorted()`, `max()`, `min()`, `filter()`, `list()` all used in exercises
+- [Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp) — lambdas operate on lists of dicts (e.g., `lambda p: p["score"]`)
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — `sorted()` and `list(filter(...))` return lists
 
 **Homework Day(s):** Day 4
 

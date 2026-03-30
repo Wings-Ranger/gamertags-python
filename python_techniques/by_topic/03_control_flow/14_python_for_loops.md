@@ -1,6 +1,10 @@
 # Python For Loops
 
-**W3Schools Link:** https://www.w3schools.com/python/python_for_loops.asp
+**W3Schools Links:**
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for`, `range()`, `enumerate()`, `zip()`, `break`, `continue`, `else`
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — iterating lists (the main use in the gamertag project)
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isdigit()` used in list comprehension filter examples
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `enumerate()`, `range()`, `zip()` reference
 
 **Homework Day(s):** Day 3, Day 10, Day 11, Day 12
 

@@ -1,6 +1,10 @@
 # Python Tuples
 
-**W3Schools Link:** https://www.w3schools.com/python/python_tuples.asp
+**W3Schools Links:**
+- [Python Tuples](https://www.w3schools.com/python/python_tuples.asp) — immutable sequences, unpacking, single-item syntax
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — compared to tuples; list of tuples used in challenges
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — tuple unpacking in `for name, platform, score in players:`
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings used in unpacking exercises
 
 **Homework Day(s):** Day 1
 

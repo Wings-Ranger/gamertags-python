@@ -1,6 +1,11 @@
 # Python Strings
 
-**W3Schools Link:** https://www.w3schools.com/python/python_strings.asp
+**W3Schools Links:**
+- [Python Strings](https://www.w3schools.com/python/python_strings.asp) — string basics, indexing, immutability
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isdigit()`, `.isalnum()`, `.strip()`, `.lower()` (used in exercises)
+- [Python String Slicing](https://www.w3schools.com/python/python_strings_slicing.asp) — `s[-1]` last character, `s[0]` first character
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings used in output exercises
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input()` and `.strip()` used in challenge 4
 
 **Homework Day(s):** Day 1, Day 6
 

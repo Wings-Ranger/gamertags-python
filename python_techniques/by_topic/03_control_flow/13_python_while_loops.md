@@ -1,6 +1,10 @@
 # Python While Loops
 
-**W3Schools Link:** https://www.w3schools.com/python/python_while_loops.asp
+**W3Schools Links:**
+- [Python While Loops](https://www.w3schools.com/python/python_while_loops.asp) — `while condition:`, infinite loops, `break`
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — `is_running = True/False` flag pattern from the C# project
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input().strip()` used in all menu and validation examples
+- [Python Break and Continue](https://www.w3schools.com/python/python_for_loops.asp) — `break` for exiting `while True:` loops
 
 **Homework Day(s):** Day 3, Day 13
 

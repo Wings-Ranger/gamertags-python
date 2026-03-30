@@ -1,6 +1,10 @@
 # Python Methods
 
-**W3Schools Link:** https://www.w3schools.com/python/python_classes.asp
+**W3Schools Links:**
+- [Python Methods](https://www.w3schools.com/python/python_classes.asp) — instance methods, `@staticmethod`, `@classmethod`, dunder methods
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for s in self.gamer_tag_list:` used in all display method examples
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isdigit()`, `.isalnum()` used in filter method exercises
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input()` used in `add_new_user_name` method challenge
 
 **Homework Day(s):** Day 8, Day 9, Day 10
 

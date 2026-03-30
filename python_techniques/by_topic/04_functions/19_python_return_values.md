@@ -1,6 +1,10 @@
 # Python Return Values
 
-**W3Schools Link:** https://www.w3schools.com/python/python_functions.asp
+**W3Schools Links:**
+- [Python Return Values](https://www.w3schools.com/python/python_functions.asp) — `return`, implicit `None`, early returns (guard clauses)
+- [Python Tuples](https://www.w3schools.com/python/python_tuples.asp) — multiple return values are returned and unpacked as tuples
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — `with open()` file reading in `load_gamertags` skeleton
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — early-return guard clauses use `if` to exit early
 
 **Homework Day(s):** Day 4
 

@@ -1,6 +1,10 @@
 # Python Type Casting
 
-**W3Schools Link:** https://www.w3schools.com/python/python_casting.asp
+**W3Schools Links:**
+- [Python Type Casting](https://www.w3schools.com/python/python_casting.asp) — `int()`, `float()`, `str()`, `bool()` conversion functions
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input()` always returns a string; must cast for arithmetic
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isdigit()` for safe check before `int()`; `.split()` for parsing CSV
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — handling `ValueError` when `int()` receives non-numeric input
 
 **Homework Day(s):** Day 1, Day 6
 

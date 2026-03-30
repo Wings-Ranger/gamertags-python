@@ -1,6 +1,10 @@
 # Python User Input
 
-**W3Schools Link:** https://www.w3schools.com/python/python_user_input.asp
+**W3Schools Links:**
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input()`, always returns a string, `.strip()` for cleaning
+- [Python While Loops](https://www.w3schools.com/python/python_while_loops.asp) — `while True:` validation loop pattern used extensively
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.strip()`, `.isalnum()`, `.lower()` used in validation
+- [Python Type Casting](https://www.w3schools.com/python/python_casting.asp) — `int()` for converting numeric input after `.isdigit()` check
 
 **Homework Day(s):** Day 13
 

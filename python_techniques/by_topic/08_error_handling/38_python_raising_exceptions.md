@@ -1,6 +1,10 @@
 # Python Raising Exceptions
 
-**W3Schools Link:** https://www.w3schools.com/python/python_try_except.asp
+**W3Schools Links:**
+- [Python Raising Exceptions](https://www.w3schools.com/python/python_try_except.asp) — `raise`, re-raise, `raise ... from e`, `assert`
+- [Python Built-in Exceptions](https://www.w3schools.com/python/python_ref_exceptions.asp) — which built-in exception to inherit from for custom classes
+- [Python Inheritance](https://www.w3schools.com/python/python_inheritance.asp) — `class GamertagError(Exception):` inherits from `Exception`
+- [Python Classes](https://www.w3schools.com/python/python_classes.asp) — custom exception class structure with `__init__` and `super()`
 
 **Homework Day(s):** Day 14
 

@@ -1,6 +1,10 @@
 # Python File Delete
 
-**W3Schools Link:** https://www.w3schools.com/python/python_file_remove.asp
+**W3Schools Links:**
+- [Python File Delete](https://www.w3schools.com/python/python_file_remove.asp) — `os.remove()`, `os.path.exists()`, `shutil.rmtree()`
+- [Python Modules](https://www.w3schools.com/python/python_modules.asp) — `import os` and `import shutil` used throughout
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — `FileNotFoundError` and `PermissionError` handling in exercises
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — general file operations context
 
 **Homework Day(s):** Day 5
 

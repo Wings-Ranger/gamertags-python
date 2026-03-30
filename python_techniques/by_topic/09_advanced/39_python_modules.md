@@ -1,6 +1,10 @@
 # Python Modules
 
-**W3Schools Link:** https://www.w3schools.com/python/python_modules.asp
+**W3Schools Links:**
+- [Python Modules](https://www.w3schools.com/python/python_modules.asp) — `import`, `from ... import`, aliases, `__name__` guard, creating modules
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — `os` module for `os.path.exists()` file operations
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — `csv` module as a more robust alternative to manual `.split(",")`
+- [Python Scope](https://www.w3schools.com/python/python_scope.asp) — `__name__ == "__main__"` guard relates to module vs script scope
 
 **Homework Day(s):** Day 8, Day 9, Day 10
 

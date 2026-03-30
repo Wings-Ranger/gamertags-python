@@ -1,6 +1,10 @@
 # Python Scope
 
-**W3Schools Link:** https://www.w3schools.com/python/python_scope.asp
+**W3Schools Links:**
+- [Python Scope](https://www.w3schools.com/python/python_scope.asp) — LEGB rule, `global`, `nonlocal`, module-level constants
+- [Python Variables](https://www.w3schools.com/python/python_variables.asp) — variable declaration and naming; ALL_CAPS constant convention
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp) — local scope inside functions; pass-and-return vs global mutation
+- [Python Classes](https://www.w3schools.com/python/python_classes.asp) — `self` as instance scope; equivalent to C#'s private class fields
 
 **Homework Day(s):** Day 4, Day 8, Day 9, Day 10
 

@@ -1,6 +1,10 @@
 # Python Functions
 
-**W3Schools Link:** https://www.w3schools.com/python/python_functions.asp
+**W3Schools Links:**
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp) — `def`, parameters, return values, docstrings, naming conventions
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for` loops inside function bodies
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — `with open()` used in `load_gamertags` skeleton
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input().strip()` used in `add_new_user_name` skeleton
 
 **Homework Day(s):** Day 4, Day 8, Day 9, Day 10
 

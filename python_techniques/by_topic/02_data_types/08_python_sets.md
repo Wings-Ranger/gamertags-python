@@ -1,6 +1,10 @@
 # Python Sets
 
-**W3Schools Link:** https://www.w3schools.com/python/python_sets.asp
+**W3Schools Links:**
+- [Python Sets](https://www.w3schools.com/python/python_sets.asp) — unique collections, set operators, membership testing
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — converting between lists and sets; `sorted()` returns a list
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — iterating over sets and using `for` in membership checks
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `set()`, `sorted()`, `len()` used in exercises
 
 **Homework Day(s):** Day 1
 

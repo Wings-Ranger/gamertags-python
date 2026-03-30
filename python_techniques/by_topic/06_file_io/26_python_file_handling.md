@@ -1,6 +1,11 @@
 # Python File Handling
 
-**W3Schools Link:** https://www.w3schools.com/python/python_file_handling.asp
+**W3Schools Links:**
+- [Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) — `open()`, file modes overview, `with` statement
+- [Python File Read](https://www.w3schools.com/python/python_file_read.asp) — read mode `"r"`, `.read()`, `.readlines()`
+- [Python File Write](https://www.w3schools.com/python/python_file_write.asp) — write mode `"w"` and append mode `"a"`
+- [Python Modules](https://www.w3schools.com/python/python_modules.asp) — `import os` and `os.path.exists()` used in exercises
+- [Python Try Except](https://www.w3schools.com/python/python_try_except.asp) — handling `FileNotFoundError` when file doesn't exist
 
 **Homework Day(s):** Day 5
 

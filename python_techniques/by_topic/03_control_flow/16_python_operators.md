@@ -1,6 +1,10 @@
 # Python Operators
 
-**W3Schools Link:** https://www.w3schools.com/python/python_operators.asp
+**W3Schools Links:**
+- [Python Operators](https://www.w3schools.com/python/python_operators.asp) — arithmetic, comparison, logical, assignment, membership, identity
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — all exercises are `if` statements built with these operators
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — operators return booleans; `and`/`or`/`not` explained
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — `.isalnum()`, `.isdigit()` referenced in gamertag validation conditions
 
 **Homework Day(s):** Day 2, Day 6
 

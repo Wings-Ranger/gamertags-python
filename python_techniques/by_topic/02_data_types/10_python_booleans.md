@@ -1,6 +1,10 @@
 # Python Booleans
 
-**W3Schools Link:** https://www.w3schools.com/python/python_booleans.asp
+**W3Schools Links:**
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — `True`/`False`, truthy/falsy, `bool()`
+- [Python Operators](https://www.w3schools.com/python/python_operators.asp) — `and`, `or`, `not` (replaces C#'s `&&`, `||`, `!`)
+- [Python If...Else](https://www.w3schools.com/python/python_conditions.asp) — boolean conditions used in all if/elif/else exercises
+- [Python While Loops](https://www.w3schools.com/python/python_while_loops.asp) — `while is_running:` pattern from the C# project
 
 **Homework Day(s):** Day 2
 

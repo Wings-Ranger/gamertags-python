@@ -1,6 +1,10 @@
 # Python Dictionaries
 
-**W3Schools Link:** https://www.w3schools.com/python/python_dictionaries.asp
+**W3Schools Links:**
+- [Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp) — key-value pairs, `.get()`, `.items()`, `.keys()`, `.values()`
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — iterating `dict.items()` in `for key, value in player.items():`
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — list of dicts is the main player data structure
+- [Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) — f-strings used in dict iteration exercises
 
 **Homework Day(s):** Day 1, Day 8, Day 9, Day 10
 

@@ -1,6 +1,10 @@
 # Python Lists
 
-**W3Schools Link:** https://www.w3schools.com/python/python_lists.asp
+**W3Schools Links:**
+- [Python Lists](https://www.w3schools.com/python/python_lists.asp) — ordered mutable collections, `.append()`, `.sort()`, `in` operator
+- [Python For Loops](https://www.w3schools.com/python/python_for_loops.asp) — `for item in list` (replaces C# `foreach`)
+- [Python User Input](https://www.w3schools.com/python/python_user_input.asp) — `input().strip()` used in challenge 3
+- [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) — `len()`, `enumerate()` used with lists
 
 **Homework Day(s):** Day 1, Day 3, Day 8, Day 9, Day 10
 

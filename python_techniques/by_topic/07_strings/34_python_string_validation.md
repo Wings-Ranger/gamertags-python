@@ -1,6 +1,11 @@
 # Python String Validation
 
-**W3Schools Link:** https://www.w3schools.com/python/ref_string_isdigit.asp
+**W3Schools Links:**
+- [Python String Validation](https://www.w3schools.com/python/ref_string_isdigit.asp) — `.isdigit()`, `.isalpha()`, `.isalnum()`, `.isspace()` — all return `True`/`False`
+- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) — full `.is*()` method reference
+- [Python String Slicing](https://www.w3schools.com/python/python_strings_slicing.asp) — `s[-1]` and `s[0]` for per-character checks
+- [Python Functions](https://www.w3schools.com/python/python_functions.asp) — `validate_gamertag()` function structure used in exercises
+- [Python Booleans](https://www.w3schools.com/python/python_booleans.asp) — all validation methods return `True` or `False`
 
 **Homework Day(s):** Day 6, Day 11, Day 12
 
