@@ -130,7 +130,7 @@ Write a `create_player` function with `gamertag` required and `platform`, `score
        return player_list
    ```
 
-4. ***args:** Write a function that accepts any number of gamertags and prints them numbered:
+4. **\*args:** Write a function that accepts any number of gamertags and prints them numbered:
    ```
    def print_tags(*_____):
        for i, tag in enumerate(_____, 1):

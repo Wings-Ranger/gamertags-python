@@ -108,7 +108,7 @@ Declare `is_running = True` and write a `while` loop that prints `"Menu is runni
 
 1. **Translate the flag:** The C# project uses `bool isRunning = true`. Translate to Python and explain why casing matters:
    ```
-   is_running = _____    # True or False?
+   is_running = _____    # fill in: True or False (choose the correct one to start the loop)
    ```
    What error would `is_running = true` (lowercase t) cause in Python?
 
