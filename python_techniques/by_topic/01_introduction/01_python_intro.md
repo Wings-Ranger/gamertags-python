@@ -90,6 +90,6 @@ Welcome to the program Wings_Ranger
    ```csharp
    string platform = "Xbox";
    ```
-   Python: `platform = _____`
-
+   python = platform = "Xbox"
+   
 4. **REPL experiment:** Open a Python terminal and type `Print("test")` (capital P). What error appears? Now correct it. Why does Python give this specific error?
