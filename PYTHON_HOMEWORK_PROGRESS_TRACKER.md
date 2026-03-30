@@ -3,14 +3,7 @@
 ## How to Use
 
 ## Today Only (Phone Quick Edit)
-- Day number: [ ]
-- Top 3 tasks for today:
-	- [ ] Task 1
-	- [ ] Task 2
-	- [ ] Task 3
-- Biggest blocker today:
-- Biggest win today:
-- Confidence today (1-5):
+- Day number: [1 ]
 
 ## Weekly Overview
 
