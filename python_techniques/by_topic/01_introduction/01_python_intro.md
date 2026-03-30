@@ -98,6 +98,10 @@ Welcome to the program Wings_Ranger
     print(Gamertag)
     ProSniper
     ```
+    ```
+    This would happen if one was not defined
+    NameError: name 'gmaertag' is not defined.
+    ```
 
 3. **No semicolons:** Rewrite this C# line as valid Python — what do you remove?
    ```csharp
