@@ -84,6 +84,9 @@ Covers strings, lists, booleans, and None — the types used heavily in this pro
 | Python Numbers | [https://www.w3schools.com/python/python_numbers.asp](https://www.w3schools.com/python/python_numbers.asp) |
 | Python Strings | [https://www.w3schools.com/python/python_strings.asp](https://www.w3schools.com/python/python_strings.asp) |
 | Python Lists | [https://www.w3schools.com/python/python_lists.asp](https://www.w3schools.com/python/python_lists.asp) |
+| Python Tuples | [https://www.w3schools.com/python/python_tuples.asp](https://www.w3schools.com/python/python_tuples.asp) |
+| Python Sets | [https://www.w3schools.com/python/python_sets.asp](https://www.w3schools.com/python/python_sets.asp) |
+| Python Dictionaries | [https://www.w3schools.com/python/python_dictionaries.asp](https://www.w3schools.com/python/python_dictionaries.asp) |
 | Python Booleans | [https://www.w3schools.com/python/python_booleans.asp](https://www.w3schools.com/python/python_booleans.asp) |
 | Python None / Null Values | [https://www.w3schools.com/python/python_datatypes.asp](https://www.w3schools.com/python/python_datatypes.asp) |
 | Python Type Casting | [https://www.w3schools.com/python/python_casting.asp](https://www.w3schools.com/python/python_casting.asp) |
