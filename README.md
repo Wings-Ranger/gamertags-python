@@ -44,7 +44,9 @@ Quick update line:
 - [docs/plans/](docs/plans) - Day-by-day study plans
 - [docs/tracking/](docs/tracking) - Progress trackers and quick-update files
 - [docs/references/](docs/references) - Technique index and W3Schools references
-- [python_techniques/](python_techniques) - Topic-based lesson library
+- [python_techniques/README.md](python_techniques/README.md) - Techniques library hub
+- [python_techniques/by_day/](python_techniques/by_day) - Day-by-day technique navigation
+- [python_techniques/by_topic/](python_techniques/by_topic) - Topic-based technique navigation
 
 ## Techniques by Day
 Use [Python Techniques Index](docs/references/PYTHON_TECHNIQUES_INDEX.md) as the primary study map. It is ordered by the 14-day homework plan.
@@ -542,4 +544,6 @@ Build, test, and polish the Python version of your gamertag app.
 - [docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md](docs/tracking/PYTHON_HOMEWORK_PROGRESS_TRACKER.md)
 - [docs/references/PYTHON_TECHNIQUES_INDEX.md](docs/references/PYTHON_TECHNIQUES_INDEX.md)
 - [docs/references/W3SCHOOLS_PYTHON_REFERENCES.md](docs/references/W3SCHOOLS_PYTHON_REFERENCES.md)
-- [python_techniques/](python_techniques)
+- [python_techniques/README.md](python_techniques/README.md)
+- [python_techniques/by_day/](python_techniques/by_day)
+- [python_techniques/by_topic/](python_techniques/by_topic)

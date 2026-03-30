@@ -16,6 +16,8 @@ Use this folder as the main navigation point for the non-code documents in the r
 - [references/W3SCHOOLS_PYTHON_REFERENCES.md](references/W3SCHOOLS_PYTHON_REFERENCES.md)
 
 ## Techniques Library
-The topic-based lesson files stay outside `docs` so they remain easy to browse by subject:
+The technique library stays outside `docs` and now supports both day-first and topic-first navigation:
 
-- [../python_techniques/](../python_techniques)
+- [../python_techniques/README.md](../python_techniques/README.md)
+- [../python_techniques/by_day/](../python_techniques/by_day)
+- [../python_techniques/by_topic/](../python_techniques/by_topic)
