@@ -79,10 +79,11 @@ Welcome to the program Wings_Ranger
 ## Challenges
 
 1. **Print challenge:** Fill in the blanks to print `"Welcome, ShadowHunter99!"` where the name is stored in a variable:
-```
->>> platform = "Xbox"
->>> print(platform) Xbox
-```
+   ```
+   player_name = _____
+   _____(f"Welcome, {_____}!")
+   ```
+
 2. **Case sensitivity:** Declare `gamertag = "NightOwl"` and `Gamertag = "ProSniper"`. Print both. Are they the same variable? What error would occur if you only defined one but tried to print the other?
 
 3. **No semicolons:** Rewrite this C# line as valid Python — what do you remove?
