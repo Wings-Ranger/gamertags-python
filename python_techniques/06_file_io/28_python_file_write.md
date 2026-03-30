@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_file_write.asp
 
+**Homework Day(s):** Day 5, Day 13
+
 ---
 
 ## Overview

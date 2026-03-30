@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_conditions.asp
 
+**Homework Day(s):** Day 2, Days 11–12
+
 ---
 
 ## Overview

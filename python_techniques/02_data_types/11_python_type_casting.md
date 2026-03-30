@@ -2,6 +2,8 @@
 
 **W3Schools Link:** https://www.w3schools.com/python/python_casting.asp
 
+**Homework Day(s):** Day 1, Day 6
+
 ---
 
 ## Overview
