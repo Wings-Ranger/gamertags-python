@@ -10,9 +10,9 @@ Use this index alongside [W3SCHOOLS_PYTHON_REFERENCES.md](W3SCHOOLS_PYTHON_REFER
 
 | Day | Topic | Technique Files |
 |-----|-------|----------------|
-| Day 1 | Python Foundations | [01](01_python_intro.md), [02](02_python_syntax.md), [03](03_python_variables.md), [04](04_python_numbers.md), [05](05_python_strings.md), [06](06_python_lists.md), [07](07_python_tuples.md), [08](08_python_sets.md), [09](09_python_dictionaries.md), [10](10_python_booleans.md), [11](11_python_type_casting.md), [31](31_python_print.md), [35](35_python_string_formatting.md) |
+| Day 1 | Python Foundations | [01](01_python_intro.md), [02](02_python_syntax.md), [03](03_python_variables.md), [04](04_python_numbers.md), [05](05_python_strings.md), [06](06_python_lists.md), [07](07_python_tuples.md), [08](08_python_sets.md), [09](09_python_dictionaries.md), [11](11_python_type_casting.md), [31](31_python_print.md), [35](35_python_string_formatting.md) |
 | Day 2 | Conditions and Decisions | [10](10_python_booleans.md), [12](12_python_if_else.md), [16](16_python_operators.md) |
-| Day 3 | Loops and Program Flow | [13](13_python_while_loops.md), [14](14_python_for_loops.md), [15](15_python_break_continue.md), [25](25_python_iterators.md) |
+| Day 3 | Loops and Program Flow | [13](13_python_while_loops.md), [14](14_python_for_loops.md), [15](15_python_break_continue.md) |
 | Day 4 | Functions | [17](17_python_functions.md), [18](18_python_function_arguments.md), [19](19_python_return_values.md), [20](20_python_lambda.md), [40](40_python_scope.md) |
 | Day 5 | File Handling | [26](26_python_file_handling.md), [27](27_python_file_read.md), [28](28_python_file_write.md), [29](29_python_file_delete.md), [36](36_python_try_except.md) |
 | Day 6 | String & Character Validation | [05](05_python_strings.md), [11](11_python_type_casting.md), [16](16_python_operators.md), [32](32_python_string_methods.md), [33](33_python_string_slicing.md), [34](34_python_string_validation.md) |
@@ -74,7 +74,7 @@ Use this index alongside [W3SCHOOLS_PYTHON_REFERENCES.md](W3SCHOOLS_PYTHON_REFER
 | 22 | [22_python_constructors.md](22_python_constructors.md) | The `__init__` constructor method | Days 8–10 |
 | 23 | [23_python_methods.md](23_python_methods.md) | Class and instance methods | Days 8–10 |
 | 24 | [24_python_inheritance.md](24_python_inheritance.md) | Inheritance and polymorphism | Days 8–10 |
-| 25 | [25_python_iterators.md](25_python_iterators.md) | Creating custom iterators | Day 3, Days 8–10 |
+| 25 | [25_python_iterators.md](25_python_iterators.md) | Creating custom iterators | Days 8–10 |
 
 ### 6. File Handling & I/O
 

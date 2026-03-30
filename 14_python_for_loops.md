@@ -89,7 +89,7 @@ with open("gamertags.txt") as f:
 | Day | Topic |
 |-----|-------|
 | Day 3 | Loops and Program Flow (while loops, iterating lists) |
-| Days 10-12 | Data loading, display, filters and logic |
+| Days 10–12 | Data loading, display, filters and logic |
 
 ## See Also
 - [13_python_while_loops.md](13_python_while_loops.md)
