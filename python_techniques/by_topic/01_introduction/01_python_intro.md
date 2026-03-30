@@ -83,7 +83,16 @@ Welcome to the program Wings_Ranger
    player_name = _____
    _____(f"Welcome, {_____}!")
    ```
-
+   ```
+   player_name = ShadowHunter
+   welcome =f"Welcome, {_____}!"
+   ```
+   ```
+   player_name = "ShadowHunter"
+   welcome_msg = f"Welcome {player_name}!"
+   print(welcome_msg)
+   Welcome ShadowHunter!
+   ```
 2. **Case sensitivity:** Declare `gamertag = "NightOwl"` and `Gamertag = "ProSniper"`. Print both. Are they the same variable? What error would occur if you only defined one but tried to print the other?
 
 3. **No semicolons:** Rewrite this C# line as valid Python — what do you remove?
