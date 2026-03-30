@@ -44,10 +44,15 @@ _____(_____"Gamertag '{_____}' is registered on {_____}")
 
 **Questions:**
 - What single Python function prints output to the screen? (C# uses `Console.WriteLine` — Python uses one lowercase word)
+  *print*
 - In C#, strings are joined with `+`. What does Python's f-string syntax `f"..."` let you do instead?
+  *You can enter dsfjasdf = f "your text here"*
+  *then display the words with*
+  *print(dsfjasdf)*
 - Do Python statements end with a semicolon?
+  *no you do not need the semicolins*
 - If you define both `gamertag` and `Gamertag`, are they the same variable or two different ones?
-
+  *they are two different ones as they are case sensetive*
 **Test challenge:**
 Create a Python script that stores your own made-up gamertag in a variable and prints a formatted welcome message using that variable. Run it and confirm the output is exactly right.
 
