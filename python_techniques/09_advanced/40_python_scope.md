@@ -20,112 +20,79 @@ Scope determines where in your program a variable can be accessed. Python uses t
 - **Constants**: module-level ALL_CAPS constants are the acceptable exception to global use
 
 ## Syntax / Example Code
-```python
-# --- Local scope ---
-def validate_gamertag(tag):
-    MIN = 3      # local to this function
-    MAX = 15     # local to this function
-    return bool(tag) and tag.isalnum() and MIN <= len(tag) <= MAX
 
-# MIN and MAX are not accessible here
-# print(MIN)   # NameError: name 'MIN' is not defined
+```
+C# context (from the gamertag project):
+    // C# has class-level and method-level scope
+    internal class Gamertags
+    {
+        private string[] gamerTagList = { };  // class (instance) scope
 
-# --- Global scope ---
-MAX_GAMERTAG_LENGTH = 15   # module-level constant (GLOBAL, read-only)
-MIN_GAMERTAG_LENGTH = 3
-VALID_PLATFORMS = {"Xbox", "PlayStation", "PC", "Nintendo Switch"}
+        public void LoadGamertags()
+        {
+            // local variable — only exists in this method
+            string filePath = "../Gamertags.txt";
+            gamerTagList = File.ReadAllLines(filePath);
+        }
+    }
 
-def is_valid_length(tag):
-    # Reads globals — OK for constants
-    return MIN_GAMERTAG_LENGTH <= len(tag) <= MAX_GAMERTAG_LENGTH
+Python skeleton — understand scope with LEGB (fill in the blanks):
 
-# --- global keyword (generally avoid) ---
-player_count = 0   # global
+    # Module-level constants (GLOBAL scope — all-caps by convention)
+    _____ = "Gamertags.txt"          # the filename constant
+    _____ = 15                        # max gamertag length
+    _____ = 3                         # min gamertag length
 
-def increment_count():
-    global player_count    # declare intent to modify global
-    player_count += 1
-
-increment_count()
-increment_count()
-print(player_count)   # 2
-
-# BETTER: use a return value instead of global mutation
-def load_players(filename):
-    players = []   # local — returned to caller
-    try:
+    # Function with LOCAL variables
+    def load_gamertags(filename):
+        gamer_tag_list = _____        # LOCAL — only exists inside this function
         with open(filename) as f:
             for line in f:
-                line = line.strip()
-                if line:
-                    parts = line.split(",")
-                    if len(parts) == 3:
-                        players.append({"gamertag": parts[0],
-                                        "platform": parts[1],
-                                        "score": int(parts[2])})
-    except FileNotFoundError:
-        pass
-    return players   # caller owns the result
+                gamer_tag_list.append(line.strip())
+        return _____                  # return the local variable to the caller
 
-# --- LEGB resolution order example ---
-x = "global"
+    # AVOID global mutation — pass data as arguments instead
+    # BAD pattern (like C#'s static fields):
+    gamer_tag_list = []               # global mutable state
 
-def outer():
-    x = "enclosing"
+    def bad_load():
+        _____ gamer_tag_list          # declares intent to modify global
+        gamer_tag_list = open(DATA_FILE).readlines()  # mutates global
 
-    def inner():
-        x = "local"
-        print(x)   # local
+    # GOOD pattern — pass and return:
+    def good_load(filename):
+        result = _____                # local
+        # ... fill file ...
+        return _____                  # caller gets the data
 
-    inner()
-    print(x)   # enclosing
+    # In your Gamertags class — instance scope (equivalent to C# 'private' fields)
+    class Gamertags:
+        def __init__(self, filename=_____):      # use the global constant
+            self.filename = _____
+            self.gamer_tag_list = _____
 
-outer()
-print(x)   # global
+        def load_gamertags(self):
+            # local variable inside method
+            loaded = _____
+            with open(self._____, _____) as f:
+                for line in f:
+                    loaded.append(line._____(  ))
+            self.gamer_tag_list = _____          # assign to instance scope
 
-# --- nonlocal (closures) ---
-def make_counter():
-    count = 0
-    def increment():
-        nonlocal count
-        count += 1
-        return count
-    return increment
+Questions:
+- What is the LEGB lookup order? What does each letter stand for?
+- Why is using `global` keyword inside a function generally a bad idea?
+- In your Gamertags class, what scope holds `self.gamer_tag_list`? (Local,
+  global, or instance/enclosing?)
+- In C#, `private string[] gamerTagList` is instance scope. What is the Python
+  equivalent? How do you write it?
 
-counter = make_counter()
-print(counter())   # 1
-print(counter())   # 2
-print(counter())   # 3
-
-# --- Scope in the gamertag project ---
-
-# Module-level constants (good use of global scope)
-DATA_FILE = "gamertags.txt"
-MAX_GAMERTAG_LENGTH = 15
-MIN_GAMERTAG_LENGTH = 3
-
-def add_player(players, gamertag, platform, score):
-    """
-    All data is passed in as arguments and modified list returned.
-    No global mutation — clean, testable function.
-    """
-    players.append({
-        "gamertag": gamertag,
-        "platform": platform,
-        "score": score
-    })
-    return players
-
-def save_players(filename, players):
-    """Saves players to file. Takes filename as argument (not global)."""
-    with open(filename, "w") as f:
-        for p in players:
-            f.write(f"{p['gamertag']},{p['platform']},{p['score']}\n")
-
-# Main program
-players = load_players(DATA_FILE)   # local in main, passed to functions
-players = add_player(players, "ShadowX", "Xbox", 4250)
-save_players(DATA_FILE, players)
+Test challenge:
+    Write a small program WITHOUT a class: create `DATA_FILE = "Gamertags.txt"`
+    at the top. Write `load_gamertags(filename)` that takes the filename as an
+    argument (NOT reading the global directly). Call it with `load_gamertags(DATA_FILE)`.
+    Why is it better to pass the filename as an argument rather than reading
+    `DATA_FILE` directly inside the function?
 ```
 
 ## Common Use Cases
@@ -145,8 +112,8 @@ save_players(DATA_FILE, players)
 - [03_python_variables.md](../01_introduction/03_python_variables.md)
 - [39_python_modules.md](39_python_modules.md)
 
-## Practice Tips
-- Define all configuration constants at the top of your file in ALL_CAPS
-- Avoid `global` — if a function needs data, pass it as an argument
-- Test each function in isolation; if it relies on globals, it's harder to test
-- Use `nonlocal` only in closures — don't use it as a workaround for poor design
+## Challenges
+- **Blank 1**: At the top of your file, define three module-level constants: `DATA_FILE = _____`, `MAX_TAG_LENGTH = _____`, `MIN_TAG_LENGTH = _____`. What values come from the gamertag project rules?
+- **Blank 2**: Write `validate_gamertag(tag)` that reads `MAX_TAG_LENGTH` and `MIN_TAG_LENGTH` from global scope. Then rewrite it so the limits are passed as parameters instead. Which version is easier to test?
+- **Blank 3**: In `Gamertags.__init__`, set `self.filename = filename` where `filename` has a default of `_____`. What is the C# equivalent file path? What should the default be in Python?
+- **Challenge**: C# uses `private` to keep `gamerTagList` inside the class. Python uses naming convention: a leading underscore `_gamer_tag_list` signals "private". Try naming your list `self._gamer_tag_list`. Can you still access it from outside the class? What does `_` tell other programmers? Does Python actually enforce it?

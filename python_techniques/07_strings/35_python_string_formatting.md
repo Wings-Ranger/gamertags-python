@@ -19,78 +19,64 @@ Python offers multiple ways to format strings: f-strings (Python 3.6+), `.format
 - **`%` formatting**: `"Name: %s" % name` — legacy style, avoid in new code
 
 ## Syntax / Example Code
-```python
-gamertag = "ShadowHunter99"
-platform = "Xbox"
-score = 4250
-accuracy = 87.523
 
-# --- f-string basics ---
-print(f"Player: {gamertag}")
-print(f"Platform: {platform}")
-print(f"Score: {score}")
+```
+C# pattern (from the gamertag project):
+    // C# string interpolation
+    Console.WriteLine($"Found {count} gamertags ending with a number.");
+    Console.WriteLine($"Gamertag: {s}");
 
-# --- Expressions inside f-strings ---
-tags = ["ShadowX", "NightOwl", "ProSniper"]
-print(f"Total players: {len(tags)}")
-print(f"Uppercase: {gamertag.upper()}")
-print(f"Score doubled: {score * 2}")
+    // C# also uses string.Format() — older style
+    Console.WriteLine(string.Format("Count: {0}", count));
 
-# --- Number formatting ---
-print(f"Score: {score:,}")            # 4,250  (thousands separator)
-print(f"Score: {score:>10,}")         # right-aligned in 10 chars: "     4,250"
-print(f"Accuracy: {accuracy:.1f}%")   # 87.5%  (1 decimal place)
-print(f"Accuracy: {accuracy:.2f}%")   # 87.52%
-print(f"Hex score: {score:#x}")       # 0x109a
+Python skeleton — format strings with f-strings (fill in the blanks):
 
-# --- String alignment ---
-print(f"{'Gamertag':<16} {'Platform':<14} {'Score':>8}")
-print(f"{'ShadowX':<16} {'Xbox':<14} {4250:>8,}")
-print(f"{'NightOwl':<16} {'PlayStation':<14} {3300:>8,}")
-print(f"{'ProSniper':<16} {'PC':<14} {5100:>8,}")
+    tag   = "ShadowX99"
+    count = 3
 
-# --- Padding with a fill character ---
-print(f"{'LEADERBOARD':=^40}")   # ===============LEADERBOARD===============
-print(f"{'ShadowX':*<20}")       # ShadowX************
+    # Basic f-string — equivalent to C#'s $"..." interpolation
+    print(f"Gamertag: _____")            # embed tag variable
+    print(f"Found _____ gamertags.")     # embed count variable
 
-# --- Multi-line formatted output ---
-def display_player(player):
-    tag   = player['gamertag']
-    plat  = player['platform']
-    sc    = player['score']
-    print(f"  {'Gamertag':<10}: {tag}")
-    print(f"  {'Platform':<10}: {plat}")
-    print(f"  {'Score':<10}: {sc:,}")
+    # Expression inside f-string
+    tags = ["ShadowX", "NightOwl", "Pro7"]
+    print(f"Total: _____")              # call len() inside the f-string
 
-players = [
-    {"gamertag": "ShadowX",   "platform": "Xbox",        "score": 4250},
-    {"gamertag": "NightOwl",  "platform": "PlayStation", "score": 3300},
-]
-for p in players:
-    display_player(p)
-    print()
+    # Alignment for display output
+    # Left-align in 20 characters wide:
+    print(f"{tag:_____}")               # format spec: < means left, number is width
 
-# --- .format() style (older) ---
-msg = "Player: {}, Score: {:,}".format(gamertag, score)
-print(msg)
+    # Right-align a number in 8 characters wide:
+    score = 4250
+    print(f"{score:_____}")             # format spec: > means right
 
-msg = "Player: {gamertag}, Score: {score:,}".format(gamertag=gamertag, score=score)
-print(msg)
+    # Center with fill character
+    print(f"{'LEADERBOARD':_____^_____}")  # fill char, alignment, width
 
-# --- Multiline f-string ---
-summary = (
-    f"{'=' * 35}\n"
-    f"  Gamertag : {gamertag}\n"
-    f"  Platform : {platform}\n"
-    f"  Score    : {score:,}\n"
-    f"{'=' * 35}"
-)
-print(summary)
+    # Print a separator line
+    print("_____" * _____)              # what character * what count?
 
-# --- Debug: variable name = value (Python 3.8+) ---
-x = 42
-print(f"{x=}")         # x=42
-print(f"{score=}")     # score=4250
+    # Formatted display function for print_all_gamertags
+    def format_gamertag_line(number, tag):
+        return f"{number:<_____} {tag:<_____}"   # what widths look good?
+
+    # Older .format() style (you may see this in existing Python code)
+    msg = "Gamertag: {}, Count: {}"._____(tag, count)
+    print(msg)
+
+Questions:
+- Python uses `f"..."` and C# uses `$"..."`. What goes inside the curly braces?
+- What format specifier left-aligns text in a field of width 20?
+- How do you display a number with a thousands separator (e.g., 4,250)?
+- What is the `*` operator doing when used with a string like `"=" * 40`?
+
+Test challenge:
+    Write a `show_welcome_message(self)` method that uses f-strings to print:
+    - A separator line: `"=" * 40`
+    - A centered title: `f"{'Gamertag Manager':^40}"`
+    - A line showing the count: `f"  {len(self.gamer_tag_list)} gamertags loaded"`
+    - Another separator line
+    What do you need to fill in for each blank?
 ```
 
 ## Common Use Cases
@@ -110,8 +96,8 @@ print(f"{score=}")     # score=4250
 - [31_python_print.md](../06_file_io/31_python_print.md)
 - [32_python_string_methods.md](32_python_string_methods.md)
 
-## Practice Tips
-- Build a `display_player_table(players)` function using aligned f-string format specifiers
-- Practice all three alignment specs: `<` (left), `>` (right), `^` (center)
-- Use `{score:,}` for all score displays to make large numbers readable
-- Try `f"{'Title':=^40}"` to create styled section headers in your console UI
+## Challenges
+- **Blank 1**: Write `show_welcome_message(self)` using f-strings. Print a separator `"=" * _____`, a centered title `f"{'Gamertag Manager':^_____}"`, and a count line `f"  {len(self.gamer_tag_list)} gamertags loaded"`. What width gives a nice output?
+- **Blank 2**: Write `format_gamertag_line(i, tag)` that returns `f"{i:<_____} {tag:<_____}"`. What widths should you pick so the numbers and tags align cleanly?
+- **Blank 3**: In `print_all_gamertags(self)`, use `enumerate(self.gamer_tag_list, _____)` to get 1-based numbers. Write the `print(f"_____")` line using those numbers.
+- **Challenge**: C# uses `$"Gamertag: {s}"` and Python uses `f"Gamertag: {s}"`. They look almost identical — but Python f-strings can include expressions: `f"{len(tags) * 2}"`. Write three f-strings that each embed a different kind of expression: a method call, a math operation, and a conditional expression (`x if condition else y`).

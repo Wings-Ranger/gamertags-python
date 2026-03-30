@@ -22,101 +22,73 @@ Python has a hierarchy of built-in exception classes. Understanding which except
 - **Exception hierarchy**: catch child classes before parent classes in `except` chains
 
 ## Syntax / Example Code
-```python
-# ValueError — wrong value, right type
-try:
-    score = int("not_a_number")
-except ValueError as e:
-    print(f"ValueError: {e}")
 
-# Also ValueError when value is out of range for a custom context:
-def set_score(score):
-    if score < 0:
-        raise ValueError(f"Score cannot be negative: {score}")
-    return score
+```
+C# context:
+    // C# exceptions for similar situations:
+    // FileNotFoundException  → Python: FileNotFoundError
+    // ArgumentException      → Python: ValueError
+    // InvalidOperationException → Python: RuntimeError or custom exception
+    // IndexOutOfRangeException → Python: IndexError
+    // NullReferenceException  → Python: AttributeError or TypeError
 
-# TypeError — wrong type
-try:
-    result = "Score: " + 4250    # can't concatenate str and int
-except TypeError as e:
-    print(f"TypeError: {e}")
+Python skeleton — identify which exception is raised when (fill in the blanks):
 
-# FileNotFoundError
-try:
-    with open("nonexistent.txt") as f:
-        pass
-except FileNotFoundError as e:
-    print(f"FileNotFoundError: {e}")
+    # ValueError — right type, wrong value
+    # Raised by: int("abc"), int(""), float("xyz")
+    try:
+        score = int("not_a_number")
+    except _____ as e:
+        print(f"ValueError: {e}")
 
-# IndexError — list index out of range
-try:
-    parts = "ShadowX,Xbox".split(",")   # only 2 parts
-    score = int(parts[2])               # index 2 doesn't exist
-except IndexError as e:
-    print(f"IndexError: {e}")
+    # FileNotFoundError — file does not exist
+    try:
+        with open("missing_file.txt") as f:
+            _____
+    except _____ as e:
+        print(f"File error: {e}")
 
-# KeyError — dict key missing
-try:
-    player = {"gamertag": "ShadowX", "platform": "Xbox"}
-    print(player["score"])   # key doesn't exist
-except KeyError as e:
-    print(f"KeyError: {e}")
+    # IndexError — list index out of range
+    # This happens when a CSV line has fewer fields than expected
+    try:
+        parts = "ShadowX,Xbox".split(",")   # only 2 parts
+        score_str = parts[_____]            # this index does not exist
+    except _____ as e:
+        print(f"Missing field: {e}")
 
-# AttributeError
-try:
-    x = 42
-    x.upper()   # int has no upper() method
-except AttributeError as e:
-    print(f"AttributeError: {e}")
+    # TypeError — wrong type for an operation
+    try:
+        result = "Score: " + _____          # can't add str and int
+    except _____ as e:
+        print(f"Type error: {e}")
 
-# ZeroDivisionError
-try:
-    average = 100 / 0
-except ZeroDivisionError as e:
-    print(f"ZeroDivisionError: {e}")
+    # KeyError — dictionary key missing
+    try:
+        player = {"gamertag": "ShadowX"}    # no "score" key
+        print(player[_____])
+    except _____ as e:
+        print(f"Missing key: {e}")
 
-# Catching multiple in one except
-try:
-    line = "ShadowX,Xbox"
-    parts = line.split(",")
-    score = int(parts[2])   # IndexError, and if parts[2] existed but wasn't int: ValueError
-except (IndexError, ValueError) as e:
-    print(f"Data parsing error: {type(e).__name__}: {e}")
+    # Catching multiple exceptions together
+    try:
+        parts = "ShadowX".split(",")
+        score = int(parts[_____])
+    except (_____, _____) as e:             # IndexError OR ValueError
+        print(f"Data error: {type(e).__name__}: {e}")
 
-# Catching parent class (less specific — use with care)
-try:
-    with open("gamertags.txt") as f:
-        data = f.read()
-except OSError as e:
-    # Catches FileNotFoundError, PermissionError, etc.
-    print(f"OS error: {e}")
+Questions:
+- What exception does `int("abc")` raise? What about `int("")`?
+- What is the difference between `IndexError` and `KeyError`?
+- What exception does `open("nonexistent.txt")` raise?
+- Why should you catch the MOST SPECIFIC exception type rather than `Exception`?
 
-# Inspecting exception type
-def describe_error(e):
-    print(f"  Type   : {type(e).__name__}")
-    print(f"  Message: {e}")
-    print(f"  Module : {type(e).__module__}")
-
-try:
-    {}["missing_key"]
-except Exception as e:
-    describe_error(e)
-
-# Exception hierarchy summary (partial)
-# BaseException
-#   ├── KeyboardInterrupt
-#   ├── SystemExit
-#   └── Exception
-#         ├── ValueError
-#         ├── TypeError
-#         ├── AttributeError
-#         ├── IndexError
-#         ├── KeyError
-#         ├── StopIteration
-#         ├── ZeroDivisionError
-#         └── OSError
-#               ├── FileNotFoundError
-#               └── PermissionError
+Test challenge:
+    Write a function `parse_gamertag_line(line)` that splits a CSV line and converts
+    the score to int. Intentionally test it with:
+    - `"ShadowX,Xbox,4250"` (valid)
+    - `"ShadowX,Xbox"` (missing score → IndexError)
+    - `"ShadowX,Xbox,abc"` (bad score → ValueError)
+    Which exception handler catches each case?
 ```
 
 ## Common Use Cases
@@ -135,8 +107,8 @@ except Exception as e:
 - [38_python_raising_exceptions.md](38_python_raising_exceptions.md)
 - [27_python_file_read.md](../06_file_io/27_python_file_read.md)
 
-## Practice Tips
-- Intentionally trigger each exception type to learn exactly when they occur
-- Use `type(e).__name__` in debug output to display the exception class name
-- Catch `OSError` (not just `FileNotFoundError`) when you want to handle all file system errors
-- Never catch `KeyboardInterrupt` — users need Ctrl+C to exit hanging programs
+## Challenges
+- **Blank 1**: In `parse_gamertag_line(line)`, write `except (_____, _____)` to catch both a missing field and a bad score in the same block. What are the two exception class names?
+- **Blank 2**: What exception does `parts[2]` raise when `parts` only has 2 elements? What does `int("abc")` raise? Write them both in a `except (_____, _____)` block.
+- **Blank 3**: Use `type(e).__name__` to print the exception class name: `print(f"Error type: {_____(e)._____(  )}")`. Fill the two blanks.
+- **Challenge**: Intentionally trigger each of the five exceptions in the skeleton (ValueError, FileNotFoundError, IndexError, TypeError, KeyError) by writing short test lines. Then write ONE `try` block around code that could raise any of them, with a separate `except` clause for each. What order do the `except` clauses need to be in?

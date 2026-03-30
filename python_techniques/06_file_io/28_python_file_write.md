@@ -19,84 +19,49 @@ Writing to files in Python uses the `open()` function with mode `"w"` (write/ove
 - **`csv.writer`**: use for robust CSV writing, handles quoting automatically
 
 ## Syntax / Example Code
-```python
-import csv
 
-# --- Write mode ("w") — creates or overwrites ---
-players = [
-    {"gamertag": "ShadowX",   "platform": "Xbox",         "score": 4250},
-    {"gamertag": "NightOwl",  "platform": "PlayStation",  "score": 3300},
-    {"gamertag": "ProSniper", "platform": "PC",           "score": 5100},
-]
+```
+C# pattern (from the gamertag project):
+    // Appending a new gamertag to the file
+    File.AppendAllText("../Gamertags.txt", "\n" + newGamerTag);
 
-def save_players(filename, players):
-    """Save all players to a CSV file (overwrites)."""
-    with open(filename, "w", encoding="utf-8") as f:
-        for player in players:
-            line = f"{player['gamertag']},{player['platform']},{player['score']}\n"
-            f.write(line)
-    print(f"Saved {len(players)} players to {filename}")
+Python skeleton — write and append to files (fill in the blanks):
 
-save_players("gamertags.txt", players)
+    # Append mode — adds to the end without overwriting (like File.AppendAllText)
+    new_tag = "ShadowX99"
+    with open("Gamertags.txt", _____) as f:   # what mode letter appends?
+        f._____("\n" + _____)                  # what method writes a string?
 
-# --- Append mode ("a") — adds to end, does not overwrite ---
-def add_player_to_file(filename, player):
-    """Append a single player record to the file."""
-    with open(filename, "a", encoding="utf-8") as f:
-        line = f"{player['gamertag']},{player['platform']},{player['score']}\n"
-        f.write(line)
-    print(f"Added {player['gamertag']} to {filename}")
+    # Write mode — creates or OVERWRITES the entire file
+    gamer_tag_list = ["ShadowX", "NightOwl", "ProSniper"]
+    with open("Gamertags.txt", _____) as f:   # what mode letter overwrites?
+        for tag in gamer_tag_list:
+            f.write(_____ + "\n")             # write each tag + newline
 
-new_player = {"gamertag": "GamerZ", "platform": "Nintendo Switch", "score": 900}
-add_player_to_file("gamertags.txt", new_player)
+    # Save all gamertags back to file (full overwrite pattern)
+    def save_gamertags(filename, gamer_tag_list):
+        with open(_____, _____) as f:
+            for tag in _____:
+                f._____(tag + _____)          # each line needs a newline character
 
-# --- writelines() — write a list of strings ---
-lines = ["IronFox,Xbox,2100\n", "BlazeMaster,PC,3800\n"]
-with open("gamertags.txt", "a", encoding="utf-8") as f:
-    f.writelines(lines)
+    # Add a new gamertag — matching C#'s AddNewUserName() + File.AppendAllText()
+    def add_new_user_name(self):
+        new_tag = input(_____)._____(  )      # prompt user, then strip whitespace
+        self.gamer_tag_list._____(new_tag)    # add to in-memory list
+        with open(self.filename, _____) as f: # append to file
+            f.write(_____ + new_tag)          # what prefix did the C# code use?
 
-# --- Using csv.writer for robust output ---
-def save_players_csv(filename, players):
-    """Save players using csv.writer (handles edge cases automatically)."""
-    with open(filename, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        for player in players:
-            writer.writerow([player["gamertag"], player["platform"], player["score"]])
+Questions:
+- What is the difference between `"w"` mode and `"a"` mode?
+- Why does `f.write()` NOT add a newline automatically? What do you have to add?
+- The C# code writes `"\n" + newGamerTag`. Why does the newline come first?
+- After appending, how can you verify the file was updated correctly?
 
-save_players_csv("gamertags.csv", players)
-
-# --- Write with a header row ---
-def save_with_header(filename, players):
-    with open(filename, "w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["gamertag", "platform", "score"])   # header
-        for p in players:
-            writer.writerow([p["gamertag"], p["platform"], p["score"]])
-
-# --- Full load-modify-save pattern ---
-def add_new_gamertag(filename, gamertag, platform, score):
-    """Load existing records, add new player, save all back."""
-    # Load existing
-    existing = []
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    existing.append(line)
-    except FileNotFoundError:
-        pass
-
-    # Add new record
-    new_line = f"{gamertag},{platform},{score}"
-    existing.append(new_line)
-
-    # Save all back
-    with open(filename, "w", encoding="utf-8") as f:
-        for line in existing:
-            f.write(line + "\n")
-
-    print(f"Added {gamertag} to {filename}")
+Test challenge:
+    Write a function that appends a gamertag to "Gamertags.txt". Then read the file
+    back and confirm the last line matches what you appended. What happens if you
+    call your append function twice with the same gamertag — does Python stop you?
+    Should it?
 ```
 
 ## Common Use Cases
@@ -117,8 +82,8 @@ def add_new_gamertag(filename, gamertag, platform, score):
 - [05_python_strings.md](../02_data_types/05_python_strings.md)
 - [35_python_string_formatting.md](../07_strings/35_python_string_formatting.md)
 
-## Practice Tips
-- Practice the full cycle: write a file with `"w"`, then read it back with `"r"`
-- Add a gamertag with `"a"` mode and verify the file was not overwritten
-- Always end each written line with `"\n"`
-- Use `csv.writer` instead of manual string formatting for production-quality output
+## Challenges
+- **Blank 1**: Fill in `with open("Gamertags.txt", _____) as f:` for appending. Then write `f.write("\n" + new_tag)`. What does the `"\n"` do, and why does it come before the tag?
+- **Blank 2**: Write `save_gamertags(filename, gamer_tag_list)` using `"w"` mode. Loop over the list and write each tag followed by `"\n"`. What method on `f` writes a string?
+- **Blank 3**: In `add_new_user_name(self)`, after appending to the file, also append to `self.gamer_tag_list`. What list method appends a single item?
+- **Challenge**: The C# code uses `File.AppendAllText` which opens, writes, and closes in one call. Your Python version uses `with open(..., "a")`. What would happen if you opened the file in `"w"` mode instead of `"a"` mode each time you add a gamertag? Test it with two additions and observe.

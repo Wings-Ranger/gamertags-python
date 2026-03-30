@@ -19,89 +19,62 @@ Python's `os` module provides functions for deleting files and directories. Dele
 - **`shutil.copy(src, dst)`**: copy a file before deleting (safer pattern)
 
 ## Syntax / Example Code
-```python
-import os
-import shutil
-from datetime import datetime
 
-# --- Basic file deletion ---
-filename = "temp_export.txt"
+```
+C# context:
+    // C# equivalent for deleting a file:
+    System.IO.File.Delete("../Gamertags.txt");
+    // The gamertag project doesn't delete files, but you may need this
+    // for resetting test data or archiving old records.
 
-# Always check first
-if os.path.exists(filename):
-    os.remove(filename)
-    print(f"Deleted: {filename}")
-else:
-    print(f"File not found: {filename}")
+Python skeleton — delete files safely (fill in the blanks):
 
-# --- Safe deletion with try/except ---
-def delete_file_safe(filename):
-    """Delete a file if it exists, handling errors gracefully."""
-    try:
-        os.remove(filename)
+    import _____                          # what module has file/path utilities?
+
+    filename = "old_gamertags.txt"
+
+    # Always check before deleting — prevents FileNotFoundError
+    if _____.path._____(filename):        # what method checks existence?
+        _____.remove(filename)            # what method deletes the file?
         print(f"Deleted: {filename}")
+    else:
+        print(f"File not found: {filename}")
+
+    # Safe deletion using try/except
+    def delete_file_safe(filename):
+        try:
+            _____.remove(_____)
+            return _____                  # True = success
+        except FileNotFoundError:
+            print(f"Not found: {filename}")
+            return _____                  # False = failed
+        except PermissionError:
+            print(f"Permission denied: {filename}")
+            return _____
+
+    # Backup before deleting (safer pattern)
+    import shutil
+
+    def backup_and_delete(filename):
+        if not os.path.exists(filename):
+            return False
+        backup_name = filename + _____    # what extension marks a backup?
+        shutil._____(filename, backup_name)  # copy original to backup
+        os._____(filename)                   # then delete original
         return True
-    except FileNotFoundError:
-        print(f"File not found: {filename}")
-        return False
-    except PermissionError:
-        print(f"Permission denied: {filename}")
-        return False
 
-delete_file_safe("old_gamertags.txt")
+Questions:
+- What module provides `os.remove()` and `os.path.exists()`?
+- What exception does `os.remove()` raise if the file doesn't exist?
+- Why is it safer to use `shutil.copy()` before `os.remove()` rather than
+  deleting directly?
+- How is deleting a file in Python different from writing over it with `"w"` mode?
 
-# --- Backup before delete (safer pattern) ---
-def backup_and_delete(filename):
-    """Create a timestamped backup, then delete the original."""
-    if not os.path.exists(filename):
-        print(f"File not found: {filename}")
-        return False
-
-    # Create backup filename with timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    base, ext = os.path.splitext(filename)
-    backup_name = f"{base}_backup_{timestamp}{ext}"
-
-    # Copy to backup
-    shutil.copy(filename, backup_name)
-    print(f"Backup created: {backup_name}")
-
-    # Delete original
-    os.remove(filename)
-    print(f"Original deleted: {filename}")
-    return True
-
-# --- Rename (move) a file instead of deleting ---
-def archive_file(filename):
-    """Rename file to .bak instead of deleting."""
-    if os.path.exists(filename):
-        backup = filename + ".bak"
-        os.rename(filename, backup)
-        print(f"Archived as: {backup}")
-
-# --- Listing and cleaning up temp files ---
-def cleanup_temp_files(directory="."):
-    """Delete all .tmp files in a directory."""
-    deleted = 0
-    for fname in os.listdir(directory):
-        if fname.endswith(".tmp"):
-            fpath = os.path.join(directory, fname)
-            os.remove(fpath)
-            deleted += 1
-    print(f"Cleaned up {deleted} temp file(s)")
-
-# --- Gamertag project: delete and recreate data file ---
-def reset_data_file(filename):
-    """Delete the gamertags file and create a fresh empty one."""
-    if os.path.exists(filename):
-        # Backup first
-        shutil.copy(filename, filename + ".bak")
-        os.remove(filename)
-
-    # Create a new empty file
-    with open(filename, "w") as f:
-        pass   # creates empty file
-    print(f"Data file reset: {filename}")
+Test challenge:
+    Create a test file called "test_delete.txt", write some content to it, then
+    call your `delete_file_safe()` function on it. Confirm it returns True.
+    Call it again on the same (now deleted) file — what does it return? What
+    gets printed?
 ```
 
 ## Common Use Cases
@@ -121,8 +94,8 @@ def reset_data_file(filename):
 - [28_python_file_write.md](28_python_file_write.md)
 - [36_python_try_except.md](../08_error_handling/36_python_try_except.md)
 
-## Practice Tips
-- Always check `os.path.exists()` or use `try/except FileNotFoundError` before deleting
-- Create a backup with `shutil.copy()` before any destructive delete operation
-- Test deletion in a separate folder with test files before using on real data
-- Consider using `os.rename()` to a `.bak` extension as a safer alternative to permanent deletion
+## Challenges
+- **Blank 1**: Write the `if os.path.exists(_____)` check for `"Gamertags.txt"`. What argument does `exists()` take?
+- **Blank 2**: Inside `backup_and_delete`, complete `shutil._____(filename, backup_name)` and `os._____(filename)`. What are the correct function names?
+- **Blank 3**: Write a `reset_data_file(filename)` function that backs up the file as `filename + ".bak"`, deletes the original, then creates a new empty file using `open(_____, "w")`.
+- **Challenge**: Deleting files is irreversible — there is no "Recycle Bin" in Python. Design a safer workflow: before deleting `Gamertags.txt`, copy it to `Gamertags_backup.txt`. Write the two-line Python code for that using `shutil.copy`. When in the gamertag project lifecycle would you actually need to delete a file?

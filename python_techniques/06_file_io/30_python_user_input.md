@@ -19,87 +19,59 @@ The `input()` function pauses program execution and waits for the user to type s
 - **Case normalization**: use `.lower()` or `.upper()` for case-insensitive comparisons
 
 ## Syntax / Example Code
-```python
-# Basic input
-name = input("Enter your gamertag: ")
-print(f"Hello, {name}!")
 
-# Always strip whitespace
-gamertag = input("Enter gamertag: ").strip()
+```
+C# patterns (from the gamertag project):
+    // Reading a line of text from the user
+    string newGamerTag = Console.ReadLine();
 
-# Case-insensitive platform entry
-platform = input("Enter platform (Xbox/PlayStation/PC): ").strip().title()
-# .title() converts "xbox" -> "Xbox", "playstation" -> "PlayStation"
+    // Waiting for any key press (used in the main loop)
+    Console.ReadKey();
 
-# Numeric input with type conversion
-def get_score():
-    while True:
-        raw = input("Enter score: ").strip()
-        if raw.isdigit():
-            return int(raw)
-        print("Please enter a valid positive integer.")
+Python skeleton — get input from the user (fill in the blanks):
 
-score = get_score()
-print(f"Score recorded: {score}")
+    # Basic input — equivalent to Console.ReadLine()
+    new_tag = _____("Enter your gamertag: ")   # what Python function reads input?
 
-# Yes/No confirmation
-def confirm(prompt):
-    """Ask a yes/no question; return True for yes, False for no."""
-    while True:
-        answer = input(f"{prompt} (y/n): ").strip().lower()
-        if answer in ("y", "yes"):
-            return True
-        if answer in ("n", "no"):
-            return False
-        print("Please enter 'y' or 'n'.")
+    # IMPORTANT: input() always returns a _____ (what type?)
+    # Always strip whitespace the user may have accidentally typed
+    new_tag = _____("Enter your gamertag: ")._____(  )
 
-if confirm("Are you sure you want to delete this gamertag?"):
-    print("Deleted.")
-else:
-    print("Cancelled.")
+    # The gamertag project's AddNewUserName() equivalent:
+    def add_new_user_name(self):
+        new_tag = _____("Enter new gamertag: ")._____(  )
+        self.gamer_tag_list._____(new_tag)       # add to in-memory list
+        with open(self.filename, _____) as f:    # append to file
+            f.write(_____ + new_tag)
 
-# Full gamertag input validation loop
-VALID_PLATFORMS = {"Xbox", "PlayStation", "PC", "Nintendo Switch"}
+    # Validation loop — keep asking until valid input is received
+    def get_valid_gamertag():
+        while _____:                              # what condition runs forever?
+            tag = _____("Enter gamertag: ")._____(  )
+            if not tag:
+                print("Cannot be empty.")
+            elif not tag._____(  ):               # what checks letters+digits only?
+                print("Letters and numbers only.")
+            elif len(tag) < _____ or len(tag) > _____:
+                print("Must be 3-15 characters.")
+            else:
+                return _____                      # valid — exit the loop
 
-def get_valid_gamertag():
-    """Keep asking until a valid gamertag is entered."""
-    while True:
-        tag = input("Enter gamertag (3-15 alphanumeric chars): ").strip()
-        if not tag:
-            print("  Error: Cannot be empty.")
-        elif len(tag) < 3:
-            print("  Error: Too short (minimum 3 characters).")
-        elif len(tag) > 15:
-            print("  Error: Too long (maximum 15 characters).")
-        elif not tag.isalnum():
-            print("  Error: Letters and numbers only, no spaces or symbols.")
-        else:
-            return tag
+    # Menu selection (equivalent to Console.ReadKey() for menu choice)
+    choice = _____("Choose: 1) View  2) Add  3) Quit: ")._____(  )
+    if choice == _____:
+        print("Viewing...")
 
-def get_valid_platform():
-    """Keep asking until a valid platform is entered."""
-    while True:
-        platform = input(f"Enter platform {sorted(VALID_PLATFORMS)}: ").strip().title()
-        if platform in VALID_PLATFORMS:
-            return platform
-        print(f"  Error: Must be one of {sorted(VALID_PLATFORMS)}")
+Questions:
+- What Python function is equivalent to C#'s `Console.ReadLine()`?
+- What type does `input()` always return, even if the user types a number?
+- How do you use a `while` loop to keep asking until the user gives valid input?
+- C# uses `Console.ReadKey()` to pause. What could you use in Python instead?
 
-# Menu selection by number
-def get_menu_choice(options):
-    """Display numbered options and return the chosen number."""
-    for i, option in enumerate(options, 1):
-        print(f"  {i}. {option}")
-    while True:
-        raw = input("Enter choice number: ").strip()
-        if raw.isdigit():
-            choice = int(raw)
-            if 1 <= choice <= len(options):
-                return choice
-        print(f"  Please enter a number between 1 and {len(options)}.")
-
-menu = ["View all gamertags", "Add a new gamertag", "Filter by platform", "Quit"]
-choice = get_menu_choice(menu)
-print(f"You selected: {menu[choice - 1]}")
+Test challenge:
+    Write a `get_valid_gamertag()` function with a while loop. Test it with:
+    an empty string, a string with spaces, a 2-character string, and finally
+    a valid gamertag. How many times did the loop run before accepting input?
 ```
 
 ## Common Use Cases
@@ -119,8 +91,8 @@ print(f"You selected: {menu[choice - 1]}")
 - [11_python_type_casting.md](../02_data_types/11_python_type_casting.md)
 - [36_python_try_except.md](../08_error_handling/36_python_try_except.md)
 
-## Practice Tips
-- Always `.strip()` every `input()` call — make it a habit
-- Write `get_valid_gamertag()` as a reusable function with a `while True:` validation loop
-- Use `.title()` to normalize platform names so "xbox" becomes "Xbox" automatically
-- Test your input functions with blank entries, spaces, and numbers to ensure they validate correctly
+## Challenges
+- **Blank 1**: Write `new_tag = input(_____).strip()`. What prompt string tells the user what to type?
+- **Blank 2**: Write the validation inside a `while True:` loop. Fill in the condition that checks for letters and digits only: `if not tag._____(  ):`. What method is that?
+- **Blank 3**: The C# main loop uses `bool isRunning = true; while (isRunning)`. Python version: `is_running = _____; while _____:`. What value starts the loop, and when do you set it to `False`?
+- **Challenge**: C# uses `Console.ReadKey()` to wait for any keypress. Python's `input()` always waits for Enter. Write a short menu loop using `input()` that accepts "1", "2", or "3" and repeats until "3" (quit) is entered — mirroring the C# `isRunning` pattern.

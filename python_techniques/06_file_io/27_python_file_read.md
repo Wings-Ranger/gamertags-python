@@ -19,89 +19,54 @@ Reading files in Python is done with the `open()` function in read mode (`"r"`).
 - **`encoding="utf-8"`**: specify encoding to handle international characters correctly
 
 ## Syntax / Example Code
-```python
-# --- Method 1: read all at once ---
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    content = f.read()
-print(content)
 
-# --- Method 2: readlines() — list of all lines ---
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
-# lines = ["ShadowX,Xbox,4250\n", "NightOwl,PlayStation,3300\n", ...]
-for line in lines:
-    print(line.strip())
+```
+C# pattern (from the gamertag project):
+    gamerTagList = File.ReadAllLines("../Gamertags.txt");
+    // Returns a string[] with one element per line
 
-# --- Method 3: for loop (most Pythonic, memory efficient) ---
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    for line in f:
-        line = line.strip()
-        if not line:
-            continue   # skip blank lines
-        print(line)
+Python skeleton — three ways to read a file (fill in the blanks):
 
-# --- Parsing CSV lines into player dicts ---
-def load_players(filename):
-    """Load players from a CSV file (gamertag,platform,score)."""
-    players = []
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
+    # Method 1: read entire file as one string
+    with open("Gamertags.txt", _____) as f:
+        content = f._____()         # one big string, includes \n characters
+
+    # Method 2: readlines() — closest to File.ReadAllLines
+    with open("Gamertags.txt", _____) as f:
+        lines = f._____()           # returns a list — equivalent to string[]
+    # lines still has "\n" at the end of each item — how do you remove it?
+    for line in lines:
+        print(line._____(  ))       # what method strips whitespace/newlines?
+
+    # Method 3: for loop (most Pythonic — reads one line at a time)
+    with open("Gamertags.txt", _____) as f:
+        for line in f:
+            line = line._____()
+            if not _____:           # how do you skip blank lines?
+                continue
+            print(line)
+
+    # Load into a list (replacing C#'s string[] gamerTagList)
+    def load_gamertags(filename):
+        gamer_tag_list = _____      # start with an empty list
+        with open(_____, _____) as f:
             for line in f:
-                line = line.strip()
-                if not line:
-                    continue
-                parts = line.split(",")
-                if len(parts) != 3:
-                    print(f"Skipping malformed line: {line}")
-                    continue
-                try:
-                    player = {
-                        "gamertag": parts[0].strip(),
-                        "platform": parts[1].strip(),
-                        "score": int(parts[2].strip())
-                    }
-                    players.append(player)
-                except ValueError:
-                    print(f"Skipping line with invalid score: {line}")
-    except FileNotFoundError:
-        print(f"File not found: {filename}")
-    return players
+                line = line._____()
+                if line:
+                    gamer_tag_list._____(line)   # what method adds to a list?
+        return gamer_tag_list
 
-players = load_players("gamertags.txt")
-print(f"Loaded {len(players)} players")
-for p in players:
-    print(f"  {p['gamertag']} ({p['platform']}): {p['score']}")
+Questions:
+- What is the difference between `f.read()`, `f.readline()`, and `f.readlines()`?
+- Why should you always call `.strip()` on lines read from a file?
+- What exception is raised if the file does not exist? How do you handle it?
+- C# `File.ReadAllLines` returns `string[]`. What Python type does `readlines()` return?
 
-# --- Reading a specific line by number ---
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    lines = f.readlines()
-    if lines:
-        first_line = lines[0].strip()
-        print(f"First entry: {first_line}")
-
-# --- Counting lines in a file ---
-with open("gamertags.txt", "r", encoding="utf-8") as f:
-    count = sum(1 for line in f if line.strip())
-print(f"Total records: {count}")
-
-# --- Using csv module for robust CSV reading ---
-import csv
-
-def load_players_csv(filename):
-    players = []
-    try:
-        with open(filename, newline="", encoding="utf-8") as f:
-            reader = csv.reader(f)
-            for row in reader:
-                if len(row) == 3:
-                    players.append({
-                        "gamertag": row[0],
-                        "platform": row[1],
-                        "score": int(row[2])
-                    })
-    except FileNotFoundError:
-        pass
-    return players
+Test challenge:
+    Create a text file with 5 gamertags, one per line, with a blank line in the middle.
+    Read it using Method 3 (the for loop). Confirm that blank lines are skipped and
+    you end up with exactly 5 items. Then read it using Method 2 — what is different
+    about the raw values in the list?
 ```
 
 ## Common Use Cases
@@ -122,8 +87,8 @@ def load_players_csv(filename):
 - [09_python_dictionaries.md](../02_data_types/09_python_dictionaries.md)
 - [36_python_try_except.md](../08_error_handling/36_python_try_except.md)
 
-## Practice Tips
-- Always call `.strip()` on every line you read from a file
-- Skip blank lines with `if not line: continue` after stripping
-- Wrap file reading in `try/except FileNotFoundError` to handle missing files gracefully
-- Use `csv.reader` when your data may contain commas inside quoted fields
+## Challenges
+- **Blank 1**: Complete `load_gamertags(filename)` using a `for line in f:` loop. What do you call on each line to remove `\n`? What method adds a cleaned line to the list?
+- **Blank 2**: Wrap your `open()` call in a `try/except _____` block. What exception class handles a missing file? What should the function return in that case?
+- **Blank 3**: After loading, write `print(f"Loaded _____ gamertags")`. What expression gives you the count of items in a list?
+- **Challenge**: The C# code assigns directly: `gamerTagList = File.ReadAllLines(...)`. In Python, your `load_gamertags` function returns a list that you assign to `self.gamer_tag_list`. Write that call: `self.gamer_tag_list = self.load_gamertags(_____)`. Where does the filename come from?

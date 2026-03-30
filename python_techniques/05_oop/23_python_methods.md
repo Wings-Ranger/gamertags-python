@@ -18,103 +18,60 @@ Methods are functions defined inside a class. They define the behavior of object
 - **`self` is explicit**: Python does not pass the instance automatically in the syntax — it's a convention, always named `self`
 
 ## Syntax / Example Code
-```python
-class Player:
-    """Represents a gamertag entry with full behavior."""
 
-    valid_platforms = {"Xbox", "PlayStation", "PC", "Nintendo Switch"}
+```
+C# pattern (from the gamertag project):
+    internal class Gamertags
+    {
+        private string[] gamerTagList = { };
 
-    def __init__(self, gamertag, platform="PC", score=0):
-        self.gamertag = gamertag
-        self.platform = platform
-        self.score = score
+        public void LoadGamertags() { ... }
+        public void PrintAllGamertags() { ... }
+        public void PrintGamertagsEndingWithNumber() { ... }
+        public void PrintGamertagsNotStartingWithNumberorLetter() { ... }
+        public void ShowWelcomeMessage() { ... }
+        public void AddNewUserName() { ... }
+    }
 
-    # --- Instance methods ---
+Python skeleton — translate each method (fill in the blanks):
 
-    def get_rank(self):
-        """Return rank based on score."""
-        if self.score >= 5000: return "Diamond"
-        if self.score >= 3000: return "Gold"
-        if self.score >= 1000: return "Silver"
-        return "Bronze"
+    class Gamertags:
 
-    def add_score(self, points):
-        """Add points and return self for chaining."""
-        self.score += points
-        return self   # enables chaining
+        def _____(self):
+            self.gamer_tag_list = _____
 
-    def is_valid(self):
-        """Return True if this player record is valid."""
-        return (
-            bool(self.gamertag)
-            and self.gamertag.isalnum()
-            and 3 <= len(self.gamertag) <= 15
-            and self.platform in Player.valid_platforms
-        )
+        # Instance method — translates LoadGamertags()
+        def load_gamertags(_____, filename):
+            # open the file, read lines into self.gamer_tag_list
+            _____
 
-    def to_csv(self):
-        """Return a CSV string representation."""
-        return f"{self.gamertag},{self.platform},{self.score}"
+        # Instance method — translates PrintAllGamertags()
+        def print_all_gamertags(_____):
+            for _____ in self.gamer_tag_list:
+                print(_____)
 
-    # --- Dunder methods ---
+        # Instance method — translates PrintGamertagsEndingWithNumber()
+        def print_gamertags_ending_with_number(_____):
+            for s in self._____:
+                if s[_____]._____(  ):   # check last character
+                    print(s)
 
-    def __str__(self):
-        return f"{self.gamertag} ({self.platform}) — {self.score} pts [{self.get_rank()}]"
+        # Static method — a utility that doesn't need self
+        @_____
+        def is_valid_gamertag(tag):
+            return _____ and tag._____(  ) and 3 <= len(tag) <= _____
 
-    def __repr__(self):
-        return f"Player({self.gamertag!r}, {self.platform!r}, {self.score})"
+Questions:
+- Every instance method has what as its first parameter?
+- C# uses `public void` and `private void`. How does Python mark a method's
+  visibility? (Hint: check the W3Schools link — Python doesn't use keywords)
+- What decorator turns a method into a static method?
+- C# uses `foreach (string s in gamerTagList)`. What is the Python equivalent loop?
 
-    def __eq__(self, other):
-        """Two players are equal if they share the same gamertag (case-insensitive)."""
-        if isinstance(other, Player):
-            return self.gamertag.lower() == other.gamertag.lower()
-        return False
-
-    def __lt__(self, other):
-        """Allow sorting players by score."""
-        return self.score < other.score
-
-    # --- Class method (alternate constructor) ---
-
-    @classmethod
-    def from_csv(cls, line):
-        """Create a Player from 'gamertag,platform,score'."""
-        parts = line.strip().split(",")
-        return cls(parts[0], parts[1], int(parts[2]))
-
-    # --- Static method (utility, no instance/class needed) ---
-
-    @staticmethod
-    def is_valid_gamertag(tag):
-        """Check if a string is a valid gamertag format."""
-        return bool(tag) and tag.isalnum() and 3 <= len(tag) <= 15
-
-
-# Using instance methods
-p = Player("ShadowX", "Xbox", 3500)
-print(p)                # uses __str__
-print(p.get_rank())     # Gold
-p.add_score(500).add_score(200)   # method chaining
-print(p.score)          # 4200
-print(p.to_csv())       # ShadowX,Xbox,4200
-
-# Using class method
-p2 = Player.from_csv("NightOwl,PlayStation,3300")
-print(p2)
-
-# Using static method (no instance needed)
-print(Player.is_valid_gamertag("GamerX"))   # True
-print(Player.is_valid_gamertag("AB"))       # False
-
-# Dunder methods enable natural Python behavior
-players = [
-    Player("ProSniper", "PC", 5100),
-    Player("GamerZ", "Xbox", 900),
-    Player("ShadowX", "Xbox", 4200),
-]
-players.sort()   # uses __lt__
-for p in players:
-    print(p)
+Test challenge:
+    Implement print_all_gamertags(self). Then call it on an instance where
+    gamer_tag_list is empty. What gets printed? How would you add a message
+    like "No gamertags found" when the list is empty?
 ```
 
 ## Common Use Cases
@@ -133,8 +90,8 @@ for p in players:
 - [22_python_constructors.md](22_python_constructors.md)
 - [24_python_inheritance.md](24_python_inheritance.md)
 
-## Practice Tips
-- Implement `to_csv()` and `from_csv()` to round-trip player data through a file
-- Add `__eq__` to make duplicate detection work with `==`
-- Implement `__lt__` to enable `sorted(players)` without a key argument
-- Try method chaining by returning `self` from methods that modify the object
+## Challenges
+- **Blank 1**: Write the `print_all_gamertags(self)` method body. It should loop over `self.gamer_tag_list` and print each tag. What loop syntax do you use?
+- **Blank 2**: Write `print_gamertags_ending_with_number(self)`. You need to check the last character of each string `s`. In C# that's `s[s.Length - 1]`. What is the Python equivalent index for the last character?
+- **Blank 3**: Write `add_new_user_name(self)`. It should call `input(_____)`  to get a gamertag, then append it to `self.gamer_tag_list`. What list method adds an item to the end?
+- **Challenge**: The C# `AddNewUserName()` also writes to the file with `File.AppendAllText`. Where should your Python method do the file write — inside `add_new_user_name` or in a separate method? What are the trade-offs of each approach?

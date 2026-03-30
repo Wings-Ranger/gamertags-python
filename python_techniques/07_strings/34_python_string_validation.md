@@ -20,87 +20,70 @@ Python strings have a family of `.is*()` validation methods that check the compo
 - **Partial validation**: use `all()` with a generator for custom character rules
 
 ## Syntax / Example Code
-```python
-# --- Core validation methods ---
-print("ShadowX".isalpha())      # True  — only letters
-print("ShadowX99".isalpha())    # False — has digits
-print("4250".isdigit())         # True  — only digits
-print("4250.5".isdigit())       # False — decimal point is not a digit
-print("ShadowX99".isalnum())    # True  — letters and digits only
-print("Shadow X".isalnum())     # False — space is not alnum
-print("   ".isspace())          # True
-print("".isdigit())             # False — empty string returns False!
 
-# --- Gamertag validation function ---
-def validate_gamertag(tag):
-    """
-    Validate a gamertag against all rules.
-    Returns (is_valid: bool, message: str).
-    """
-    if not tag:                    # check empty first
-        return False, "Cannot be empty"
-    if not tag.isalnum():
-        return False, "Letters and numbers only (no spaces or symbols)"
-    if len(tag) < 3:
-        return False, "Too short (minimum 3 characters)"
-    if len(tag) > 15:
-        return False, "Too long (maximum 15 characters)"
-    if tag.isdigit():
-        return False, "Must contain at least one letter"
-    return True, "Valid"
+```
+C# patterns (from the gamertag project):
+    // Check last character is a number
+    Char.IsNumber(s, s.Length - 1)
 
-tests = [
-    "",
-    "AB",
-    "Shadow Hunter",
-    "Shadow@X",
-    "123456",
-    "ShadowX99",
-    "ShadowHunter99Valid",
-    "ValidTag",
-]
+    // Check first character is NOT a letter or digit
+    !Char.IsLetterOrDigit(s, 0)
 
-for test in tests:
-    valid, msg = validate_gamertag(test)
-    status = "✓" if valid else "✗"
-    print(f"  {status} '{test}': {msg}")
+Python skeleton — use .is*() validation methods (fill in the blanks):
 
-# --- Score validation (digit check before int conversion) ---
-def get_score_from_string(s):
-    """Safely convert a score string to int."""
-    s = s.strip()
-    if not s:
-        return None, "Empty value"
-    if not s.isdigit():
-        return None, f"'{s}' is not a valid score (digits only)"
-    return int(s), "OK"
+    s = "ShadowX99"
 
-score, msg = get_score_from_string("4250")
-print(score, msg)   # 4250 OK
+    # Equivalent to Char.IsNumber(s, s.Length - 1)
+    # isdigit() checks a single character or whole string
+    if s[_____]._____(  ):                  # last char, is it a digit?
+        print(f"{s} ends with a number")
 
-score, msg = get_score_from_string("abc")
-print(score, msg)   # None 'abc' is not a valid score (digits only)
+    # Equivalent to !Char.IsLetterOrDigit(s, 0)
+    if not s[_____]._____(  ):              # first char, is it alphanumeric?
+        print(f"{s} does NOT start with a letter or digit")
 
-# --- Custom character set validation ---
-# Allow letters, digits, and underscore only
-def is_valid_extended_tag(tag):
-    allowed = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_")
-    return bool(tag) and all(c in allowed for c in tag)
+    # Validate entire gamertag (letters and digits only, no spaces)
+    tag = "Shadow X"
+    if tag._____(  ):                        # what .is*() checks the whole string?
+        print("Valid")
+    else:
+        print("Invalid — has spaces or symbols")
 
-print(is_valid_extended_tag("Shadow_X99"))   # True
-print(is_valid_extended_tag("Shadow-X99"))   # False (hyphen not allowed)
+    # Check for digits only (for score validation)
+    score_str = "4250"
+    if score_str._____(  ):                  # what .is*() checks digits only?
+        score = int(score_str)
+    else:
+        print("Not a valid score")
 
-# --- Checking first character is a letter ---
-def starts_with_letter(tag):
-    return bool(tag) and tag[0].isalpha()
+    # Full validation function skeleton
+    def validate_gamertag(tag):
+        if not _____:                        # what checks if tag is empty/None?
+            return False, "Cannot be empty"
+        if not tag._____(  ):               # alphanumeric check
+            return False, "Letters and numbers only"
+        if len(tag) < _____ or len(tag) > _____:  # length bounds
+            return False, "Must be 3-15 characters"
+        return True, _____                   # what string means success?
 
-print(starts_with_letter("ShadowX"))   # True
-print(starts_with_letter("99Shadow"))  # False
+    # Test your function
+    tests = ["", "AB", "Shadow X", "Shadow@X", "ValidTag99"]
+    for t in tests:
+        valid, msg = validate_gamertag(t)
+        print(f"'{t}': {msg}")
 
-# --- Checking for all-whitespace (before stripping) ---
-raw = "   "
-if raw.isspace() or not raw.strip():
-    print("Input is blank")
+Questions:
+- What is the difference between `.isdigit()`, `.isalpha()`, and `.isalnum()`?
+- What do ALL `.is*()` methods return for an empty string? Why does that matter?
+- C# uses `Char.IsNumber()` on a specific index. Python uses `s[-1].isdigit()`.
+  What is the Python equivalent of `Char.IsLetterOrDigit()`?
+- Why should you always check `if not tag:` BEFORE calling `.isalnum()`?
+
+Test challenge:
+    Create a list of test gamertags that covers every failing case:
+    empty string, too short (1-2 chars), too long (16+ chars), has a space,
+    has a symbol like "@", all digits, and a valid one. Run each through
+    your validate_gamertag function. Do all cases return the right message?
 ```
 
 ## Common Use Cases
@@ -121,8 +104,8 @@ if raw.isspace() or not raw.strip():
 - [12_python_if_else.md](../03_control_flow/12_python_if_else.md)
 - [11_python_type_casting.md](../02_data_types/11_python_type_casting.md)
 
-## Practice Tips
-- Always check `if not tag:` before calling `.isalnum()` (empty string returns `False` from `.isalnum()` but your error message should say "empty")
-- Build a complete `validate_gamertag(tag)` function and test it with edge cases
-- Use `.isdigit()` before every `int()` conversion on user-provided or file-read data
-- Test with tricky inputs: all digits, all spaces, Unicode characters, very long strings
+## Challenges
+- **Blank 1**: Implement `print_gamertags_ending_with_number(self)`. The condition is `if s[_____]._____(  ):`. Fill both blanks. Which gamertags from `["Shadow99", "NightOwl", "7ProX", "GamerZ"]` would print?
+- **Blank 2**: Implement `print_gamertags_not_starting_with_number_or_letter(self)`. The condition is `if not s[_____]._____(  ):`. Fill both blanks. What gamertags like `"@Shadow"` or `"_Pro"` would this catch?
+- **Blank 3**: Complete `validate_gamertag(tag)`. Write the empty check, the `.isalnum()` check, and the length check. What two length values do the gamertag rules require?
+- **Challenge**: Python's `.isdigit()` returns `False` for an empty string. Test `"".isdigit()` and `"".isalnum()`. Now test `" ".isalnum()` (a single space). What do these return? Why does this mean you must ALWAYS check `if not tag.strip():` as your FIRST validation step?

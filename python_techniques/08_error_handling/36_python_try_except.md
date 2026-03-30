@@ -20,95 +20,71 @@ Exception handling with `try/except` allows your program to gracefully respond t
 - **Specificity**: catch the most specific exception type possible
 
 ## Syntax / Example Code
-```python
-# Basic try/except
-try:
-    score = int("abc")
-except ValueError:
-    print("Error: not a valid integer")
 
-# Catching multiple exceptions
-try:
-    with open("gamertags.txt") as f:
-        line = f.readline()
-        score = int(line.split(",")[2])
-except FileNotFoundError:
-    print("Error: gamertags.txt not found")
-except IndexError:
-    print("Error: malformed line — missing score field")
-except ValueError:
-    print("Error: score field is not a valid integer")
+```
+C# pattern (from the gamertag project):
+    // C# try/catch
+    try
+    {
+        gamerTagList = File.ReadAllLines("../Gamertags.txt");
+    }
+    catch (FileNotFoundException e)
+    {
+        Console.WriteLine("File not found: " + e.Message);
+    }
 
-# Using 'as e' to get the error message
-try:
-    value = int("xyz")
-except ValueError as e:
-    print(f"Conversion failed: {e}")
+Python skeleton — handle exceptions with try/except (fill in the blanks):
 
-# try / except / else / finally
-def load_players(filename):
-    """Load players from file with full exception handling."""
-    players = []
-    f = None
-    try:
-        f = open(filename, "r", encoding="utf-8")
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
+    # Basic try/except — equivalent to C#'s try/catch
+    _____:
+        gamer_tag_list = open(_____, _____).readlines()
+    _____ _____ as e:               # what exception for missing file?
+        print(f"File not found: {e}")
+
+    # Catching multiple exceptions (like multiple catch blocks in C#)
+    _____:
+        with open("Gamertags.txt", "r") as f:
+            line = f.readline()
             parts = line.split(",")
-            player = {
-                "gamertag": parts[0],
-                "platform": parts[1],
-                "score": int(parts[2])
-            }
-            players.append(player)
-    except FileNotFoundError:
-        print(f"File not found: {filename}")
-    except (IndexError, ValueError) as e:
-        print(f"Data error in file: {e}")
-    else:
-        print(f"Successfully loaded {len(players)} players")
-    finally:
-        if f:
-            f.close()
-    return players
+            score = int(parts[_____])
+    _____ FileNotFoundError:
+        print("File not found")
+    _____ IndexError:
+        print("Missing field in line")
+    _____ _____:                     # what handles int("abc") failing?
+        print("Score is not a number")
 
-# Safe integer conversion utility
-def safe_int(value, default=0):
-    """Convert value to int, returning default on failure."""
-    try:
-        return int(value)
-    except (ValueError, TypeError):
-        return default
+    # try / except / else / finally structure
+    _____:
+        with open("Gamertags.txt", "r") as f:
+            lines = f._____()
+    _____ FileNotFoundError:
+        print("Starting with empty list")
+        lines = _____               # what is an empty list?
+    _____:                          # runs only if NO exception occurred
+        print(f"Loaded {len(lines)} lines")
+    _____:                          # always runs — use for cleanup
+        print("Done loading")
 
-print(safe_int("4250"))     # 4250
-print(safe_int("4250.5"))   # 0  (int() won't parse floats from strings)
-print(safe_int(None))       # 0
-print(safe_int("abc"))      # 0
+    # Utility: safe int conversion
+    def safe_int(value, default=_____):
+        _____:
+            return int(value)
+        _____ (ValueError, TypeError):
+            return _____            # return default on failure
 
-# Nested try/except (avoid deeply nesting — use functions instead)
-def get_player_score(players, gamertag):
-    try:
-        for player in players:
-            if player["gamertag"] == gamertag:
-                return player["score"]
-        return None
-    except (KeyError, TypeError) as e:
-        print(f"Unexpected data format: {e}")
-        return None
+Questions:
+- What Python keyword starts exception handling? (C# uses `try`)
+- What Python keyword catches an exception? (C# uses `catch`)
+- What is the difference between `except ValueError` and `except Exception`?
+- What does `else` do in a try/except block? What does `finally` do?
 
-# Context manager (with) handles its own cleanup — preferred over finally for files
-def load_safe(filename):
-    try:
-        with open(filename, "r", encoding="utf-8") as f:
-            return f.readlines()
-    except FileNotFoundError:
-        print(f"'{filename}' does not exist yet.")
-        return []
-    except PermissionError:
-        print(f"Cannot read '{filename}' — permission denied.")
-        return []
+Test challenge:
+    Wrap your `load_gamertags(filename)` method in try/except. Test three scenarios:
+    1. The file exists and loads correctly
+    2. The filename is wrong (FileNotFoundError)
+    3. A line in the file has only 1 column (IndexError when you try parts[1])
+    Does your exception handling give a useful message in each case?
 ```
 
 ## Common Use Cases
@@ -129,8 +105,8 @@ def load_safe(filename):
 - [26_python_file_handling.md](../06_file_io/26_python_file_handling.md)
 - [11_python_type_casting.md](../02_data_types/11_python_type_casting.md)
 
-## Practice Tips
-- Always catch the most specific exception type — avoid bare `except:`
-- Write a `safe_int()` helper once and reuse it everywhere you convert strings to ints
-- Use `with open(...)` instead of `try/finally` for file handling — it's cleaner
-- Test your exception handlers by intentionally providing bad data (wrong filename, non-numeric score)
+## Challenges
+- **Blank 1**: Wrap your `load_gamertags` file open in `try:/except FileNotFoundError:`. What should the function return when the file is not found — `None`, `[]`, or raise again?
+- **Blank 2**: Write `safe_int(value, default=0)`. Complete the try block: `return int(_____)`, and the except block: `return _____`. What two exception types does converting a non-number raise?
+- **Blank 3**: Add an `else:` clause to your load function. What code runs there? Add a `finally:` clause. What would you put in it? (Hint: with `with open(...)`, is `finally` even needed?)
+- **Challenge**: C# uses `catch (FileNotFoundException e)` — Python uses `except FileNotFoundError as e`. Try deliberately triggering each of these exceptions in your gamertag project: `FileNotFoundError`, `ValueError`, `IndexError`. Write the try/except that handles all three separately with different print messages for each.
