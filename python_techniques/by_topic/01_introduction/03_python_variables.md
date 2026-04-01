@@ -37,10 +37,10 @@ const int MAX_GAMERTAG_LENGTH = 15;
 **Python skeleton (fill in the blanks):**
 ```
 # Python does NOT declare types — just assign a value directly
-gamertag   = _____
-platform   = _____
-score      = _____
-is_running = _____
+gamertag   = "ShadowHunter99"
+platform   = "Xbox"
+score      = 4250
+is_running = True
 
 # Check what type Python inferred
 print(_____(gamertag))   # should show <class 'str'>

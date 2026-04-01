@@ -39,16 +39,16 @@ string newTag = Console.ReadLine();  // read string from user
 gamertag = "ShadowHunter99"
 
 # Access the LAST character (Python uses negative indexing — no .Length - 1)
-last_char  = gamertag[_____]    # -1 means last character
+last_char  = gamertag[-1]    # -1 means last character
 
 # Access the FIRST character
-first_char = gamertag[_____]    # 0 means first character
+first_char = gamertag[0]    # 0 means first character
 
 # Check if last character is a digit (replaces C#'s Char.IsNumber)
-print(last_char._____(  ))      # returns True or False
+print(last_char.isdigit(  ))      # returns True or False
 
 # Check if first character is a letter or digit (replaces Char.IsLetterOrDigit)
-print(first_char._____(  ))     # returns True or False
+print(first_char.isalnum(  ))     # returns True or False
 
 # Check if the ENTIRE gamertag is letters and digits only
 print(gamertag._____(  ))       # one method to check the whole string
